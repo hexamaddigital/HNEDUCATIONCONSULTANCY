@@ -97,9 +97,13 @@ HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study ab
               transition={{ duration: 0.6 }}
               className="bg-white rounded-2xl overflow-hidden shadow-xl"
             >
-              <div className="bg-gradient-to-br from-turquoise to-turquoise-dark h-48 flex items-center justify-center">
-                <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center">
-                  <Users className="w-16 h-16 text-turquoise" />
+              <div className="bg-gradient-to-br from-turquoise to-turquoise-dark h-64 flex items-center justify-center p-4">
+                <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <img
+                    src="/niyoj_sir.jpeg"
+                    alt="NIYOJ SANKHE - Co-Founder & CEO"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="p-8">
