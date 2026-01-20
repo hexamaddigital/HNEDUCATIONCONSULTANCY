@@ -25,6 +25,29 @@ const values = [
   },
 ];
 
+const stats = [
+  {
+    icon: Users,
+    value: '2000+',
+    label: 'Students Guided',
+  },
+  {
+    icon: Globe,
+    value: '15+',
+    label: 'Countries',
+  },
+  {
+    icon: Award,
+    value: '300+',
+    label: 'Partner Universities',
+  },
+  {
+    icon: TrendingUp,
+    value: '95%',
+    label: 'Success Rate',
+  },
+];
+
 
 export const About = () => {
   return (
@@ -57,15 +80,17 @@ export const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Our Story</h2>
               <div className="bg-gradient-to-br from-ghost-green to-white rounded-2xl p-8 md:p-12 shadow-lg">
                 <p className="text-lg text-body-text leading-relaxed mb-6">
-                  <strong className="text-heading"> HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.
-                    
+                  <strong className="text-heading">HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.</strong>
+
 Having studied overseas ourselves, we understand that the process involves much more than university applications. From choosing the right course and institution to managing documentation, finances, and adapting to a new country, we have faced the same challenges that many students encounter today.
 
-Our own experiences made us aware of the gaps students often face unclear guidance, overwhelming procedures, and a lack of personalized support. These firsthand challenges became the foundation for creating HN Study Abroad Consultancy Pvt. Ltd., a platform built to guide students with practical, experience-based advice. </p>
+Our own experiences made us aware of the gaps students often face unclear guidance, overwhelming procedures, and a lack of personalized support. These firsthand challenges became the foundation for creating HN Study Abroad Consultancy Pvt. Ltd., a platform built to guide students with practical, experience-based advice.
+                </p>
                 <p className="text-lg text-body-text leading-relaxed">
-                  As founders, we are directly involved in counseling and supporting students, ensuring each                       case is handled with care and attention. We focus on providing accurate information,                              structured assistance, and honest guidance throughout the study abroad process,                               including admissions, visa support, and pre-departure preparation.
+                  As founders, we are directly involved in counseling and supporting students, ensuring each case is handled with care and attention. We focus on providing accurate information, structured assistance, and honest guidance throughout the study abroad process, including admissions, visa support, and pre-departure preparation.
 
-                      HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study abroad                           journey from a student’s point of view helping aspiring students move forward with                           confidence and clarity.</p>
+HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study abroad journey from a student's point of view helping aspiring students move forward with confidence and clarity.
+                </p>
               </div>
             </motion.div>
           </div>
