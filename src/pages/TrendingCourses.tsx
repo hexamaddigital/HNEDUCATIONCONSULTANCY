@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
-import { Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp, Laptop, Users, Building, Pill, Video, Hotel, GraduationCap } from 'lucide-react';
+import {
+  Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp, Laptop, Users,
+  Building, Pill, Video, Hotel, GraduationCap, Globe, DollarSign, Truck, Flame,
+  Target, Megaphone, Scale, BookOpen, ShoppingBag, HeartPulse, Microscope,
+  Sparkles, Sprout, Atom, Hammer, Bus, Palette, Beaker, Trophy, Newspaper
+} from 'lucide-react';
 import { FAQ } from '../components/FAQ';
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
@@ -32,6 +37,26 @@ const iconMap: { [key: string]: React.ElementType } = {
   Shield,
   TrendingUp,
   GraduationCap,
+  Globe,
+  DollarSign,
+  Truck,
+  Flame,
+  Target,
+  Megaphone,
+  Scale,
+  BookOpen,
+  ShoppingBag,
+  HeartPulse,
+  Microscope,
+  Sparkles,
+  Sprout,
+  Atom,
+  Hammer,
+  Bus,
+  Palette,
+  Beaker,
+  Trophy,
+  Newspaper,
 };
 
 export const TrendingCourses = () => {
@@ -42,6 +67,7 @@ export const TrendingCourses = () => {
     { code: 'UK', name: 'United Kingdom' },
     { code: 'CAN', name: 'Canada' },
     { code: 'AUS', name: 'Australia' },
+    { code: 'ARE', name: 'United Arab Emirates' },
     { code: 'DEU', name: 'Germany' },
     { code: 'FRA', name: 'France' },
     { code: 'NLD', name: 'Netherlands' },
