@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Target, Eye, CheckCircle, Award, Users, Globe, TrendingUp } from 'lucide-react';
+import { Target, Eye, CheckCircle, Award, Users, Globe } from 'lucide-react';
 import { FAQ } from '../components/FAQ';
 
 const values = [
@@ -21,33 +21,9 @@ const values = [
   {
     icon: Globe,
     title: 'Global Network',
-    description: 'Strong partnerships with 300+ universities across 15 study destinations.',
+    description: 'Strong university networks across 19 destinations',
   },
 ];
-
-const stats = [
-  {
-    icon: Users,
-    value: '2000+',
-    label: 'Students Guided',
-  },
-  {
-    icon: Globe,
-    value: '15+',
-    label: 'Countries',
-  },
-  {
-    icon: Award,
-    value: '300+',
-    label: 'Partner Universities',
-  },
-  {
-    icon: TrendingUp,
-    value: '95%',
-    label: 'Success Rate',
-  },
-];
-
 
 export const About = () => {
   return (
@@ -241,42 +217,6 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
                     <p className="text-body-text">{value.description}</p>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
-              Numbers that reflect our commitment to student success
-            </p>
-          </motion.div>
-
-          <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-ghost-green to-white rounded-xl p-6 text-center shadow-lg"
-              >
-                <div className="w-16 h-16 bg-turquoise rounded-full flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-3xl font-bold text-turquoise mb-2">{stat.value}</h3>
-                <p className="text-body-text font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
