@@ -11,7 +11,10 @@ import {
   CreditCard,
   ClipboardCheck,
   Search,
-  DollarSign
+  DollarSign,
+  Users,
+  MessageSquare,
+  UserCheck
 } from 'lucide-react';
 
 interface TimelineStep {
@@ -50,13 +53,17 @@ const timelineData = {
   },
   USA: {
     Fall: [
-      { icon: BookOpen, title: 'IELTS/TOEFL/PTE', period: '', color: 'bg-orange-100 border-orange-300' },
-      { icon: Search, title: 'Choose University and Course', period: '', color: 'bg-blue-100 border-blue-300' },
-      { icon: FileCheck, title: 'Apply to University', period: '', color: 'bg-purple-100 border-purple-300' },
-      { icon: Award, title: 'Receive Offer Letter', period: '', color: 'bg-yellow-100 border-yellow-300' },
-      { icon: DollarSign, title: 'Arrange Finances and Visa Documents', period: '', color: 'bg-green-100 border-green-300' },
-      { icon: Building2, title: 'Apply for Visa', period: '', color: 'bg-green-100 border-green-400' },
-      { icon: Plane, title: 'Fly to USA', period: '', color: 'bg-green-100 border-green-400' },
+      { icon: Users, title: 'Consulting with expert', period: '', color: 'bg-blue-100 border-blue-300' },
+      { icon: BookOpen, title: 'IELTS/TOEFL/SAT/GMAT/', period: '', color: 'bg-orange-100 border-orange-300' },
+      { icon: Search, title: 'University selection', period: '', color: 'bg-purple-100 border-purple-300' },
+      { icon: FileCheck, title: 'Apply to university', period: '', color: 'bg-indigo-100 border-indigo-300' },
+      { icon: ClipboardCheck, title: 'Arranging required documents', period: '', color: 'bg-pink-100 border-pink-300' },
+      { icon: Award, title: 'University acceptance letter', period: '', color: 'bg-yellow-100 border-yellow-300' },
+      { icon: DollarSign, title: 'Arranging funds', period: '', color: 'bg-green-100 border-green-300' },
+      { icon: FileText, title: 'Apply for the I 20', period: '', color: 'bg-teal-100 border-teal-300' },
+      { icon: Building2, title: 'Visa application', period: '', color: 'bg-cyan-100 border-cyan-300' },
+      { icon: MessageSquare, title: 'USA visa interview process', period: '', color: 'bg-sky-100 border-sky-300' },
+      { icon: UserCheck, title: 'Received F1 visa', period: '', color: 'bg-emerald-100 border-emerald-300' },
     ],
   },
   Canada: {

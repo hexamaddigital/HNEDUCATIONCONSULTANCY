@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
-import { Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp } from 'lucide-react';
+import {
+  Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp, Laptop, Users,
+  Building, Pill, Video, Hotel, GraduationCap, Globe, DollarSign, Truck, Flame,
+  Target, Megaphone, Scale, BookOpen, ShoppingBag, HeartPulse, Microscope,
+  Sparkles, Sprout, Atom, Hammer, Bus, Palette, Beaker, Trophy, Newspaper,
+  Stethoscope, Trees, Leaf, Zap, Network, Settings, Factory
+} from 'lucide-react';
 import { FAQ } from '../components/FAQ';
+import { useState, useEffect } from 'react';
+import { supabase } from '../lib/supabase';
 
 interface Course {
   icon: React.ElementType;
@@ -8,89 +16,151 @@ interface Course {
   description: string;
   averageSalary: string;
   duration: string;
-  topCountries: string[];
   skills: string[];
 }
 
-const courses: Course[] = [
-  {
-    icon: Database,
-    name: 'Data Science',
-    description:
-      'Master data analysis, machine learning, and statistical modeling to extract insights from complex datasets.',
-    averageSalary: '$95,000 - $130,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
-    skills: ['Python', 'R', 'Machine Learning', 'Statistics', 'SQL'],
-  },
-  {
-    icon: Brain,
-    name: 'Artificial Intelligence & Machine Learning',
-    description:
-      'Develop intelligent systems and algorithms that can learn and make decisions autonomously.',
-    averageSalary: '$100,000 - $150,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'UK', 'Canada', 'Germany', 'Switzerland', 'Sweden'],
-    skills: ['Deep Learning', 'Neural Networks', 'TensorFlow', 'PyTorch', 'Computer Vision'],
-  },
-  {
-    icon: Shield,
-    name: 'Cyber Security',
-    description:
-      'Protect organizations from cyber threats and learn ethical hacking, network security, and risk management.',
-    averageSalary: '$85,000 - $125,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'UK', 'Australia', 'Canada', 'Netherlands', 'Finland'],
-    skills: ['Ethical Hacking', 'Network Security', 'Cryptography', 'Risk Assessment', 'Penetration Testing'],
-  },
-  {
-    icon: Briefcase,
-    name: 'MBA / Management',
-    description:
-      'Build leadership skills and business acumen to drive organizational success and innovation.',
-    averageSalary: '$90,000 - $140,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'UK', 'Canada', 'France', 'Spain', 'Switzerland'],
-    skills: ['Leadership', 'Strategy', 'Finance', 'Marketing', 'Operations'],
-  },
-  {
-    icon: Wrench,
-    name: 'Engineering',
-    description:
-      'Apply scientific principles to design, develop, and optimize systems across various engineering disciplines.',
-    averageSalary: '$75,000 - $110,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'Germany', 'Canada', 'UK', 'Switzerland', 'Sweden'],
-    skills: ['Problem Solving', 'CAD', 'Project Management', 'Research', 'Innovation'],
-  },
-  {
-    icon: Heart,
-    name: 'Healthcare & Nursing',
-    description:
-      'Provide compassionate care and medical expertise in high-demand healthcare roles globally.',
-    averageSalary: '$70,000 - $105,000',
-    duration: '2-4 years',
-    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
-    skills: ['Patient Care', 'Clinical Skills', 'Medical Knowledge', 'Communication', 'Empathy'],
-  },
-  {
-    icon: TrendingUp,
-    name: 'Business Analytics',
-    description:
-      'Transform business data into actionable insights using statistical analysis and data visualization.',
-    averageSalary: '$80,000 - $115,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'France', 'Netherlands'],
-    skills: ['Data Visualization', 'SQL', 'Tableau', 'Business Intelligence', 'Analytics'],
-  },
-];
+interface CountryCourses {
+  [countryCode: string]: Course[];
+}
+
+const iconMap: { [key: string]: React.ElementType } = {
+  Laptop,
+  Briefcase,
+  Wrench,
+  Database,
+  Users,
+  Building,
+  Heart,
+  Hotel,
+  Pill,
+  Video,
+  Brain,
+  Shield,
+  TrendingUp,
+  GraduationCap,
+  Globe,
+  DollarSign,
+  Truck,
+  Flame,
+  Target,
+  Megaphone,
+  Scale,
+  BookOpen,
+  ShoppingBag,
+  HeartPulse,
+  Microscope,
+  Sparkles,
+  Sprout,
+  Atom,
+  Hammer,
+  Bus,
+  Palette,
+  Beaker,
+  Trophy,
+  Newspaper,
+  Stethoscope,
+  Trees,
+  Leaf,
+  Zap,
+  Network,
+  Settings,
+  Factory,
+};
 
 export const TrendingCourses = () => {
-  const countries = ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'France', 'Netherlands', 'Switzerland', 'Sweden', 'Finland', 'Spain'];
+  const [countryCourses, setCountryCourses] = useState<CountryCourses>({});
+  const [loading, setLoading] = useState(true);
+  const [countries] = useState([
+    { code: 'USA', name: 'United States' },
+    { code: 'UK', name: 'United Kingdom' },
+    { code: 'CAN', name: 'Canada' },
+    { code: 'AUS', name: 'Australia' },
+    { code: 'ARE', name: 'United Arab Emirates' },
+    { code: 'DEU', name: 'Germany' },
+    { code: 'FRA', name: 'France' },
+    { code: 'ITA', name: 'Italy' },
+    { code: 'NLD', name: 'Netherlands' },
+    { code: 'CHE', name: 'Switzerland' },
+    { code: 'NZL', name: 'New Zealand' },
+    { code: 'IRL', name: 'Ireland' },
+    { code: 'SWE', name: 'Sweden' },
+    { code: 'FIN', name: 'Finland' },
+    { code: 'ESP', name: 'Spain' },
+    { code: 'MLT', name: 'Malta' },
+    { code: 'RUS', name: 'Russia' },
+  ]);
 
-  const getCoursesForCountry = (country: string) => {
-    return courses.filter((course) => course.topCountries.includes(country));
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('course_countries')
+        .select(`
+          country_code,
+          country_name,
+          display_order,
+          trending_courses (
+            name,
+            description,
+            icon_name,
+            average_salary,
+            duration,
+            skills
+          )
+        `)
+        .order('display_order', { ascending: true });
+
+      if (error) throw error;
+
+      const grouped: CountryCourses = {};
+
+      data?.forEach((item: any) => {
+        if (!grouped[item.country_code]) {
+          grouped[item.country_code] = [];
+        }
+
+        const course = item.trending_courses;
+        if (course) {
+          grouped[item.country_code].push({
+            name: course.name,
+            description: course.description,
+            averageSalary: course.average_salary,
+            duration: course.duration,
+            skills: course.skills || [],
+            icon: iconMap[course.icon_name] || GraduationCap,
+          });
+        }
+      });
+
+      setCountryCourses(grouped);
+    } catch (error) {
+      console.error('Error fetching courses:', error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const getCoursesForCountry = (countryCode: string) => {
+    return countryCourses[countryCode] || [];
+  };
+
+  if (loading) {
+    return (
+      <>
+        <section className="pt-32 pb-20 bg-gradient-to-br from-ghost-green to-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Trending Courses by Country</h1>
+              <p className="text-xl text-body-text">Loading courses...</p>
+            </div>
+          </div>
+        </section>
+      </>
+    );
+  }
 
   return (
     <>
@@ -114,21 +184,23 @@ export const TrendingCourses = () => {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {countries.map((country, countryIndex) => {
-              const countryCourses = getCoursesForCountry(country);
+              const courses = getCoursesForCountry(country.code);
+              if (courses.length === 0) return null;
+
               return (
                 <motion.div
-                  key={country}
+                  key={country.code}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: countryIndex * 0.1 }}
                   className="bg-white rounded-xl shadow-lg border-2 border-turquoise/20 overflow-hidden hover:border-turquoise/50 transition-all"
                 >
                   <div className="bg-gradient-to-br from-turquoise to-turquoise-dark p-4 md:p-6">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white">{country}</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white">{country.name}</h2>
                   </div>
                   <div className="p-4 md:p-6">
                     <ul className="space-y-2">
-                      {countryCourses.map((course) => {
+                      {courses.map((course) => {
                         const Icon = course.icon;
                         return (
                           <li
