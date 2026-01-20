@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp } from 'lucide-react';
+import { Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp, Laptop, Users, Building, Pill, Video, Hotel } from 'lucide-react';
 import { FAQ } from '../components/FAQ';
 
 interface Course {
@@ -14,14 +14,104 @@ interface Course {
 
 const courses: Course[] = [
   {
-    icon: Database,
-    name: 'Data Science',
+    icon: Laptop,
+    name: 'Information Technology',
     description:
-      'Master data analysis, machine learning, and statistical modeling to extract insights from complex datasets.',
+      'Master IT infrastructure, systems administration, and network management for modern enterprises.',
+    averageSalary: '$75,000 - $110,000',
+    duration: '1-2 years',
+    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
+    skills: ['Network Management', 'Cloud Computing', 'System Administration', 'IT Security', 'DevOps'],
+  },
+  {
+    icon: Briefcase,
+    name: 'Business and Management',
+    description:
+      'Build leadership skills and business acumen to drive organizational success and innovation.',
+    averageSalary: '$90,000 - $140,000',
+    duration: '1-2 years',
+    topCountries: ['USA', 'UK', 'Canada', 'France', 'Spain', 'Switzerland'],
+    skills: ['Leadership', 'Strategy', 'Finance', 'Marketing', 'Operations'],
+  },
+  {
+    icon: Wrench,
+    name: 'Engineering',
+    description:
+      'Apply scientific principles to design, develop, and optimize systems across various engineering disciplines.',
+    averageSalary: '$75,000 - $110,000',
+    duration: '1-2 years',
+    topCountries: ['USA', 'Germany', 'Canada', 'UK', 'Switzerland', 'Sweden'],
+    skills: ['Problem Solving', 'CAD', 'Project Management', 'Research', 'Innovation'],
+  },
+  {
+    icon: Database,
+    name: 'Computer Science and Data Science',
+    description:
+      'Master programming, algorithms, and data analysis to build innovative software and extract insights from data.',
     averageSalary: '$95,000 - $130,000',
     duration: '1-2 years',
     topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
-    skills: ['Python', 'R', 'Machine Learning', 'Statistics', 'SQL'],
+    skills: ['Python', 'Java', 'Machine Learning', 'Statistics', 'Algorithms', 'SQL'],
+  },
+  {
+    icon: Users,
+    name: 'Psychology and Social Work',
+    description:
+      'Understand human behavior and provide support services to individuals and communities in need.',
+    averageSalary: '$50,000 - $75,000',
+    duration: '2-3 years',
+    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Netherlands', 'Sweden'],
+    skills: ['Counseling', 'Assessment', 'Case Management', 'Empathy', 'Communication'],
+  },
+  {
+    icon: Building,
+    name: 'Architecture and Construction',
+    description:
+      'Design sustainable buildings and manage construction projects with innovative architectural solutions.',
+    averageSalary: '$70,000 - $100,000',
+    duration: '2-3 years',
+    topCountries: ['USA', 'UK', 'Australia', 'Canada', 'Germany', 'Netherlands'],
+    skills: ['CAD', 'Design', 'Project Management', 'Sustainability', '3D Modeling'],
+  },
+  {
+    icon: Heart,
+    name: 'Nursing and Health',
+    description:
+      'Provide compassionate care and medical expertise in high-demand healthcare roles globally.',
+    averageSalary: '$70,000 - $105,000',
+    duration: '2-4 years',
+    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
+    skills: ['Patient Care', 'Clinical Skills', 'Medical Knowledge', 'Communication', 'Empathy'],
+  },
+  {
+    icon: Hotel,
+    name: 'Hospitality and Tourism',
+    description:
+      'Lead hospitality operations and create exceptional guest experiences in hotels, restaurants, and tourism.',
+    averageSalary: '$45,000 - $75,000',
+    duration: '1-2 years',
+    topCountries: ['USA', 'UK', 'Switzerland', 'Australia', 'Spain', 'France'],
+    skills: ['Customer Service', 'Management', 'Event Planning', 'Marketing', 'Operations'],
+  },
+  {
+    icon: Pill,
+    name: 'Pharmacy',
+    description:
+      'Dispense medications and provide pharmaceutical care to improve patient health outcomes.',
+    averageSalary: '$85,000 - $125,000',
+    duration: '3-4 years',
+    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
+    skills: ['Pharmacology', 'Patient Counseling', 'Drug Interactions', 'Healthcare', 'Clinical Knowledge'],
+  },
+  {
+    icon: Video,
+    name: 'Media and Communication',
+    description:
+      'Create compelling content and strategic communications for digital media, journalism, and public relations.',
+    averageSalary: '$50,000 - $85,000',
+    duration: '1-2 years',
+    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Netherlands', 'Sweden'],
+    skills: ['Content Creation', 'Digital Marketing', 'Journalism', 'Social Media', 'Video Production'],
   },
   {
     icon: Brain,
@@ -42,36 +132,6 @@ const courses: Course[] = [
     duration: '1-2 years',
     topCountries: ['USA', 'UK', 'Australia', 'Canada', 'Netherlands', 'Finland'],
     skills: ['Ethical Hacking', 'Network Security', 'Cryptography', 'Risk Assessment', 'Penetration Testing'],
-  },
-  {
-    icon: Briefcase,
-    name: 'MBA / Management',
-    description:
-      'Build leadership skills and business acumen to drive organizational success and innovation.',
-    averageSalary: '$90,000 - $140,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'UK', 'Canada', 'France', 'Spain', 'Switzerland'],
-    skills: ['Leadership', 'Strategy', 'Finance', 'Marketing', 'Operations'],
-  },
-  {
-    icon: Wrench,
-    name: 'Engineering',
-    description:
-      'Apply scientific principles to design, develop, and optimize systems across various engineering disciplines.',
-    averageSalary: '$75,000 - $110,000',
-    duration: '1-2 years',
-    topCountries: ['USA', 'Germany', 'Canada', 'UK', 'Switzerland', 'Sweden'],
-    skills: ['Problem Solving', 'CAD', 'Project Management', 'Research', 'Innovation'],
-  },
-  {
-    icon: Heart,
-    name: 'Healthcare & Nursing',
-    description:
-      'Provide compassionate care and medical expertise in high-demand healthcare roles globally.',
-    averageSalary: '$70,000 - $105,000',
-    duration: '2-4 years',
-    topCountries: ['USA', 'UK', 'Canada', 'Australia', 'Germany', 'Netherlands'],
-    skills: ['Patient Care', 'Clinical Skills', 'Medical Knowledge', 'Communication', 'Empathy'],
   },
   {
     icon: TrendingUp,
