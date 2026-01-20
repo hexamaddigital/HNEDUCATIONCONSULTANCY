@@ -3,7 +3,8 @@ import {
   Database, Brain, Shield, Briefcase, Wrench, Heart, TrendingUp, Laptop, Users,
   Building, Pill, Video, Hotel, GraduationCap, Globe, DollarSign, Truck, Flame,
   Target, Megaphone, Scale, BookOpen, ShoppingBag, HeartPulse, Microscope,
-  Sparkles, Sprout, Atom, Hammer, Bus, Palette, Beaker, Trophy, Newspaper
+  Sparkles, Sprout, Atom, Hammer, Bus, Palette, Beaker, Trophy, Newspaper,
+  Stethoscope, Trees, Leaf, Zap, Network, Settings, Factory
 } from 'lucide-react';
 import { FAQ } from '../components/FAQ';
 import { useState, useEffect } from 'react';
@@ -57,6 +58,13 @@ const iconMap: { [key: string]: React.ElementType } = {
   Beaker,
   Trophy,
   Newspaper,
+  Stethoscope,
+  Trees,
+  Leaf,
+  Zap,
+  Network,
+  Settings,
+  Factory,
 };
 
 export const TrendingCourses = () => {
@@ -78,6 +86,8 @@ export const TrendingCourses = () => {
     { code: 'SWE', name: 'Sweden' },
     { code: 'FIN', name: 'Finland' },
     { code: 'ESP', name: 'Spain' },
+    { code: 'MLT', name: 'Malta' },
+    { code: 'RUS', name: 'Russia' },
   ]);
 
   useEffect(() => {
