@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 
-interface BrochureDownloadModalProps {
+interface UniversityListModalProps {
   isOpen: boolean;
   onClose: () => void;
   country: string;
@@ -15,48 +15,44 @@ interface FormData {
   phone: string;
 }
 
-/* 🔹 Country → Google Drive brochure links */
-const BROCHURE_LINKS: Record<string, string> = {
+/* 🔹 Country → University List PDF (Google Drive) */
+const UNIVERSITY_LIST_LINKS: Record<string, string> = {
   USA: 'https://drive.google.com/file/d/1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp/view?usp=drive_link',
   UK: 'https://drive.google.com/file/d/1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB/view?usp=drive_link',
-  Canada: 'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view?usp=drive_link',
-  Australia: 'https://drive.google.com/file/d/1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C/view?usp=drive_link',
-  Canada:'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view?usp=drive_link',
-  Germany:'https://drive.google.com/file/d/1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43/view?usp=drive_link',
-  France:'https://drive.google.com/file/d/15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x/view?usp=drive_link',
-  Netherlands:'https://drive.google.com/file/d/1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH/view?usp=drive_link',
-  Switzerland:'https://drive.google.com/file/d/1uvO5m26usMCbr-TuuPs277xKxVo-fZwo/view?usp=drive_link',
-  Sweden:'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view?usp=drive_link',
-  'New Zealand':'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view?usp=drive_link',
-  Dubai:'https://drive.google.com/file/d/1D5YTqyPKvbU79KZPabnCduumyq3bdgsP/view?usp=drive_link',
-  Ireland:'https://drive.google.com/file/d/1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP/view?usp=drive_link',
-  Spain:'https://drive.google.com/file/d/1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT/view?usp=drive_link',
-  Italy:'https://drive.google.com/file/d/14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK/view?usp=drive_link',
-  Finland:'https://drive.google.com/file/d/1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH/view?usp=drive_link',
-  Russia:'https://drive.google.com/file/d/199383S743gkY1GAHbng2meZdGjNNrriv/view?usp=drive_link',
-  Malta:'https://drive.google.com/file/d/1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia/view?usp=drive_link',
-  
+  Canada: 'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view',
+  Australia: 'https://drive.google.com/file/d/1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C/view',
+  Germany: 'https://drive.google.com/file/d/1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43/view',
+  France: 'https://drive.google.com/file/d/15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x/view',
+  Netherlands: 'https://drive.google.com/file/d/1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH/view',
+  Switzerland: 'https://drive.google.com/file/d/1uvO5m26usMCbr-TuuPs277xKxVo-fZwo/view',
+  Sweden: 'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view',
+  'New Zealand': 'https://drive.google.com/file/d/1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7/view?usp=drive_link',
+  Dubai: 'https://drive.google.com/file/d/1D5YTqyPKvbU79KZPabnCduumyq3bdgsP/view',
+  Ireland: 'https://drive.google.com/file/d/1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP/view',
+  Spain: 'https://drive.google.com/file/d/1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT/view',
+  Italy: 'https://drive.google.com/file/d/14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK/view',
+  Finland: 'https://drive.google.com/file/d/1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH/view',
+  Russia: 'https://drive.google.com/file/d/199383S743gkY1GAHbng2meZdGjNNrriv/view',
+  Malta: 'https://drive.google.com/file/d/1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia/view',
 };
 
 export const BrochureDownloadModal = ({
   isOpen,
   onClose,
   country,
-}: BrochureDownloadModalProps) => {
+}: UniversityListModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const { register, handleSubmit, formState: { errors }, reset } =
-    useForm<FormData>();
+  const { register, handleSubmit, reset } = useForm<FormData>();
 
-  const brochureLink =
-    BROCHURE_LINKS[country] || 'https://drive.google.com/default-link';
+  const universityListLink =
+    UNIVERSITY_LIST_LINKS[country] || 'https://drive.google.com';
 
-  const onSubmit = (data: FormData) => {
-    console.log('Form data:', data);
+  const onSubmit = () => {
     setIsSubmitted(true);
 
     setTimeout(() => {
-      window.open(brochureLink, '_blank');
-    }, 800);
+      window.open(universityListLink, '_blank');
+    }, 700);
 
     setTimeout(() => {
       setIsSubmitted(false);
@@ -75,88 +71,56 @@ export const BrochureDownloadModal = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/60 z-[70] flex items-center justify-center p-4"
           onClick={handleClose}
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ type: 'spring', duration: 0.5 }}
-            className="bg-white rounded-2xl max-w-md w-full shadow-2xl overflow-hidden"
+            className="bg-white rounded-2xl max-w-md w-full shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-gradient-to-r from-turquoise to-turquoise-dark p-6 text-white">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-2xl font-bold">Download Brochure</h2>
-                <button
-                  onClick={handleClose}
-                  className="p-2 hover:bg-white/20 rounded-full transition-colors"
-                >
-                  <X className="w-5 h-5" />
+              <div className="flex justify-between items-center">
+                <h2 className="text-2xl font-bold">Download University List</h2>
+                <button onClick={handleClose}>
+                  <X />
                 </button>
               </div>
-              <p className="text-turquoise-light">
-                Get detailed information about studying in {country}
+              <p className="text-sm mt-2">
+                Complete university list for {country}
               </p>
             </div>
 
             <div className="p-6">
               {!isSubmitted ? (
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      {...register('name', { required: 'Name is required' })}
-                      className="w-full px-4 py-3 border rounded-lg"
-                    />
-                    {errors.name && (
-                      <p className="text-red-500 text-sm">
-                        {errors.name.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      {...register('email', { required: 'Email is required' })}
-                      className="w-full px-4 py-3 border rounded-lg"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Phone *
-                    </label>
-                    <input
-                      type="tel"
-                      {...register('phone', { required: 'Phone is required' })}
-                      className="w-full px-4 py-3 border rounded-lg"
-                    />
-                  </div>
-
+                  <input
+                    {...register('name', { required: true })}
+                    placeholder="Full Name"
+                    className="w-full border p-3 rounded-lg"
+                  />
+                  <input
+                    {...register('email', { required: true })}
+                    placeholder="Email"
+                    className="w-full border p-3 rounded-lg"
+                  />
+                  <input
+                    {...register('phone', { required: true })}
+                    placeholder="Phone"
+                    className="w-full border p-3 rounded-lg"
+                  />
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-lg flex items-center justify-center gap-2"
+                    className="w-full py-3 bg-turquoise text-white rounded-lg flex items-center justify-center gap-2"
                   >
-                    <Download className="w-5 h-5" />
-                    Download Brochure
+                    <Download /> Download University List
                   </button>
                 </form>
               ) : (
-                <div className="py-8 text-center">
-                  <CheckCircle className="w-14 h-14 text-green-600 mx-auto mb-3" />
-                  <h3 className="text-xl font-bold">Success!</h3>
-                  <p>Your brochure is opening…</p>
+                <div className="text-center py-8">
+                  <CheckCircle className="mx-auto text-green-600 w-14 h-14" />
+                  <p className="mt-4 font-semibold">
+                    University list is opening…
+                  </p>
                 </div>
               )}
             </div>
