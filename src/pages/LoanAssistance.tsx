@@ -224,49 +224,7 @@ export const LoanAssistance = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto mt-16 grid md:grid-cols-2 gap-8"
           >
-            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-turquoise/20">
-              <h3 className="text-2xl font-bold mb-4">Collateral Loans</h3>
-              <ul className="space-y-2 text-body-text">
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Higher loan amounts up to ₹1.5 Cr</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Lower interest rates (8-10%)</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Longer repayment tenure</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Property or FD as security</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-lg border-2 border-turquoise/20">
-              <h3 className="text-2xl font-bold mb-4">Non-Collateral Loans</h3>
-              <ul className="space-y-2 text-body-text">
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>No security required</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Loan up to ₹40 Lakhs</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Quick processing and approval</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-turquoise mr-2 flex-shrink-0 mt-0.5" />
-                  <span>Based on course and university</span>
-                </li>
-              </ul>
-            </div>
+            
           </motion.div>
         </div>
       </section>
