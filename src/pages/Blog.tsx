@@ -1,6 +1,6 @@
 // pages/Blog.tsx
 import { Link } from 'react-router-dom';
-import { BLOGS } from './blogs';
+import { BLOGS } from '../data/blogs';
 
 export const Blog = () => {
   return (
