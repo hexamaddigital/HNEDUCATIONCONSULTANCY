@@ -12,12 +12,12 @@ interface FAQItem {
 const countryFAQs: FAQItem[] = [
   {
     country: 'United Kingdom',
-    question: 'What is the visa processing time for UK?',
-    answer: 'UK student visa processing typically takes 3 weeks from the date of biometrics appointment. During peak season (July-September), it may take up to 6-8 weeks. We recommend applying at least 3 months before your course start date.'
+    question: 'Why should international students choose the UK for higher education?',
+    answer: 'The UK offers world-class universities, globally recognized degrees, high academic standards, shorter course durations, and strong career prospects. Many UK institutions rank among the top universities worldwide.'
   },
   {
     country: 'United Kingdom',
-    question: 'How much bank balance is required for UK student visa?',
+    question: 'What are the entry requirements to study in the UK?',
     answer: 'For UK student visa, you need to show funds for: Full tuition fee for first year + £1,334 per month for 9 months (outside London) or £1,023 per month (outside London). The funds must be held for 28 consecutive days before applying.'
   },
   {
