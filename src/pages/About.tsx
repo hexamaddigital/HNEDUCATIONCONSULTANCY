@@ -58,11 +58,11 @@ export const About = () => {
                   <strong className="text-heading">HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.</strong>
                 </p>
                 
-<p className="text-lg text-body-text leading-relaxed">Having studied overseas ourselves, we understand that the process involves much more than university applications. From choosing the right course and institution to managing documentation, finances, and adapting to a new country, we have faced the same challenges that many students encounter today.
+<p className="text-lg text-body-text leading-relaxed" text-justify >Having studied overseas ourselves, we understand that the process involves much more than university applications. From choosing the right course and institution to managing documentation, finances, and adapting to a new country, we have faced the same challenges that many students encounter today.
 
 Our own experiences made us aware of the gaps students often face unclear guidance, overwhelming procedures, and a lack of personalized support. These firsthand challenges became the foundation for creating HN Study Abroad Consultancy Pvt. Ltd., a platform built to guide students with practical, experience-based advice.
                 </p>
-                <p className="text-lg text-body-text leading-relaxed">
+                <p className="text-lg text-body-text leading-relaxed" text-justify>
                   As founders, we are directly involved in counseling and supporting students, ensuring each case is handled with care and attention. We focus on providing accurate information, structured assistance, and honest guidance throughout the study abroad process, including admissions, visa support, and pre-departure preparation.
 
 HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study abroad journey from a student's point of view helping aspiring students move forward with confidence and clarity.
@@ -83,7 +83,7 @@ HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study ab
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Founders</h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
+            <p className="text-lg text-body-text max-w-2xl mx-auto" text-justify>
               Visionary leaders dedicated to empowering students globally
             </p>
           </motion.div>
@@ -106,13 +106,13 @@ HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study ab
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-2">NIYOJ SANKHE</h3>
-                <p className="text-turquoise font-semibold mb-4">Co-Founder & CEO</p>
-                <p className="text-body-text leading-relaxed mb-4">
+                <h3 className="text-2xl font-bold mb-2" text-justify>NIYOJ SANKHE</h3>
+                <p className="text-turquoise font-semibold mb-4" text-justify>Co-Founder & CEO</p>
+                <p className="text-body-text leading-relaxed mb-4" text-justify>
                   I hold a bachelor’s degree in business administration (BBA – Honours) from Kingston Business School, where I graduated with First Class Honours. I further completed my Master of Business Administration (MBA) from the University of Westminster, earning a Merit degree.
 Having personally studied abroad, I understand the academic, cultural, and practical challenges students face while pursuing education overseas.
                 </p>
-                <p className="text-body-text leading-relaxed">
+                <p className="text-body-text leading-relaxed" text-justify>
                   My own journey has given me firsthand insight into the complexities of course selection, university applications, and adapting to a new education system.
 At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling students and guiding them through each step of the study abroad process, ensuring they receive clear information, honest advice, and personalized support based on real experience.
                 </p>
@@ -132,12 +132,12 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-2">Founder Name 2</h3>
-                <p className="text-turquoise font-semibold mb-4">Co-Founder & Director</p>
-                <p className="text-body-text leading-relaxed mb-4">
+                <h3 className="text-2xl font-bold mb-2" text-justify>Founder Name 2</h3>
+                <p className="text-turquoise font-semibold mb-4" text-justify>Co-Founder & Director</p>
+                <p className="text-body-text leading-relaxed mb-4" text-justify>
                   A visionary leader with extensive knowledge of global education trends, our second founder brings strategic direction and innovation to our consultancy. Their dedication to student success has shaped our ethical and transparent approach.
                 </p>
-                <p className="text-body-text leading-relaxed">
+                <p className="text-body-text leading-relaxed" text-justify>
                   With a strong background in educational counselling and business development, they ensure every student receives personalized guidance and support throughout their study abroad journey.
                 </p>
               </div>
@@ -161,7 +161,7 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
                   <Eye className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-                <p className="text-body-text leading-relaxed">
+                <p className="text-body-text leading-relaxed" text-justify>
                  Our vision is to create global education and career opportunities for students worldwide.
                 </p>
               </motion.div>
@@ -177,7 +177,7 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
                   <Target className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-                <p className="text-body-text leading-relaxed">
+                <p className="text-body-text leading-relaxed" text-justify>
                   Our mission is simple — transparent, ethical, and experience-driven guidance.
                 </p>
               </motion.div>
@@ -196,7 +196,7 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
+            <p className="text-lg text-body-text max-w-2xl mx-auto" text-justify>
               We stand out through our commitment to excellence and student success
             </p>
           </motion.div>
@@ -238,7 +238,7 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Ready to Begin Your Journey?
               </h2>
-              <p className="text-xl text-body-text mb-8">
+              <p className="text-xl text-body-text mb-8" text-justify>
                 Let us help you achieve your international education goals
               </p>
               <a
