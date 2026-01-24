@@ -74,7 +74,7 @@ export const TrendingCourses = () => {
     { code: 'UK', name: 'United Kingdom' },
     { code: 'CAN', name: 'Canada' },
     { code: 'AUS', name: 'Australia' },
-    { code: 'ARE', name: 'United Arab Emirates' },
+    { code: 'ARE', name: 'Dubai' },
     { code: 'DEU', name: 'Germany' },
     { code: 'FRA', name: 'France' },
     { code: 'ITA', name: 'Italy' },
