@@ -328,7 +328,7 @@ export const Contact = () => {
                     <div>
                       <p className="font-semibold text-heading">Address</p>
                       <p className="text-body-text">
-                        456 Global Avenue, Metro City, MC 67890
+                        301,Poonam Palace,Near Star Hospital NSP(W)-401203
                       </p>
                     </div>
                   </div>
