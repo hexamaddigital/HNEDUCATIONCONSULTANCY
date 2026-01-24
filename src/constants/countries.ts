@@ -160,7 +160,7 @@ export const COUNTRIES: CountryData[] = [
     flag: '🇩🇪',
     image: 'https://images.pexels.com/photos/2524368/pexels-photo-2524368.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'Free tuition at public universities & 18-month work visa',
-    highlights: ['No Tuition Fees', 'Strong Economy', 'EU Blue Card'],
+    highlights: ['No Tuition Fees', 'Strong Economy', 'For study work visa opportunities for 18 months'],
     whyStudy: [
       'Affordable cost of education',
       'German education is one of the oldest and the best in the world',
@@ -230,7 +230,7 @@ export const COUNTRIES: CountryData[] = [
     flag: '🇳🇱',
     image: 'https://images.pexels.com/photos/208733/pexels-photo-208733.jpeg?auto=compress&cs=tinysrgb&w=800',
     description: 'English-taught programs & innovative teaching',
-    highlights: ['English Programs', 'High Living Standards', '1-Year Orientation'],
+    highlights: ['English Programs', 'High Living Standards', 'Internship opportunities in multinational companies'],
     whyStudy: [
       'Education opportunity of the highest standard and multicultural population',
       'One year of bachelors and master program post study work visa',
