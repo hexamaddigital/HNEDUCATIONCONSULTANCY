@@ -55,7 +55,7 @@ export const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Our Story</h2>
               <div className="bg-gradient-to-br from-ghost-green to-white rounded-2xl p-8 md:p-12 shadow-lg">
                 <p className="text-lg text-body-text leading-relaxed mb-6">
-                  <strong className="text-heading">HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.</strong>
+                  <strong className="text-heading" text-justify>HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.</strong>
                 </p>
                 
 <p className="text-lg text-body-text leading-relaxed" text-justify >Having studied overseas ourselves, we understand that the process involves much more than university applications. From choosing the right course and institution to managing documentation, finances, and adapting to a new country, we have faced the same challenges that many students encounter today.
