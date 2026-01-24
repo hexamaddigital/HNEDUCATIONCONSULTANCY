@@ -274,7 +274,7 @@ export const Contact = () => {
                     <div>
                       <p className="font-semibold text-heading">Address</p>
                       <p className="text-body-text">
-                        123 Education Street, Study City, SC 12345
+                        Shop No 06 Sunshine Developers Near Tulshi Pusph, Palghar, Thane- 401404, Maharashtra
                       </p>
                     </div>
                   </div>
