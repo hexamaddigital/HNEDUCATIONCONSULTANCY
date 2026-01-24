@@ -111,156 +111,784 @@ const countryFAQs: FAQItem[] = [
     question: 'What are the entry requirements to study in the USA?',
     answer: 'Requirements vary by institution and program but typically include academic transcripts, English language proficiency, standardized test scores (SAT/ACT for undergraduate, GRE/GMAT for graduate programs), a statement of purpose, and letters of recommendation.'
   },
+    // ===================== CANADA FAQs =====================
   {
     country: 'Canada',
-    question: 'What is PGWP and how long can I work?',
-    answer: 'Post-Graduation Work Permit (PGWP) allows you to work in Canada after graduation. Duration depends on your program length: less than 8 months (no PGWP), 8 months to 2 years (same as program length), more than 2 years (3 years PGWP).'
-  },
-  {
-    country: 'Canada',
-    question: 'Can I get PR after studying in Canada?',
-    answer: 'Yes, Canada offers multiple PR pathways for international students including Canadian Experience Class (CEC), Provincial Nominee Programs (PNPs), and Quebec Experience Program. Having Canadian work experience significantly improves your chances.'
+    question: 'Why should international students choose Canada for higher education?',
+    answer: 'Canada offers high-quality education, globally recognized degrees, affordable tuition compared to other top destinations, a multicultural environment, and excellent post-study work opportunities.'
   },
   {
     country: 'Canada',
-    question: 'How much can I earn while studying in Canada?',
-    answer: 'International students can work up to 24 hours per week during studies (recently increased from 20 hours). Minimum wage varies by province, ranging from CAD 13-16 per hour. During scheduled breaks, you can work full-time.'
+    question: 'What are the entry requirements to study in Canada?',
+    answer: 'Requirements vary by institution and program but generally include academic transcripts, proof of English or French language proficiency (IELTS, TOEFL, PTE, or TEF), a statement of purpose, and letters of recommendation.'
+  },
+  {
+    country: 'Canada',
+    question: 'What English or French language tests are accepted by Canadian institutions?',
+    answer: 'Most Canadian institutions accept IELTS, TOEFL, PTE Academic, Duolingo English Test, and for French-taught programs, TEF or TCF.'
+  },
+  {
+    country: 'Canada',
+    question: 'How long are degree programs in Canada?',
+    answer: 'Undergraduate degrees usually take 3–4 years, postgraduate diplomas 1–2 years, master’s degrees 1–2 years, and PhD programs 3–5 years.'
+  },
+  {
+    country: 'Canada',
+    question: 'What is the cost of studying in Canada for international students?',
+    answer: 'Tuition fees typically range from CAD 15,000–40,000 per year depending on the program and institution. Living expenses average CAD 10,000–15,000 per year.'
+  },
+  {
+    country: 'Canada',
+    question: 'Are scholarships available for international students in Canada?',
+    answer: 'Yes. Canada offers government-funded scholarships, institutional scholarships, entrance awards, and merit-based or need-based financial aid.'
+  },
+  {
+    country: 'Canada',
+    question: 'Can international students work while studying in Canada?',
+    answer: 'Yes. Students can work up to 20 hours per week during academic sessions and full-time during scheduled breaks with a valid study permit.'
+  },
+  {
+    country: 'Canada',
+    question: 'What is the Canada Study Permit process?',
+    answer: 'Students must receive a Letter of Acceptance (LOA) from a Designated Learning Institution (DLI), show proof of funds, meet language requirements, and apply online for a Canada Study Permit.'
+  },
+  {
+    country: 'Canada',
+    question: 'Can international students work in Canada after graduation?',
+    answer: 'Yes. Graduates can apply for the Post-Graduation Work Permit (PGWP), which allows them to work in Canada for up to 3 years depending on program length.'
+  },
+  {
+    country: 'Canada',
+    question: 'Is Canada safe for international students?',
+    answer: 'Yes. Canada is one of the safest countries in the world, known for its welcoming culture, strong student support services, and high quality of life.'
+  },
+
+  // ===================== AUSTRALIA FAQs =====================
+  {
+    country: 'Australia',
+    question: 'Why should international students choose Australia for higher education?',
+    answer: 'Australia offers globally recognized universities, high-quality education, strong research opportunities, an excellent student lifestyle, and attractive post-study work options.'
   },
   {
     country: 'Australia',
-    question: 'What is GTE and how important is it?',
-    answer: 'Genuine Temporary Entrant (GTE) is a crucial requirement for Australian student visa. You need to demonstrate genuine intent to study and return to your home country. A well-written GTE statement addressing your study plans, career goals, and ties to home country is essential.'
+    question: 'What are the entry requirements to study in Australia?',
+    answer: 'Requirements vary by institution and program but generally include academic transcripts, English language proficiency (IELTS, TOEFL, PTE, or Duolingo), a statement of purpose, and relevant work experience for some courses.'
   },
   {
     country: 'Australia',
-    question: 'How much does it cost to study in Australia?',
-    answer: 'Tuition fees range from AUD 20,000 to 45,000 per year depending on the course and university. Living costs are approximately AUD 21,000 per year (as per Australian government requirements). Total annual cost ranges from AUD 41,000 to 66,000.'
+    question: 'What English language tests are accepted by Australian institutions?',
+    answer: 'Australian universities accept IELTS, TOEFL iBT, PTE Academic, Cambridge English (CAE), and Duolingo English Test at many institutions.'
   },
   {
     country: 'Australia',
-    question: 'Can I bring my spouse to Australia on student visa?',
-    answer: 'Yes, you can include your spouse and dependent children in your student visa application. Your spouse can work unlimited hours, and dependent children can attend school. You need to show additional funds for dependents.'
+    question: 'How long are degree programs in Australia?',
+    answer: 'Bachelor’s degrees take 3–4 years, master’s degrees 1–2 years, and doctoral programs usually take 3–4 years.'
+  },
+  {
+    country: 'Australia',
+    question: 'What is the cost of studying in Australia for international students?',
+    answer: 'Tuition fees range from AUD 20,000–45,000 per year depending on course and institution. Living expenses average AUD 21,000–25,000 per year.'
+  },
+  {
+    country: 'Australia',
+    question: 'Are scholarships available for international students in Australia?',
+    answer: 'Yes. Scholarships include Australia Awards, Destination Australia, university-specific scholarships, and merit-based financial aid.'
+  },
+  {
+    country: 'Australia',
+    question: 'Can international students work while studying in Australia?',
+    answer: 'Yes. Students can work up to 48 hours per fortnight during study periods and unlimited hours during scheduled breaks, as per visa rules.'
+  },
+  {
+    country: 'Australia',
+    question: 'What is the Australian Student Visa process?',
+    answer: 'Students must obtain a Confirmation of Enrolment (CoE), show proof of funds, meet English requirements, purchase Overseas Student Health Cover (OSHC), and apply for Student Visa Subclass 500.'
+  },
+  {
+    country: 'Australia',
+    question: 'Can international students work in Australia after graduation?',
+    answer: 'Yes. Graduates may apply for the Temporary Graduate Visa (Subclass 485), allowing post-study work from 2 to 4 years depending on qualification and location.'
+  },
+  {
+    country: 'Australia',
+    question: 'Is Australia safe for international students?',
+    answer: 'Yes. Australia is a safe and welcoming country with strong student support services, multicultural communities, and a high quality of life.'
+  },
+  // ===================== GERMANY FAQs =====================
+  {
+    country: 'Germany',
+    question: 'Why should international students choose Germany for higher education?',
+    answer: 'Germany offers high-quality education, globally recognized degrees, low or no tuition fees at public universities, strong research opportunities, and excellent career prospects in Europe.'
   },
   {
     country: 'Germany',
-    question: 'Is it true that education is free in Germany?',
-    answer: 'Public universities in Germany charge no tuition fees for most undergraduate and many graduate programs. You only pay a semester contribution of €250-350 which includes public transport. Private universities and some specialized programs may charge tuition.'
+    question: 'What are the entry requirements to study in Germany?',
+    answer: 'Requirements vary by university and program but generally include academic transcripts, proof of previous qualifications, language proficiency (German or English), and recognized school or university certificates.'
   },
   {
     country: 'Germany',
-    question: 'Do I need to learn German language?',
-    answer: 'Many Masters programs are offered in English, especially in technical fields. However, learning German significantly improves job prospects and daily life. B1-B2 level German is beneficial for job hunting and permanent residency applications.'
+    question: 'What language proficiency tests are accepted in Germany?',
+    answer: 'For English-taught programs, IELTS or TOEFL are accepted. For German-taught programs, TestDaF, DSH, or Goethe-Zertifikat are commonly required.'
   },
   {
     country: 'Germany',
-    question: 'What is blocked account for Germany?',
-    answer: 'A blocked account (Sperrkonto) is mandatory for German student visa. You need to deposit €11,904 per year (€992 per month) before applying. This amount is gradually released monthly after arrival to cover your living expenses.'
+    question: 'How long are degree programs in Germany?',
+    answer: 'Bachelor’s degrees usually take 3–4 years, master’s degrees 1–2 years, and PhD programs 3–5 years.'
+  },
+  {
+    country: 'Germany',
+    question: 'What is the cost of studying in Germany for international students?',
+    answer: 'Most public universities charge no tuition fees except a semester contribution of €250–350. Private universities may charge €10,000–30,000 per year. Living costs average €10,000–12,000 per year.'
+  },
+  {
+    country: 'Germany',
+    question: 'Are scholarships available for international students in Germany?',
+    answer: 'Yes. Scholarships are offered by DAAD, German foundations, universities, and government-funded programs.'
+  },
+  {
+    country: 'Germany',
+    question: 'Can international students work while studying in Germany?',
+    answer: 'Yes. Students can work 120 full days or 240 half days per year without requiring a separate work permit.'
+  },
+  {
+    country: 'Germany',
+    question: 'What is the German Student Visa process?',
+    answer: 'Students need a university admission letter, proof of financial resources through a blocked account, health insurance, and must apply for a German National Student Visa.'
+  },
+  {
+    country: 'Germany',
+    question: 'Can international students stay and work in Germany after graduation?',
+    answer: 'Yes. Graduates can stay up to 18 months to find employment related to their field and later apply for a work permit or EU Blue Card.'
+  },
+  {
+    country: 'Germany',
+    question: 'Is Germany safe for international students?',
+    answer: 'Yes. Germany is a safe and student-friendly country with excellent public transport, healthcare, and strong international student support services.'
+  },
+
+  // ===================== FRANCE FAQs =====================
+  {
+    country: 'France',
+    question: 'Why should international students choose France for higher education?',
+    answer: 'France offers high-quality education, globally recognized degrees, affordable tuition at public universities, rich cultural experience, and strong career opportunities in Europe.'
   },
   {
     country: 'France',
-    question: 'Can I study in France without IELTS?',
-    answer: 'Yes, many French universities accept students without IELTS if they can demonstrate English proficiency through medium of instruction certificates or university interviews. However, having IELTS/TOEFL increases visa approval chances.'
+    question: 'What are the entry requirements to study in France?',
+    answer: 'Entry requirements vary by institution and program but generally include academic transcripts, language proficiency (French or English), a statement of purpose, and letters of recommendation for some programs.'
   },
   {
     country: 'France',
-    question: 'What is Campus France procedure?',
-    answer: 'Campus France is mandatory for Indian students applying to France. It involves creating an account, submitting documents, attending an interview in French or English, and receiving an approval before visa application. The entire process takes 1-2 months.'
+    question: 'What language tests are accepted by French institutions?',
+    answer: 'For French-taught programs, DELF, DALF, or TCF are accepted. For English-taught programs, IELTS, TOEFL, or PTE Academic are commonly accepted.'
+  },
+  {
+    country: 'France',
+    question: 'How long are degree programs in France?',
+    answer: 'Bachelor’s degrees take 3 years, master’s degrees 2 years, and PhD programs usually take 3–4 years.'
+  },
+  {
+    country: 'France',
+    question: 'What is the cost of studying in France for international students?',
+    answer: 'Public universities charge around €2,770 per year for bachelor’s and €3,770 per year for master’s programs. Living costs average €10,000–12,000 per year.'
+  },
+  {
+    country: 'France',
+    question: 'Are scholarships available for international students in France?',
+    answer: 'Yes. Popular options include Eiffel Excellence Scholarships, Campus France scholarships, and university-specific funding.'
+  },
+  {
+    country: 'France',
+    question: 'Can international students work while studying in France?',
+    answer: 'Yes. International students can work up to 964 hours per year, which is approximately 20 hours per week.'
+  },
+  {
+    country: 'France',
+    question: 'What is the France Student Visa process?',
+    answer: 'Students must apply through Campus France, receive an admission letter, show proof of funds, obtain health insurance, and apply for a Long-Stay Student Visa (VLS-TS).'
+  },
+  {
+    country: 'France',
+    question: 'Can international students stay and work in France after graduation?',
+    answer: 'Yes. Graduates can apply for a Temporary Residence Permit to seek employment and later convert it into a work visa if employed.'
+  },
+  {
+    country: 'France',
+    question: 'Is France safe for international students?',
+    answer: 'Yes. France is a safe and welcoming country with excellent healthcare, public transport, and student support services.'
+  },
+
+  // ===================== NETHERLANDS FAQs =====================
+  {
+    country: 'Netherlands',
+    question: 'Why should international students choose the Netherlands for higher education?',
+    answer: 'The Netherlands offers high-quality education, internationally recognized degrees, many English-taught programs, innovative teaching methods, and a multicultural environment.'
   },
   {
     country: 'Netherlands',
-    question: 'What is the job market like in Netherlands for international students?',
-    answer: 'Netherlands has strong job market, especially in technology, engineering, and business sectors. English is widely used in workplaces. The orientation year gives you 12 months to find employment, and the country has numerous multinational companies.'
+    question: 'What are the entry requirements to study in the Netherlands?',
+    answer: 'Requirements vary by institution and program but typically include academic transcripts, English language proficiency, a motivation letter, and letters of recommendation for some courses.'
   },
   {
     country: 'Netherlands',
-    question: 'Is health insurance mandatory in Netherlands?',
-    answer: 'Yes, all residents including international students must have Dutch health insurance. Basic coverage costs around €100-120 per month. Some universities offer special student health insurance packages. EU students can use European Health Insurance Card.'
+    question: 'What English language tests are accepted by Dutch universities?',
+    answer: 'Most universities accept IELTS, TOEFL iBT, PTE Academic, and Cambridge English qualifications (CAE or CPE).'
   },
   {
-    country: 'Ireland',
-    question: 'What is Stamp 1G visa in Ireland?',
-    answer: 'Stamp 1G is the post-study work visa in Ireland. It allows you to stay for 2 years after completing a Masters degree or 1 year after Bachelors. During this time, you can work full-time and search for long-term employment leading to residency.'
+    country: 'Netherlands',
+    question: 'How long are degree programs in the Netherlands?',
+    answer: 'Bachelor’s degrees usually take 3 years, master’s degrees 1–2 years, and PhD programs typically take 4 years.'
   },
   {
-    country: 'Ireland',
-    question: 'Is Ireland expensive for international students?',
-    answer: 'Dublin can be expensive with rent averaging €600-1,000 per month. However, other cities like Cork, Galway, and Limerick are more affordable. Total annual living costs range from €10,000-15,000 depending on lifestyle and location.'
+    country: 'Netherlands',
+    question: 'What is the cost of studying in the Netherlands for international students?',
+    answer: 'Tuition fees range from €6,000–15,000 per year for EU/EEA students and €8,000–25,000 per year for non-EU students. Living costs average €10,000–12,000 per year.'
   },
   {
-    country: 'New Zealand',
-    question: 'What are the post-study work visa options in New Zealand?',
-    answer: 'New Zealand offers post-study work visa for up to 3 years depending on your qualification level and study location. Bachelor\'s or higher degrees qualify for 3-year open work visa, while diplomas qualify for 1 year. Auckland has some restrictions.'
+    country: 'Netherlands',
+    question: 'Are scholarships available for international students in the Netherlands?',
+    answer: 'Yes. Scholarships include the Holland Scholarship, Orange Knowledge Programme, Erasmus+, and university-specific awards.'
   },
   {
-    country: 'New Zealand',
-    question: 'Can I apply for PR after studying in New Zealand?',
-    answer: 'Yes, New Zealand has skilled migrant category for PR. Having New Zealand qualification and work experience gives you bonus points. Working in skill shortage occupations or in regions outside Auckland further improves your chances.'
+    country: 'Netherlands',
+    question: 'Can international students work while studying in the Netherlands?',
+    answer: 'Yes. Non-EU students can work up to 16 hours per week during the academic year or full-time during summer with a work permit from the employer.'
   },
   {
-    country: 'Dubai',
-    question: 'What are the advantages of studying in Dubai?',
-    answer: 'Dubai offers branch campuses of UK and Australian universities at lower costs, tax-free environment, multicultural exposure, and growing job market. You get the same degree as the main campus. No IELTS required for many programs if you have English medium education.'
+    country: 'Netherlands',
+    question: 'What is the Netherlands Student Visa process?',
+    answer: 'Students must receive an admission offer, after which the university usually applies for the MVV and residence permit. Proof of funds and health insurance are required.'
   },
   {
-    country: 'Dubai',
-    question: 'Can I get work visa after studying in Dubai?',
-    answer: 'Yes, graduates can convert student visa to work visa if they secure employment. Dubai has a growing job market in technology, hospitality, finance, and healthcare sectors. Many students find jobs through university placement cells and internships.'
+    country: 'Netherlands',
+    question: 'Can international students stay and work in the Netherlands after graduation?',
+    answer: 'Yes. Graduates can apply for the Orientation Year (Search Year) Visa, allowing them to stay for up to 1 year to find employment.'
   },
   {
-    country: 'Spain',
-    question: 'Do I need to learn Spanish to study in Spain?',
-    answer: 'Many Masters programs are taught in English, especially in business and technology. However, learning Spanish enhances job prospects and daily life experience. A1-A2 level is helpful for beginning, while B2+ is beneficial for jobs.'
+    country: 'Netherlands',
+    question: 'Is the Netherlands safe for international students?',
+    answer: 'Yes. The Netherlands is a safe and student-friendly country with excellent public transport, healthcare, and international student support services.'
   },
+
+  // ===================== SWITZERLAND FAQs =====================
   {
-    country: 'Italy',
-    question: 'What is the cost of living in Italy for students?',
-    answer: 'Italy is relatively affordable compared to other European countries. Monthly costs range from €700-1,200 depending on the city. Rome and Milan are more expensive, while smaller cities like Padua, Bologna are cheaper. Public transport is affordable and efficient.'
+    country: 'Switzerland',
+    question: 'Why should international students choose Switzerland for higher education?',
+    answer: 'Switzerland offers high-quality education, globally recognized degrees, strong research and innovation, and a high standard of living in a safe and multicultural environment.'
   },
   {
     country: 'Switzerland',
-    question: 'Is Switzerland very expensive for international students?',
-    answer: 'Yes, Switzerland has high living costs (CHF 1,500-2,000 per month). However, tuition fees at public universities are low (CHF 1,000-2,000 per year). Part-time work earnings (CHF 25-30 per hour) can help offset costs. Quality of life is excellent.'
+    question: 'What are the entry requirements to study in Switzerland?',
+    answer: 'Entry requirements vary by institution and program but generally include academic transcripts, language proficiency (English, German, French, or Italian), a motivation letter, and relevant qualifications.'
   },
   {
-    country: 'Sweden',
-    question: 'Can I work while studying in Sweden?',
-    answer: 'Yes, international students can work unlimited hours in Sweden. However, balancing full-time studies and work can be challenging. Part-time jobs typically pay SEK 100-150 per hour. Swedish language skills significantly improve job prospects.'
+    country: 'Switzerland',
+    question: 'What language tests are accepted by Swiss universities?',
+    answer: 'Universities accept IELTS or TOEFL for English-taught programs and TestDaF, DELF/DALF, or equivalent for German or French-taught programs.'
   },
   {
-    country: 'Finland',
-    question: 'Are scholarships available for international students in Finland?',
-    answer: 'Yes, Finnish universities offer scholarships ranging from 50% to 100% tuition waiver for excellent students. Many scholarships are automatically considered during admission. Additionally, you can apply for Finnish government scholarships and university-specific grants.'
+    country: 'Switzerland',
+    question: 'How long are degree programs in Switzerland?',
+    answer: 'Bachelor’s degrees typically take 3 years, master’s degrees 1–2 years, and PhD programs usually take 3–4 years.'
   },
   {
-    country: 'Malta',
-    question: 'Why choose Malta for higher education?',
-    answer: 'Malta offers English-taught programs at affordable costs, EU membership benefits, warm Mediterranean climate, safe environment, and ability to travel to 26 Schengen countries. It\'s ideal for students seeking European education at lower costs than traditional destinations.'
+    country: 'Switzerland',
+    question: 'What is the cost of studying in Switzerland for international students?',
+    answer: 'Public universities charge CHF 1,000–4,000 per year, while private institutions may charge CHF 20,000–40,000 per year. Living costs average CHF 15,000–25,000 per year.'
   },
   {
-    country: 'Russia',
-    question: 'What are the advantages of studying medicine in Russia?',
-    answer: 'Russian medical universities are WHO and MCI recognized, offer affordable fees (USD 3,000-8,000 per year), English-medium programs, and high-quality education. MBBS duration is 6 years including internship. Graduates can practice in India after clearing FMGE/NExT exam.'
+    country: 'Switzerland',
+    question: 'Are scholarships available for international students in Switzerland?',
+    answer: 'Yes. Scholarships include Swiss Government Excellence Scholarships, university-specific awards, and private funding options.'
   },
   {
-    country: 'General',
-    question: 'What documents are typically required for student visa?',
-    answer: 'Common documents include: Valid passport, offer letter from university, financial proof, academic transcripts, English proficiency test scores, SOP, medical certificates, and visa application form. Specific requirements vary by country.'
+    country: 'Switzerland',
+    question: 'Can international students work while studying in Switzerland?',
+    answer: 'Yes. Students can work up to 15 hours per week during semesters and full-time during holidays after completing six months of study.'
   },
   {
-    country: 'General',
-    question: 'How do education loans work for studying abroad?',
-    answer: 'Education loans cover tuition fees, living expenses, travel, and insurance. Banks offer both secured (with collateral) and unsecured loans. Interest rates range from 8-15%. Repayment typically starts 6-12 months after course completion. We assist with loan applications and documentation.'
+    country: 'Switzerland',
+    question: 'What is the Switzerland Student Visa process?',
+    answer: 'Students must receive a university admission letter, show proof of financial means, obtain health insurance, and apply for a Swiss National Student Visa.'
   },
   {
-    country: 'General',
-    question: 'When should I start my study abroad application?',
-    answer: 'Ideally start 10-12 months before your intended intake. This allows time for exam preparation (IELTS/TOEFL/GRE), university applications, offer letters, visa processing, and financial arrangements. Early applications also improve scholarship chances.'
+    country: 'Switzerland',
+    question: 'Can international students stay and work in Switzerland after graduation?',
+    answer: 'Yes. Graduates may stay for up to 6 months to seek employment related to their field of study, subject to regulations.'
   },
   {
-    country: 'General',
-    question: 'What is the difference between conditional and unconditional offer?',
-    answer: 'Conditional offer means you need to meet certain conditions (like English test scores or completing current degree) before final admission. Unconditional offer means you\'ve met all requirements and have guaranteed admission. Both can be used for visa application with proper documentation.'
-  }
+    country: 'Switzerland',
+    question: 'Is Switzerland safe for international students?',
+    answer: 'Yes. Switzerland is one of the safest countries in the world with excellent public services, healthcare, and student support systems.'
+  },
+// ===================== SWEDEN FAQs =====================
+{
+  country: 'Sweden',
+  question: 'Why should international students choose Sweden for higher education?',
+  answer: 'Sweden offers high-quality education, globally ranked universities, innovative teaching methods, a strong focus on research and sustainability, and a welcoming international environment.'
+},
+{
+  country: 'Sweden',
+  question: 'What are the entry requirements to study in Sweden?',
+  answer: 'Entry requirements vary by university and program but generally include academic transcripts, proof of English language proficiency, a statement of purpose, and letters of recommendation for some programs.'
+},
+{
+  country: 'Sweden',
+  question: 'What English language tests are accepted by Swedish universities?',
+  answer: 'Most Swedish universities accept IELTS, TOEFL iBT, PTE Academic, and Cambridge English (CAE/CPE).'
+},
+{
+  country: 'Sweden',
+  question: 'How long are degree programs in Sweden?',
+  answer: 'Bachelor’s degrees usually take 3 years, master’s degrees 1–2 years, and PhD programs typically 4 years.'
+},
+{
+  country: 'Sweden',
+  question: 'What is the cost of studying in Sweden for international students?',
+  answer: 'Tuition fees for non-EU/EEA students range from SEK 80,000–200,000 per year depending on the program. Living costs average SEK 96,000–120,000 per year.'
+},
+{
+  country: 'Sweden',
+  question: 'Are scholarships available for international students in Sweden?',
+  answer: 'Yes. Scholarships include Swedish Institute Scholarships, university-specific scholarships, and other government-funded financial support programs.'
+},
+{
+  country: 'Sweden',
+  question: 'Can international students work while studying in Sweden?',
+  answer: 'Yes. There is no official limit on working hours, but students must ensure work does not affect their full-time studies.'
+},
+{
+  country: 'Sweden',
+  question: 'What is the Sweden Student Visa process?',
+  answer: 'Students must have an admission offer, proof of sufficient funds, health insurance, and apply for a Residence Permit for Studies through the Swedish Migration Agency.'
+},
+{
+  country: 'Sweden',
+  question: 'Can international students stay and work in Sweden after graduation?',
+  answer: 'Yes. Graduates can apply for a 12-month residence permit to seek employment or start a business in Sweden.'
+},
+{
+  country: 'Sweden',
+  question: 'Is Sweden safe for international students?',
+  answer: 'Yes. Sweden is a safe, student-friendly country with excellent healthcare, public transport, and strong international student support services.'
+},
+
+// ===================== SPAIN FAQs =====================
+{
+  country: 'Spain',
+  question: 'Why should international students choose Spain for higher education?',
+  answer: 'Spain offers high-quality education, affordable tuition fees, globally recognized degrees, a rich cultural experience, and a wide range of English- and Spanish-taught programs.'
+},
+{
+  country: 'Spain',
+  question: 'What are the entry requirements to study in Spain?',
+  answer: 'Requirements vary by institution and program but generally include academic transcripts, proof of language proficiency (Spanish or English), a statement of purpose, and entrance exams for some programs.'
+},
+{
+  country: 'Spain',
+  question: 'What language tests are accepted by Spanish universities?',
+  answer: 'For Spanish-taught programs, universities accept DELE or SIELE. For English-taught programs, IELTS, TOEFL, or PTE Academic are accepted.'
+},
+{
+  country: 'Spain',
+  question: 'How long are degree programs in Spain?',
+  answer: 'Bachelor’s degrees typically take 4 years, master’s degrees 1–2 years, and PhD programs usually 3–4 years.'
+},
+{
+  country: 'Spain',
+  question: 'What is the cost of studying in Spain for international students?',
+  answer: 'Public university tuition fees range from €750–3,500 per year, while private universities may charge €5,000–20,000 per year. Living costs average €8,000–12,000 per year.'
+},
+{
+  country: 'Spain',
+  question: 'Are scholarships available for international students in Spain?',
+  answer: 'Yes. Scholarships include Spanish Government (MAEC-AECID) Scholarships, Erasmus+, and university-specific funding options.'
+},
+{
+  country: 'Spain',
+  question: 'Can international students work while studying in Spain?',
+  answer: 'Yes. International students can work up to 30 hours per week with proper authorization, provided work does not interfere with studies.'
+},
+{
+  country: 'Spain',
+  question: 'What is the Spain Student Visa process?',
+  answer: 'Students must have an admission letter, proof of financial means, health insurance, and apply for a Long-Term Student Visa through the Spanish embassy or consulate.'
+},
+{
+  country: 'Spain',
+  question: 'Can international students stay and work in Spain after graduation?',
+  answer: 'Yes. Graduates can apply for a post-study residence permit to seek employment or start a business in Spain.'
+},
+{
+  country: 'Spain',
+  question: 'Is Spain safe for international students?',
+  answer: 'Yes. Spain is generally safe and welcoming, with good healthcare, strong student support services, and a high quality of life.'
+},
+
+// ===================== ITALY FAQs =====================
+{
+  country: 'Italy',
+  question: 'Why should international students choose Italy for higher education?',
+  answer: 'Italy offers high-quality education, internationally recognized degrees, affordable tuition at public universities, rich cultural heritage, and many English- and Italian-taught programs.'
+},
+{
+  country: 'Italy',
+  question: 'What are the entry requirements to study in Italy?',
+  answer: 'Requirements vary by institution and program but generally include academic transcripts, proof of language proficiency, a statement of purpose, and entrance exams for some courses.'
+},
+{
+  country: 'Italy',
+  question: 'What language tests are accepted by Italian universities?',
+  answer: 'For English-taught programs, IELTS, TOEFL, or PTE Academic are accepted. For Italian-taught programs, CILS, CELI, or PLIDA are required.'
+},
+{
+  country: 'Italy',
+  question: 'How long are degree programs in Italy?',
+  answer: 'Bachelor’s degrees typically take 3 years, master’s degrees 2 years, and PhD programs usually 3–4 years.'
+},
+{
+  country: 'Italy',
+  question: 'What is the cost of studying in Italy for international students?',
+  answer: 'Public university tuition fees range from €900–4,000 per year depending on income and institution. Living costs average €8,000–12,000 per year.'
+},
+{
+  country: 'Italy',
+  question: 'Are scholarships available for international students in Italy?',
+  answer: 'Yes. Scholarships include Italian Government Scholarships (MAECI), DSU regional scholarships, and university-specific funding.'
+},
+{
+  country: 'Italy',
+  question: 'Can international students work while studying in Italy?',
+  answer: 'Yes. International students can work up to 20 hours per week during the academic year and full-time during holidays.'
+},
+{
+  country: 'Italy',
+  question: 'What is the Italy Student Visa process?',
+  answer: 'Students must have a university admission letter, proof of financial means, accommodation details, health insurance, and apply for a Type D Student Visa.'
+},
+{
+  country: 'Italy',
+  question: 'Can international students stay and work in Italy after graduation?',
+  answer: 'Yes. Graduates can apply for a post-study residence permit and later convert it into a work permit.'
+},
+{
+  country: 'Italy',
+  question: 'Is Italy safe for international students?',
+  answer: 'Yes. Italy is safe and student-friendly, offering excellent healthcare, public transport, and international student support services.'
+},
+
+// ===================== FINLAND FAQs =====================
+{
+  country: 'Finland',
+  question: 'Why should international students choose Finland for higher education?',
+  answer: 'Finland offers globally recognized education, innovative teaching methods, strong research focus, and an excellent quality of life in a safe environment.'
+},
+{
+  country: 'Finland',
+  question: 'What are the entry requirements to study in Finland?',
+  answer: 'Requirements vary by institution and program but usually include academic transcripts, proof of English proficiency, a motivation letter, and entrance exams or interviews.'
+},
+{
+  country: 'Finland',
+  question: 'What English language tests are accepted by Finnish universities?',
+  answer: 'Most Finnish universities accept IELTS, TOEFL iBT, PTE Academic, Cambridge English (CAE/CPE), and Duolingo English Test.'
+},
+{
+  country: 'Finland',
+  question: 'How long are degree programs in Finland?',
+  answer: 'Bachelor’s degrees take 3–4 years, master’s degrees 1–2 years, and PhD programs typically 4 years.'
+},
+{
+  country: 'Finland',
+  question: 'What is the cost of studying in Finland for international students?',
+  answer: 'Tuition fees for non-EU/EEA students range from €6,000–18,000 per year. Living costs average €8,000–11,000 per year.'
+},
+{
+  country: 'Finland',
+  question: 'Are scholarships available for international students in Finland?',
+  answer: 'Yes. Finland offers university-specific tuition fee waivers, Finnish Government scholarships, and merit-based financial aid.'
+},
+{
+  country: 'Finland',
+  question: 'Can international students work while studying in Finland?',
+  answer: 'Yes. Students can work up to 30 hours per week on average during the academic term.'
+},
+{
+  country: 'Finland',
+  question: 'What is the Finland Student Residence Permit process?',
+  answer: 'Students must have an admission offer, proof of sufficient funds, health insurance, and apply through the Finnish Immigration Service.'
+},
+{
+  country: 'Finland',
+  question: 'Can international students stay and work in Finland after graduation?',
+  answer: 'Yes. Graduates can apply for a 2-year residence permit to seek employment or start a business.'
+},
+{
+  country: 'Finland',
+  question: 'Is Finland safe for international students?',
+  answer: 'Yes. Finland is one of the safest countries in the world, with excellent healthcare, transport, and student support services.'
+},
+// ===================== RUSSIA FAQs =====================
+{
+  country: 'Russia',
+  question: 'Why should international students choose Russia for higher education?',
+  answer: 'Russia offers high-quality education, globally recognized degrees, affordable tuition fees, strong programs in medicine, engineering, and science, and a diverse cultural experience.'
+},
+{
+  country: 'Russia',
+  question: 'What are the entry requirements to study in Russia?',
+  answer: 'Entry requirements vary by university and program but generally include academic certificates, transcripts, a valid passport, and medical documents. Entrance exams may apply for some courses.'
+},
+{
+  country: 'Russia',
+  question: 'What language tests are accepted by Russian universities?',
+  answer: 'Many programs are taught in Russian, requiring language preparation. For English-taught programs, universities may accept IELTS or TOEFL, though requirements vary.'
+},
+{
+  country: 'Russia',
+  question: 'How long are degree programs in Russia?',
+  answer: 'Bachelor’s degrees usually take 4 years, master’s degrees 2 years, medical degrees 6 years, and PhD programs typically take 3–4 years.'
+},
+{
+  country: 'Russia',
+  question: 'What is the cost of studying in Russia for international students?',
+  answer: 'Tuition fees generally range from USD 2,000–8,000 per year, depending on the program and university. Living costs average USD 3,000–6,000 per year.'
+},
+{
+  country: 'Russia',
+  question: 'Are scholarships available for international students in Russia?',
+  answer: 'Yes. The Russian Government Scholarship (State-Funded Quota) covers tuition fees and provides a monthly stipend for eligible international students.'
+},
+{
+  country: 'Russia',
+  question: 'Can international students work while studying in Russia?',
+  answer: 'Yes. International students can work part-time during studies, but a work permit is required unless working at the university.'
+},
+{
+  country: 'Russia',
+  question: 'What is the Russia Student Visa process?',
+  answer: 'Students must receive an official invitation from a Russian university, provide medical certificates, and apply for a Russian Student Visa through the embassy or consulate.'
+},
+{
+  country: 'Russia',
+  question: 'Can international students stay and work in Russia after graduation?',
+  answer: 'Yes. Graduates can apply for a work visa if they secure employment with a Russian employer.'
+},
+{
+  country: 'Russia',
+  question: 'Is Russia safe for international students?',
+  answer: 'Yes. Major student cities have strong security and international student support services, though students should follow local laws and safety guidelines.'
+},
+
+// ===================== MALTA FAQs =====================
+{
+  country: 'Malta',
+  question: 'Why should international students choose Malta for higher education?',
+  answer: 'Malta offers high-quality education, English-taught programs, internationally recognized qualifications, a Mediterranean lifestyle, and affordable tuition compared to other European countries.'
+},
+{
+  country: 'Malta',
+  question: 'What are the entry requirements to study in Malta?',
+  answer: 'Entry requirements vary by institution and program but generally include academic transcripts, proof of English language proficiency, a statement of purpose, and a valid passport.'
+},
+{
+  country: 'Malta',
+  question: 'What English language tests are accepted by Maltese institutions?',
+  answer: 'Most institutions accept IELTS, TOEFL, PTE Academic, Cambridge English, and Duolingo English Test (accepted by many colleges).'
+},
+{
+  country: 'Malta',
+  question: 'How long are degree and diploma programs in Malta?',
+  answer: 'Diploma programs typically take 1–2 years, bachelor’s degrees 3–4 years, and master’s degrees 1–2 years.'
+},
+{
+  country: 'Malta',
+  question: 'What is the cost of studying in Malta for international students?',
+  answer: 'Tuition fees generally range from €6,000–15,000 per year, depending on the course and institution. Living costs average €7,000–10,000 per year.'
+},
+{
+  country: 'Malta',
+  question: 'Are scholarships available for international students in Malta?',
+  answer: 'Yes. Scholarships and fee reductions are offered by institutions, the Malta Government, and EU-funded programs such as Erasmus+.'
+},
+{
+  country: 'Malta',
+  question: 'Can international students work while studying in Malta?',
+  answer: 'Yes. Students can work up to 20 hours per week during term time after completing 90 days of study.'
+},
+{
+  country: 'Malta',
+  question: 'What is the Malta Student Visa process?',
+  answer: 'Students must have an admission letter, proof of sufficient funds, accommodation details, health insurance, and apply for a Malta Student Residence Permit.'
+},
+{
+  country: 'Malta',
+  question: 'Can international students stay and work in Malta after graduation?',
+  answer: 'Yes. Graduates may stay and work in Malta if they secure employment and convert their student permit into a work permit.'
+},
+{
+  country: 'Malta',
+  question: 'Is Malta safe for international students?',
+  answer: 'Yes. Malta is considered one of the safest countries in Europe, offering a welcoming environment and strong student support services.'
+},
+
+// ===================== DUBAI FAQs =====================
+{
+  country: 'Dubai',
+  question: 'Why should international students choose Dubai for higher education?',
+  answer: 'Dubai offers world-class universities, modern infrastructure, a multicultural environment, strong career opportunities, and globally recognized degrees. It is a hub for business, technology, and innovation in the Middle East.'
+},
+{
+  country: 'Dubai',
+  question: 'What are the entry requirements to study in Dubai?',
+  answer: 'Requirements vary by institution and program but generally include academic transcripts, proof of English proficiency, a personal statement, and letters of recommendation.'
+},
+{
+  country: 'Dubai',
+  question: 'What English language tests are accepted by Dubai universities?',
+  answer: 'Most universities in Dubai accept IELTS, TOEFL, and PTE Academic. Some institutions may accept alternative tests or waive requirements based on prior education in English.'
+},
+{
+  country: 'Dubai',
+  question: 'How long are degree programs in Dubai?',
+  answer: 'Undergraduate degrees typically take 3–4 years, master’s degrees 1–2 years, and PhD programs usually 3–5 years.'
+},
+{
+  country: 'Dubai',
+  question: 'What is the cost of studying in Dubai for international students?',
+  answer: 'Tuition fees generally range from AED 40,000–120,000 per year. Living expenses average AED 30,000–50,000 per year.'
+},
+{
+  country: 'Dubai',
+  question: 'Are scholarships available for international students in Dubai?',
+  answer: 'Yes. Scholarships are offered by universities, government programs, and private organizations. They may be merit-based, need-based, or program-specific.'
+},
+{
+  country: 'Dubai',
+  question: 'Can international students work while studying in Dubai?',
+  answer: 'Yes. Students on a student visa can work part-time up to 20 hours per week, depending on visa conditions and institutional regulations.'
+},
+{
+  country: 'Dubai',
+  question: 'What is the Dubai Student Visa process?',
+  answer: 'Students must receive an acceptance letter from a UAE-recognized institution, show proof of funds, obtain health insurance, and apply for a Student Residence Visa.'
+},
+{
+  country: 'Dubai',
+  question: 'Can international students stay and work in Dubai after graduation?',
+  answer: 'Yes. Graduates can apply for a post-study work visa or employment visa if they secure a job with a UAE employer.'
+},
+{
+  country: 'Dubai',
+  question: 'Is Dubai safe for international students?',
+  answer: 'Yes. Dubai is considered very safe, with strict laws, modern healthcare, excellent public services, and a large expat community.'
+},
+
+// ===================== IRELAND FAQs =====================
+{
+  country: 'Ireland',
+  question: 'Why should international students choose Ireland for higher education?',
+  answer: 'Ireland offers high-quality education, internationally recognized degrees, English-taught programs, a welcoming culture, and excellent career opportunities in Europe and globally.'
+},
+{
+  country: 'Ireland',
+  question: 'What are the entry requirements to study in Ireland?',
+  answer: 'Entry requirements vary by institution and program but generally include academic transcripts, proof of English proficiency, a personal statement, and letters of recommendation for some programs.'
+},
+{
+  country: 'Ireland',
+  question: 'What English language tests are accepted by Irish universities?',
+  answer: 'Most universities accept IELTS, TOEFL, PTE Academic, and sometimes Duolingo English Test.'
+},
+{
+  country: 'Ireland',
+  question: 'How long are degree programs in Ireland?',
+  answer: 'Undergraduate degrees typically take 3–4 years, master’s degrees 1–2 years, and PhD programs usually 3–4 years.'
+},
+{
+  country: 'Ireland',
+  question: 'What is the cost of studying in Ireland for international students?',
+  answer: 'Tuition fees generally range from €9,000–22,000 per year. Living costs average €10,000–15,000 per year.'
+},
+{
+  country: 'Ireland',
+  question: 'Are scholarships available for international students in Ireland?',
+  answer: 'Yes. Scholarships include Government of Ireland Scholarships and university-specific merit scholarships.'
+},
+{
+  country: 'Ireland',
+  question: 'Can international students work while studying in Ireland?',
+  answer: 'Yes. Students can work up to 20 hours per week during term time and full-time during holidays.'
+},
+{
+  country: 'Ireland',
+  question: 'What is the Ireland Student Visa process?',
+  answer: 'Students must receive an acceptance letter, show proof of funds, have health insurance, and apply for a Long-Term Study Visa or Stamp 2 permission.'
+},
+{
+  country: 'Ireland',
+  question: 'Can international students stay and work in Ireland after graduation?',
+  answer: 'Yes. Graduates can apply for the Third Level Graduate Scheme, allowing them to stay and work for up to 2 years (3 years for PhD graduates).'
+},
+{
+  country: 'Ireland',
+  question: 'Is Ireland safe for international students?',
+  answer: 'Yes. Ireland is safe, welcoming, and offers strong student support services and healthcare facilities.'
+},
+
+// ===================== NEW ZEALAND FAQs =====================
+{
+  country: 'New Zealand',
+  question: 'Why should international students choose New Zealand for higher education?',
+  answer: 'New Zealand offers high-quality education, globally recognized degrees, a safe and friendly environment, a multicultural society, and excellent research and career opportunities.'
+},
+{
+  country: 'New Zealand',
+  question: 'What are the entry requirements to study in New Zealand?',
+  answer: 'Entry requirements vary by institution and program but generally include academic transcripts, proof of English proficiency, a personal statement, and sometimes references or interviews.'
+},
+{
+  country: 'New Zealand',
+  question: 'What English language tests are accepted by New Zealand universities?',
+  answer: 'Most universities accept IELTS, TOEFL iBT, PTE Academic, and some also accept Duolingo English Test.'
+},
+{
+  country: 'New Zealand',
+  question: 'How long are degree programs in New Zealand?',
+  answer: 'Bachelor’s degrees typically take 3 years, honors degrees 1 year, master’s degrees 1–2 years, and PhD programs 3–4 years.'
+},
+{
+  country: 'New Zealand',
+  question: 'What is the cost of studying in New Zealand for international students?',
+  answer: 'Tuition fees range from NZD 22,000–32,000 per year. Living costs average NZD 15,000–20,000 per year.'
+},
+{
+  country: 'New Zealand',
+  question: 'Are scholarships available for international students in New Zealand?',
+  answer: 'Yes. Scholarships include New Zealand Scholarships, university-specific scholarships, and government-funded awards.'
+},
+{
+  country: 'New Zealand',
+  question: 'Can international students work while studying in New Zealand?',
+  answer: 'Yes. Students can work up to 20 hours per week during term time and full-time during holidays.'
+},
+{
+  country: 'New Zealand',
+  question: 'What is the New Zealand Student Visa process?',
+  answer: 'Students must have an offer of enrollment, show proof of funds, obtain health insurance, and apply for a New Zealand Student Visa.'
+},
+{
+  country: 'New Zealand',
+  question: 'Can international students stay and work in New Zealand after graduation?',
+  answer: 'Yes. Graduates can apply for a Post-Study Work Visa, allowing them to work for 1–3 years depending on qualification.'
+},
+{
+  country: 'New Zealand',
+  question: 'Is New Zealand safe for international students?',
+  answer: 'Yes. New Zealand is known for being safe, welcoming, and student-friendly with strong public services and student support.'
+},
+
+
 ];
 
 export const FAQPage = () => {
