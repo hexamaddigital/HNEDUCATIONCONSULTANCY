@@ -70,7 +70,7 @@ export const COUNTRIES: CountryData[] = [
       'Johns Hopkins University',
       'University of Pennsylvania',
       'University of California, Los Angeles ',
-      'California Institute of Technology',
+      'Dartmouth university',
       'University of California, Berkeley',
       'Stevens Institute of technology',
     ],
