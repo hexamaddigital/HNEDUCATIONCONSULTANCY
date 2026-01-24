@@ -211,7 +211,7 @@ export const GlobalEducation = () => {
                   <div className="bg-gradient-to-br from-turquoise/10 to-white rounded-xl p-6 border border-turquoise/20">
                     <div className="flex items-center mb-3">
                       <Home className="w-6 h-6 text-turquoise mr-2" />
-                      <h3 className="text-xl font-bold text-heading">Living Cost</h3>
+                      <h3 className="text-xl font-bold text-heading">Living Cost(Living cost depends on individual expenses)</h3>
                     </div>
                     <p className="text-body-text text-lg font-medium">{selectedCountry.livingCost}</p>
                   </div>
