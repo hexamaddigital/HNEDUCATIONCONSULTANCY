@@ -20,7 +20,7 @@ const values = [
   {
     icon: Globe,
     title: 'Global Network',
-    description: 'Strong university networks across 19 destinations',
+    description: 'Strong university networks across 17+ destinations',
   },
 ];
 
