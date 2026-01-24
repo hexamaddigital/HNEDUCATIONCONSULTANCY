@@ -12,7 +12,7 @@ interface Stat {
 const stats: Stat[] = [
   {
     icon: <Users className="w-8 h-8" />,
-    value: 5000,
+    value: 10,
     suffix: '+',
     label: 'Students Served',
   },
@@ -24,13 +24,13 @@ const stats: Stat[] = [
   },
   {
     icon: <Award className="w-8 h-8" />,
-    value: 95,
+    value: 100,
     suffix: '%',
     label: 'Visa Success Rate',
   },
   {
     icon: <Globe className="w-8 h-8" />,
-    value: 25,
+    value: 17,
     suffix: '+',
     label: 'Countries',
   },
