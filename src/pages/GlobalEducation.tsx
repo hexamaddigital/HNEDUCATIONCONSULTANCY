@@ -117,7 +117,7 @@ export const GlobalEducation = () => {
                 <div>
                   <div className="flex items-center mb-4">
                     <Building2 className="w-6 h-6 text-turquoise mr-3" />
-                    <h3 className="text-2xl font-bold text-heading">Top Universities</h3>
+                    <h3 className="text-2xl font-bold text-heading">Universities</h3>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-3 mb-6">
                     {selectedCountry.topUniversities.map((uni, index) => (
@@ -218,13 +218,7 @@ export const GlobalEducation = () => {
                 </div>
 
                 <div className="mt-8 grid md:grid-cols-2 gap-4">
-                  <button
-                    onClick={() => setShowBrochureModal(true)}
-                    className="flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                  >
-                    <Download className="w-5 h-5" />
-                    <span>Download Brochure</span>
-                  </button>
+                 
                   <a
                     href="/contact"
                     className="flex items-center justify-center space-x-2 px-6 py-4 bg-white border-2 border-turquoise text-turquoise rounded-xl font-semibold hover:bg-turquoise hover:text-white transition-all duration-300 transform hover:scale-105"
