@@ -41,6 +41,11 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
+                <Link to="/about-us" className="text-gray-300 hover:text-turquoise text-sm">
+                  About Us
+                </Link>
+              </li>
+              <li>
                 <Link to="/global-education" className="text-gray-300 hover:text-turquoise text-sm">
                   Global Education
                 </Link>
@@ -68,6 +73,17 @@ export const Footer = () => {
               <li>
                 <Link to="/blog" className="text-gray-300 hover:text-turquoise text-sm">
                   Blog
+                </Link>
+              </li>
+              
+              <li>
+                <Link to="/faq" className="text-gray-300 hover:text-turquoise text-sm">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-turquoise text-sm">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -106,7 +122,7 @@ export const Footer = () => {
               </li>
 
               <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-turquoise mt-0.5" />
+                <MapPin className="w-5 h-5 text-turquoise ." />
                 <span className="text-gray-300 text-sm">
                   <strong>Nallasopara Branch:</strong><br />
                   301, Poonam Palace, Near Star Hospital, NSP (W) – 401203, Maharashtra
