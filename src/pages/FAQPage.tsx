@@ -18,27 +18,98 @@ const countryFAQs: FAQItem[] = [
   {
     country: 'United Kingdom',
     question: 'What are the entry requirements to study in the UK?',
-    answer: 'For UK student visa, you need to show funds for: Full tuition fee for first year + £1,334 per month for 9 months (outside London) or £1,023 per month (outside London). The funds must be held for 28 consecutive days before applying.'
+    answer: 'Entry requirements vary by course and university but generally include academic transcripts, proof of English language proficiency (IELTS, TOEFL, or equivalent), a personal statement, and references.'
   },
   {
     country: 'United Kingdom',
-    question: 'Can I work while studying in the UK?',
-    answer: 'Yes, international students can work up to 20 hours per week during term time and full-time during holidays. The graduate route allows you to work for 2 years after completing your degree.'
+    question: 'What English language tests are accepted by UK universities?',
+    answer: 'Most UK universities accept IELTS, TOEFL, PTE Academic, and Duolingo English Test (accepted by many institutions). Required scores depend on the course and university.'
+  },
+  {
+    country: 'United Kingdom',
+    question: 'How long are UK degree programs?',
+    answer: 'Undergraduate degrees usually take 3 years (4 years in Scotland), master’s degrees typically take 1 year, and PhD programs last 3–4 years.'
+  },
+  {
+    country: 'United Kingdom',
+    question: 'What is the cost of studying in the UK for international students?',
+    answer: 'Tuition fees range from £10,000–£38,000 per year, depending on the course and university. Living costs average £9,000–£15,000 per year, depending on location.'
+  },
+  {
+    country: 'United Kingdom',
+    question: 'Are scholarships available for international students in the UK?',
+    answer: 'Yes. Popular scholarships include Chevening Scholarships, Commonwealth Scholarships, university-specific awards, and merit-based or need-based funding options.'
+  },
+  {
+    country: 'United Kingdom',
+    question: 'Can international students work while studying in the UK?',
+    answer: 'Yes. International students can work up to 20 hours per week during term time and full-time during holidays, subject to visa conditions.'
+  },
+   {
+    country: 'United Kingdom',
+    question: 'What is the UK Student Visa process?',
+    answer: 'Students must have a Confirmation of Acceptance for Studies (CAS), meet financial requirements, prove English proficiency, and apply online for a UK Student Visa.'
+  },
+   {
+    country: 'United Kingdom',
+    question: 'Can international students stay and work in the UK after graduation?',
+    answer: 'Yes. International students can work up to 20 hours per week during term time and full-time during holidays, subject to visa conditions.'
+  },
+   {
+    country: 'United Kingdom',
+    question: 'Is the UK safe for international students?',
+    answer: 'Yes. The UK is considered a safe and welcoming destination with strong student support services, healthcare access (NHS), and multicultural communities..'
+  },
+
+  {
+    country: 'United States',
+    question: 'Why should international students choose the USA for higher education?',
+    answer: 'The USA offers a wide range of academic programs, world-leading universities, cutting-edge research opportunities, flexible curricula, and strong global career prospects.'
   },
   {
     country: 'United States',
-    question: 'What is the difference between F1 and J1 visa?',
-    answer: 'F1 visa is for academic studies at colleges and universities, while J1 visa is for exchange programs. F1 students can work on OPT for up to 3 years (STEM) after graduation, while J1 students may have a 2-year home residency requirement.'
+    question: 'What English language tests are accepted by US universities?',
+    answer: 'Most US universities accept IELTS, TOEFL, PTE Academic, and Duolingo English Test. Score requirements depend on the university and program.'
   },
   {
     country: 'United States',
-    question: 'Is IELTS mandatory for USA?',
-    answer: 'Most universities accept IELTS, TOEFL, PTE, or Duolingo English Test. Some universities waive English proficiency tests if you completed previous education in English medium. Check specific university requirements.'
+    question: 'How long are degree programs in the USA?',
+    answer: 'Undergraduate degrees usually take 4 years, master’s degrees 1–2 years, and PhD programs typically 4–6 years.'
   },
   {
     country: 'United States',
-    question: 'What is OPT and STEM OPT?',
-    answer: 'OPT (Optional Practical Training) allows F1 students to work for 12 months after graduation. STEM degree holders can extend this by 24 additional months (total 36 months), making it particularly beneficial for tech and engineering students.'
+    question: 'What is the cost of studying in the USA for international students?',
+    answer: 'Tuition fees range from USD 15,000–55,000 per year, depending on the institution and program. Living expenses generally range from USD 10,000–20,000 per year.'
+  },
+  {
+    country: 'United States',
+    question: 'Are scholarships available for international students in the USA?',
+    answer: 'Yes. Scholarships include merit-based, need-based, athletic, and university-specific awards, as well as assistantships and fellowships for graduate students'
+  },
+  {
+    country: 'United States',
+    question: 'Can international students work while studying in the USA?',
+    answer: 'Yes. F-1 students can work up to 20 hours per week on-campus during the academic term and full-time during breaks. Off-campus work requires authorization (CPT or OPT)'
+  },
+  {
+    country: 'United States',
+    question: 'What is the US student visa process?',
+    answer: 'Students must receive an I-20 from a SEVP-approved institution, pay the SEVIS fee, complete the DS-160, attend a visa interview, and apply for an F-1 Student Visa.'
+  },
+  {
+    country: 'United States',
+    question: 'Can international students stay and work in the USA after graduation?',
+    answer: 'Yes. Students can apply for Optional Practical Training (OPT) for up to 12 months, with a 24-month extension available for eligible STEM graduates.'
+  },
+  {
+    country: 'United States',
+    question: 'Is the USA safe for international students?',
+    answer: 'Yes. US universities provide strong campus security, student support services, and international student offices to ensure safety and well-being.'
+  },
+  {
+    country: 'United States',
+    question: 'What are the entry requirements to study in the USA?',
+    answer: 'Requirements vary by institution and program but typically include academic transcripts, English language proficiency, standardized test scores (SAT/ACT for undergraduate, GRE/GMAT for graduate programs), a statement of purpose, and letters of recommendation.'
   },
   {
     country: 'Canada',
