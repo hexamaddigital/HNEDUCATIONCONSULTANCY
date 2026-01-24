@@ -327,7 +327,7 @@ export const Contact = () => {
                     <div>
                       <p className="font-semibold text-heading">Address</p>
                       <p className="text-body-text">
-                        301,Poonam Palace,Near Star Hospital NSP(W)-401203
+                        301,Poonam Palace,Near Star Hospital NSP(W)-401203,Maharashtra
                       </p>
                     </div>
                   </div>
