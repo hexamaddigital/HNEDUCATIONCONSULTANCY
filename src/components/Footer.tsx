@@ -64,7 +64,8 @@ export const Footer = () => {
                 <Link to="/work-abroad" className="text-gray-300 hover:text-turquoise text-sm">
                   Work Abroad
                 </Link>
-                <li>
+              </li>
+              <li>
                 <Link to="/blog" className="text-gray-300 hover:text-turquoise text-sm">
                   Blog
                 </Link>
@@ -89,7 +90,6 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
             <ul className="space-y-3">
 
-              {/* Palghar Branch */}
               <li className="flex items-start space-x-2">
                 <MapPin className="w-5 h-5 text-turquoise mt-0.5" />
                 <span className="text-gray-300 text-sm">
@@ -105,7 +105,6 @@ export const Footer = () => {
                 </span>
               </li>
 
-              {/* Nallasopara Branch */}
               <li className="flex items-start space-x-2">
                 <MapPin className="w-5 h-5 text-turquoise mt-0.5" />
                 <span className="text-gray-300 text-sm">
