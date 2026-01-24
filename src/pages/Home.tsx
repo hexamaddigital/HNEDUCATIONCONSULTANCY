@@ -301,7 +301,7 @@ export const Home = () => {
                   required
                 >
                   <option value="">Select Qualification</option>
-                  <option value="High School">High School</option>
+                  
                   <option value="Bachelors">Bachelor's Degree</option>
                   <option value="Masters">Master's Degree</option>
                 </select>
