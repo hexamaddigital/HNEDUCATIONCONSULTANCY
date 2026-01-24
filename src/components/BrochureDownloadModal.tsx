@@ -17,11 +17,25 @@ interface FormData {
 
 /* 🔹 Country → Google Drive brochure links */
 const BROCHURE_LINKS: Record<string, string> = {
-  India: 'https://drive.google.com/india-link',
-  USA: 'https://drive.google.com/usa-link',
-  UK: 'https://drive.google.com/uk-link',
+  USA: 'https://drive.google.com/file/d/1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp/view?usp=drive_link',
+  UK: 'https://drive.google.com/file/d/1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB/view?usp=drive_link',
   Canada: 'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view?usp=drive_link',
-  Australia: 'https://drive.google.com/australia-link',
+  Australia: 'https://drive.google.com/file/d/1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C/view?usp=drive_link',
+  Canada:'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view?usp=drive_link',
+  Germany:'https://drive.google.com/file/d/1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43/view?usp=drive_link',
+  France:'https://drive.google.com/file/d/15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x/view?usp=drive_link',
+  Netherlands:'https://drive.google.com/file/d/1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH/view?usp=drive_link',
+  Switzerland:'https://drive.google.com/file/d/1uvO5m26usMCbr-TuuPs277xKxVo-fZwo/view?usp=drive_link',
+  Sweden:'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view?usp=drive_link',
+  New Zealand:'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view?usp=drive_link',
+  Dubai:'https://drive.google.com/file/d/1D5YTqyPKvbU79KZPabnCduumyq3bdgsP/view?usp=drive_link',
+  Ireland:'https://drive.google.com/file/d/1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP/view?usp=drive_link',
+  Spain:'https://drive.google.com/file/d/1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT/view?usp=drive_link',
+  Italy:'https://drive.google.com/file/d/14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK/view?usp=drive_link',
+  Finland:'https://drive.google.com/file/d/1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH/view?usp=drive_link',
+  Russia:'https://drive.google.com/file/d/199383S743gkY1GAHbng2meZdGjNNrriv/view?usp=drive_link',
+  Malta:'https://drive.google.com/file/d/1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia/view?usp=drive_link'
+  
 };
 
 export const BrochureDownloadModal = ({
