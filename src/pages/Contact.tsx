@@ -267,7 +267,7 @@ export const Contact = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-xl"
             >
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Main Office</h3>
+                <h3 className="text-2xl font-bold mb-6">Palghar Branch</h3>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start space-x-3">
@@ -320,7 +320,7 @@ export const Contact = () => {
               className="bg-white rounded-2xl overflow-hidden shadow-xl"
             >
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-6">Branch Office</h3>
+                <h3 className="text-2xl font-bold mb-6">Nallasopara Branch</h3>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start space-x-3">
@@ -337,7 +337,7 @@ export const Contact = () => {
                     <Phone className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Phone</p>
-                      <p className="text-body-text">+91 9860667552</p>
+                      <p className="text-body-text">+91 7709476192</p>
                     </div>
                   </div>
 
