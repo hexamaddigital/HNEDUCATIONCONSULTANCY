@@ -75,7 +75,7 @@ export const COUNTRIES: CountryData[] = [
       'Stevens Institute of technology',
     ],
     intakes: ['Fall (August/September)', 'Spring (January)', 'Summer (May)'],
-    tuitionFees: '-$55137.73 for 2year masters degree ',
+    tuitionFees: '$20000 per year',
     livingCost: ' $34800 annually',
     roadmap:['Consulting with expert',
              'IELTS/TOEFL/SAT/GMAT Prepration',
