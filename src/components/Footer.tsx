@@ -4,7 +4,7 @@ import { COUNTRY_NAMES } from '../constants/countries';
 
 export const Footer = () => {
   return (
-    <footer className="bg-heading text-white">
+    <footer className="bg-heading text-white font-primary text-sm">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
@@ -17,84 +17,56 @@ export const Footer = () => {
                 className="h-16 w-auto object-contain"
               />
             </div>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-300 mb-4 leading-relaxed">
               Your trusted partner for overseas education with end-to-end support for students aspiring to study abroad.
             </p>
+
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-turquoise transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-turquoise transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-turquoise transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-turquoise transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
+              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="text-gray-300 hover:text-turquoise transition-colors"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
-                <Link to="/about-us" className="text-gray-300 hover:text-turquoise text-sm">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/global-education" className="text-gray-300 hover:text-turquoise text-sm">
-                  Global Education
-                </Link>
-              </li>
-              <li>
-                <Link to="/student-support" className="text-gray-300 hover:text-turquoise text-sm">
-                  Student Support
-                </Link>
-              </li>
-              <li>
-                <Link to="/trending-courses" className="text-gray-300 hover:text-turquoise text-sm">
-                  Trending Courses
-                </Link>
-              </li>
-              <li>
-                <Link to="/loan-assistance" className="text-gray-300 hover:text-turquoise text-sm">
-                  Loan Assistance
-                </Link>
-              </li>
-              <li>
-                <Link to="/work-abroad" className="text-gray-300 hover:text-turquoise text-sm">
-                  Work Abroad
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-gray-300 hover:text-turquoise text-sm">
-                  Blog
-                </Link>
-              </li>
-              
-              <li>
-                <Link to="/faq" className="text-gray-300 hover:text-turquoise text-sm">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-turquoise text-sm">
-                  Contact
-                </Link>
-              </li>
+              {[
+                { to: '/about-us', label: 'About Us' },
+                { to: '/global-education', label: 'Global Education' },
+                { to: '/student-support', label: 'Student Support' },
+                { to: '/trending-courses', label: 'Trending Courses' },
+                { to: '/loan-assistance', label: 'Loan Assistance' },
+                { to: '/work-abroad', label: 'Work Abroad' },
+                { to: '/blog', label: 'Blog' },
+                { to: '/faq', label: 'FAQ' },
+                { to: '/contact', label: 'Contact' },
+              ].map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-gray-300 hover:text-turquoise transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Study Destinations */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Study Destinations</h4>
+            <h4 className="text-lg font-semibold mb-4">Study Destinations</h4>
             <ul className="space-y-2">
               {COUNTRY_NAMES.map((country) => (
-                <li key={country} className="text-gray-300 text-sm">
+                <li key={country} className="text-gray-300">
                   {country}
                 </li>
               ))}
@@ -103,42 +75,42 @@ export const Footer = () => {
 
           {/* Contact Us */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-3">
 
-              <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-turquoise mt-0.5" />
-                <span className="text-gray-300 text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin className="w-5 h-5 text-turquoise mt-1" />
+                <span className="text-gray-300">
                   <strong>Palghar Branch:</strong><br />
-                  Shop No 06, Sunshine Developers, Near Tulshi Pushp, Palghar, Thane – 401404, Maharashtra
+                  Shop No 06, Sunshine Developers, Near Tulshi Pushp, Palghar, Thane – 401404
                 </span>
               </li>
 
-              <li className="flex items-center space-x-2">
+              <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-turquoise" />
-                <span className="text-gray-300 text-sm">
+                <span className="text-gray-300">
                   <strong>Contact:</strong> +91 9860667552
                 </span>
               </li>
 
-              <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-turquoise ." />
-                <span className="text-gray-300 text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin className="w-5 h-5 text-turquoise mt-1" />
+                <span className="text-gray-300">
                   <strong>Nallasopara Branch:</strong><br />
-                  301, Poonam Palace, Near Star Hospital, NSP (W) – 401203, Maharashtra
+                  301, Poonam Palace, Near Star Hospital, NSP (W) – 401203
                 </span>
               </li>
 
-              <li className="flex items-center space-x-2">
+              <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-turquoise" />
-                <span className="text-gray-300 text-sm">
+                <span className="text-gray-300">
                   <strong>Contact:</strong> +91 7709476192
                 </span>
               </li>
 
-              <li className="flex items-center space-x-2">
+              <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-turquoise" />
-                <span className="text-gray-300 text-sm">
+                <span className="text-gray-300">
                   info@hnstudyabroad.com
                 </span>
               </li>
@@ -148,8 +120,8 @@ export const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p className="text-gray-300 text-sm">
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center">
+          <p className="text-gray-300">
             &copy; {new Date().getFullYear()} HN Study Abroad Consultancy Pvt. Ltd. All rights reserved.
           </p>
         </div>
