@@ -1,48 +1,50 @@
-// pages/BlogDetail.tsx
-import { useParams, Link } from 'react-router-dom';
+// pages/Blog.tsx
+import { Link } from 'react-router-dom';
 import { BLOGS } from '../data/blogs';
 
-export const BlogDetail = () => {
-  const { slug } = useParams<{ slug: string }>();
-  const blog = BLOGS.find(b => b.slug === slug);
-
-  if (!blog) {
-    return (
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-2xl font-bold">Blog not found</h1>
-        <Link to="/blog" className="text-turquoise underline">
-          Back to Blog
-        </Link>
-      </div>
-    );
-  }
-
+export const Blog = () => {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      {/* Back */}
-      <Link
-        to="/blog"
-        className="text-turquoise font-semibold hover:underline"
-      >
-        ← Back to Blog
-      </Link>
+    <div className="container mx-auto px-4 py-12 max-w-5xl">
+      {/* Page Heading */}
+      <h1 className="text-4xl font-bold mb-10">Blog</h1>
 
-      {/* Title */}
-      <h1 className="text-4xl font-bold mt-4 mb-2">
-        {blog.title}
-      </h1>
+      {/* Blog List */}
+      <div className="space-y-8">
+        {BLOGS.map(blog => (
+          <Link
+            key={blog.id}
+            to={`/blog/${blog.slug}`}
+            className="block group"
+          >
+            <div className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
+              
+              {/* Title */}
+              <h2 className="text-2xl font-bold text-turquoise group-hover:underline">
+                {blog.title}
+              </h2>
 
-      {/* Meta */}
-      <p className="text-gray-600 mb-8">
-        {blog.category} · {blog.author} ·{' '}
-        {new Date(blog.published_at).toDateString()}
-      </p>
+              {/* Meta */}
+              <p className="text-gray-600 mt-2">
+                {blog.category} |{' '}
+                {new Date(blog.published_at).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </p>
 
-      {/* Content EXACT AS WRITTEN */}
-      <div
-        className="text-body-text text-lg leading-relaxed whitespace-pre-wrap"
-      >
-        {blog.content}
+              {/* Short preview */}
+              <p className="text-body-text mt-4 line-clamp-2">
+                {blog.content.slice(0, 180)}...
+              </p>
+
+              {/* Read more */}
+              <span className="inline-block mt-4 text-turquoise font-semibold">
+                Read article →
+              </span>
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );
