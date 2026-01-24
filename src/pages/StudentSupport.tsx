@@ -12,7 +12,6 @@ import {
   Languages,
   Briefcase,
 } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 
 interface Service {
   icon: React.ElementType;
@@ -190,8 +189,6 @@ export const StudentSupport = () => {
           </div>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };

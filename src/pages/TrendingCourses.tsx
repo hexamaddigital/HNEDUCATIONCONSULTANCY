@@ -6,7 +6,6 @@ import {
   Sparkles, Sprout, Atom, Hammer, Bus, Palette, Beaker, Trophy, Newspaper,
   Stethoscope, Trees, Leaf, Zap, Network, Settings, Factory
 } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 
@@ -220,8 +219,6 @@ export const TrendingCourses = () => {
           </div>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };

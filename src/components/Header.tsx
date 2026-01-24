@@ -12,6 +12,7 @@ const navLinks = [
   { name: 'Loan Assistance', path: '/loan-assistance' },
   { name: 'Work Abroad', path: '/work-abroad' },
   { name: 'Blog', path: '/blog' },
+  { name: 'FAQ', path: '/faq' },
   { name: 'About Us', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ];

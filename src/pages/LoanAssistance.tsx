@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { DollarSign, CheckCircle, FileCheck, TrendingUp, Calculator } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 
 const steps = [
   {
@@ -271,8 +270,6 @@ export const LoanAssistance = () => {
           </motion.div>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };

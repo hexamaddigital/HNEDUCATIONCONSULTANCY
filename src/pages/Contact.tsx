@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { FAQ } from '../components/FAQ';
 import { COUNTRY_NAMES } from '../constants/countries';
 
 interface ContactFormData {
@@ -367,8 +366,6 @@ export const Contact = () => {
           </div>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };

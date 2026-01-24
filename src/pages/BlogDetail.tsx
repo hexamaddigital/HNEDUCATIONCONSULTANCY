@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 import { BLOGS, BlogPost } from '../data/blogs';
 
 export const BlogDetail = () => {
@@ -79,8 +78,6 @@ export const BlogDetail = () => {
           <Link to="/contact" className="inline-block px-8 py-4 bg-turquoise text-white rounded-lg font-semibold hover:bg-turquoise-dark transition">Book Free Counselling</Link>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };

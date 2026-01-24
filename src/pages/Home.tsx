@@ -9,7 +9,6 @@ import {
   CheckCircle,
   Sparkles,
 } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 import { Testimonials } from '../components/Testimonials';
 import { CounterStats } from '../components/CounterStats';
 import { CountryCarousel } from '../components/CountryCarousel';
@@ -409,8 +408,6 @@ export const Home = () => {
       </section>
 
       <Testimonials />
-
-      <FAQ />
     </>
   );
 };

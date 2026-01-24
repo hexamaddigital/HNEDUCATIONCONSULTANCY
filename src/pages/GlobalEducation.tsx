@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, CalendarDays, Building2, X, CheckCircle, Download, Phone, DollarSign, Home, MapPin } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 import { BrochureDownloadModal } from '../components/BrochureDownloadModal';
 import { COUNTRIES, CountryData } from '../constants/countries';
 
@@ -257,8 +256,6 @@ export const GlobalEducation = () => {
           brochureUrl="/brochures/sample-brochure.pdf"
         />
       )}
-
-      <FAQ />
     </>
   );
 };

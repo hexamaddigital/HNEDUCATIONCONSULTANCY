@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Clock, MapPin, TrendingUp, Award, Users } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 
 interface WorkPermit {
   country: string;
@@ -288,8 +287,6 @@ export const WorkAbroad = () => {
           </div>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };

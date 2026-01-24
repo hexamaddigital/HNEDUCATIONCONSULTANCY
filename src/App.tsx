@@ -16,6 +16,7 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { SignIn } from './pages/SignIn';
 import { Dashboard } from './pages/Dashboard';
+import { FAQPage } from './pages/FAQPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQPage />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/dashboard" element={<Dashboard />} />
             </Routes>

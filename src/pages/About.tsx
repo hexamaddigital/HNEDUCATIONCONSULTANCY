@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, CheckCircle, Award, Users, Globe } from 'lucide-react';
-import { FAQ } from '../components/FAQ';
 
 const values = [
   {
@@ -252,8 +251,6 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
           </div>
         </div>
       </section>
-
-      <FAQ />
     </>
   );
 };
