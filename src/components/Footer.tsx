@@ -7,6 +7,8 @@ export const Footer = () => {
     <footer className="bg-heading text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+          {/* Logo & About */}
           <div>
             <div className="mb-4">
               <img
@@ -34,79 +36,99 @@ export const Footer = () => {
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/global-education" className="text-gray-300 hover:text-turquoise transition-colors text-sm">
+                <Link to="/global-education" className="text-gray-300 hover:text-turquoise text-sm">
                   Global Education
                 </Link>
               </li>
               <li>
-                <Link to="/student-support" className="text-gray-300 hover:text-turquoise transition-colors text-sm">
+                <Link to="/student-support" className="text-gray-300 hover:text-turquoise text-sm">
                   Student Support
                 </Link>
               </li>
               <li>
-                <Link to="/trending-courses" className="text-gray-300 hover:text-turquoise transition-colors text-sm">
+                <Link to="/trending-courses" className="text-gray-300 hover:text-turquoise text-sm">
                   Trending Courses
                 </Link>
               </li>
               <li>
-                <Link to="/loan-assistance" className="text-gray-300 hover:text-turquoise transition-colors text-sm">
+                <Link to="/loan-assistance" className="text-gray-300 hover:text-turquoise text-sm">
                   Loan Assistance
                 </Link>
               </li>
               <li>
-                <Link to="/work-abroad" className="text-gray-300 hover:text-turquoise transition-colors text-sm">
+                <Link to="/work-abroad" className="text-gray-300 hover:text-turquoise text-sm">
                   Work Abroad
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Study Destinations */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Study Destinations</h4>
             <ul className="space-y-2">
               {COUNTRY_NAMES.map((country) => (
-                <li key={country} className="text-gray-300 text-sm">{country}</li>
+                <li key={country} className="text-gray-300 text-sm">
+                  {country}
+                </li>
               ))}
             </ul>
           </div>
 
+          {/* Contact Us */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
             <ul className="space-y-3">
+
+              {/* Palghar Branch */}
               <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-turquoise flex-shrink-0 mt-0.5" />Palghar Branch:
+                <MapPin className="w-5 h-5 text-turquoise mt-0.5" />
                 <span className="text-gray-300 text-sm">
-                  Shop No 06 Sunshine Developers Near Tulshi Pusph, Palghar, Thane- 401404, Maharashtra
-                </span>
-                 
-              </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-5 h-5 text-turquoise flex-shrink-0" />Palghar Branch Contact No:
-                <span className="text-gray-300 text-sm">+91 9860667552</span>
-              </li>
-                <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-turquoise flex-shrink-0 mt-0.5" />Nallasopara Branch:
-                <span className="text-gray-300 text-sm">
-                 301,Poonam Palace,Near Star Hospital NSP(W)-401203,Maharashtra
+                  <strong>Palghar Branch:</strong><br />
+                  Shop No 06, Sunshine Developers, Near Tulshi Pushp, Palghar, Thane – 401404, Maharashtra
                 </span>
               </li>
-              </li>
+
               <li className="flex items-center space-x-2">
-                <Phone className="w-5 h-5 text-turquoise flex-shrink-0" />Nallasopara Branch Contact No:
-                <span className="text-gray-300 text-sm">+91 7709476192</span>
+                <Phone className="w-5 h-5 text-turquoise" />
+                <span className="text-gray-300 text-sm">
+                  <strong>Contact:</strong> +91 9860667552
+                </span>
               </li>
+
+              {/* Nallasopara Branch */}
+              <li className="flex items-start space-x-2">
+                <MapPin className="w-5 h-5 text-turquoise mt-0.5" />
+                <span className="text-gray-300 text-sm">
+                  <strong>Nallasopara Branch:</strong><br />
+                  301, Poonam Palace, Near Star Hospital, NSP (W) – 401203, Maharashtra
+                </span>
+              </li>
+
               <li className="flex items-center space-x-2">
-                <Mail className="w-5 h-5 text-turquoise flex-shrink-0" />
-                <span className="text-gray-300 text-sm">info@hnstudyabroad.com</span>
+                <Phone className="w-5 h-5 text-turquoise" />
+                <span className="text-gray-300 text-sm">
+                  <strong>Contact:</strong> +91 7709476192
+                </span>
               </li>
+
+              <li className="flex items-center space-x-2">
+                <Mail className="w-5 h-5 text-turquoise" />
+                <span className="text-gray-300 text-sm">
+                  info@hnstudyabroad.com
+                </span>
+              </li>
+
             </ul>
           </div>
         </div>
 
+        {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-300 text-sm">
             &copy; {new Date().getFullYear()} HN Study Abroad Consultancy Pvt. Ltd. All rights reserved.
