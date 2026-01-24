@@ -45,46 +45,6 @@ export const About = () => {
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto" text-justify>
-              We stand out through our commitment to excellence and student success
-            </p>
-          </motion.div>
-
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-turquoise rounded-full flex items-center justify-center">
-                    <value.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                    <p className="text-body-text">{value.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-ghost-green">
-        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -93,7 +53,7 @@ export const About = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Our Story</h2>
-              <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+              <div className="bg-gradient-to-br from-ghost-green to-white rounded-2xl p-8 md:p-12 shadow-lg">
                 <p className="text-lg text-body-text leading-relaxed mb-6">
                   <strong className="text-heading" text-justify>HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.</strong>
                 </p>
@@ -109,46 +69,6 @@ HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study ab
                 </p>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-white rounded-xl p-8 shadow-lg border-2 border-turquoise/20"
-              >
-                <div className="w-16 h-16 bg-turquoise rounded-full flex items-center justify-center mb-4">
-                  <Eye className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-                <p className="text-body-text leading-relaxed" text-justify>
-                 Our vision is to create global education and career opportunities for students worldwide.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-white rounded-xl p-8 shadow-lg border-2 border-turquoise/20"
-              >
-                <div className="w-16 h-16 bg-turquoise rounded-full flex items-center justify-center mb-4">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-                <p className="text-body-text leading-relaxed" text-justify>
-                  Our mission is simple — transparent, ethical, and experience-driven guidance.
-                </p>
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>
@@ -227,6 +147,86 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in counseling s
       </section>
 
       <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white rounded-xl p-8 shadow-lg border-2 border-turquoise/20"
+              >
+                <div className="w-16 h-16 bg-turquoise rounded-full flex items-center justify-center mb-4">
+                  <Eye className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+                <p className="text-body-text leading-relaxed" text-justify>
+                 Our vision is to create global education and career opportunities for students worldwide.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white rounded-xl p-8 shadow-lg border-2 border-turquoise/20"
+              >
+                <div className="w-16 h-16 bg-turquoise rounded-full flex items-center justify-center mb-4">
+                  <Target className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+                <p className="text-body-text leading-relaxed" text-justify>
+                  Our mission is simple — transparent, ethical, and experience-driven guidance.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-ghost-green">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
+            <p className="text-lg text-body-text max-w-2xl mx-auto" text-justify>
+              We stand out through our commitment to excellence and student success
+            </p>
+          </motion.div>
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-turquoise rounded-full flex items-center justify-center">
+                    <value.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                    <p className="text-body-text">{value.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-ghost-green">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
