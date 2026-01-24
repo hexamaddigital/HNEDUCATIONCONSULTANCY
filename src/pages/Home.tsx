@@ -173,7 +173,7 @@ export const Home = () => {
               },
               {
                 title: 'Visa Success',
-                description: '95% visa success rate with meticulous documentation and interview preparation',
+                description: '100% visa success rate with meticulous documentation and interview preparation',
                 icon: '✈️',
               },
               {
