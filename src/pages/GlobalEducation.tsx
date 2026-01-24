@@ -223,7 +223,7 @@ export const GlobalEducation = () => {
                     href="/contact"
                     className="flex items-center justify-center space-x-2 px-6 py-4 bg-white border-2 border-turquoise text-turquoise rounded-xl font-semibold hover:bg-turquoise hover:text-white transition-all duration-300 transform hover:scale-105"
                   >
-                    <Phone className="w-5 h-5" />
+                    <Phone className="w-5 h-5" center/>
                     <span>Book Free Counselling</span>
                   </a>
                 </div>
