@@ -79,7 +79,8 @@ export const Footer = () => {
             <ul className="space-y-3">
 
               <li className="flex items-start gap-2">
-                <MapPin className="w-5 h-5 text-turquoise mt-1" />
+                <MapPin className="w-6 h-6 text-turquoise mt-1 flex-shrink-0" />
+
                 <span className="text-gray-300">
                   <strong>Palghar Branch:</strong><br />
                   Shop No 06, Sunshine Developers, Near Tulshi Pushp, Palghar, Thane – 401404
@@ -94,7 +95,8 @@ export const Footer = () => {
               </li>
 
               <li className="flex items-start gap-2">
-                <MapPin className="w-5 h-5 text-turquoise mt-1" />
+               <MapPin className="w-6 h-6 text-turquoise mt-1 flex-shrink-0" />
+
                 <span className="text-gray-300">
                   <strong>Nallasopara Branch:</strong><br />
                   301, Poonam Palace, Near Star Hospital, NSP (W) – 401203
