@@ -266,6 +266,10 @@ export const Home = () => {
                   <option value="Finland">Finland</option>
                   <option value="Russia">Russia</option>
                   <option value="Malta">Malta</option>
+                  <option value="Malta">Dubai</option>
+                  <option value="Malta">New Zealand</option>
+                  <option value="Malta">Ireland</option>
+   
                 </select>
               </div>
 
