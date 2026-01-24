@@ -85,7 +85,7 @@ const BLOGS: BlogPost[] = [
   }
 ];
 
-const BlogDetail = () => {
+export const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const [blog, setBlog] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -214,5 +214,3 @@ const BlogDetail = () => {
     </>
   );
 };
-
-export default BlogDetail;
