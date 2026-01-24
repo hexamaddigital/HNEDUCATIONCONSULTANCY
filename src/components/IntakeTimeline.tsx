@@ -26,7 +26,7 @@ interface TimelineStep {
 }
 
 interface IntakeTimelineProps {
-  country: 'UK' | 'USA' | 'Canada' | 'Australia' | 'Germany' | 'France' | 'Netherlands' | 'Switzerland' | 'Sweden' | 'Spain' | 'Italy' | 'Finland' | 'Russia' | 'Malta' | 'Ireland' | 'New Zealand' | 'UAE' | 'Dubai' | 'Singapore';
+  country: 'UK' | 'USA' | 'Canada' | 'Australia' | 'Germany' | 'France' | 'Netherlands' | 'Switzerland' | 'Sweden' | 'Spain' | 'Italy' | 'Finland' | 'Russia' | 'Malta' | 'Ireland' | 'New Zealand' | 'Dubai';
   intake: string;
 }
 
@@ -219,17 +219,6 @@ const timelineData = {
       { icon: Plane, title: 'Fly to New Zealand', period: '', color: 'bg-green-100 border-green-400' },
     ],
   },
-  UAE: {
-    September: [
-      { icon: BookOpen, title: 'IELTS/TOEFL/PTE', period: '', color: 'bg-orange-100 border-orange-300' },
-      { icon: Search, title: 'Choose University and Course', period: '', color: 'bg-blue-100 border-blue-300' },
-      { icon: FileCheck, title: 'Apply to University', period: '', color: 'bg-purple-100 border-purple-300' },
-      { icon: Award, title: 'Receive Offer Letter', period: '', color: 'bg-yellow-100 border-yellow-300' },
-      { icon: DollarSign, title: 'Arrange Finances and Visa Documents', period: '', color: 'bg-green-100 border-green-300' },
-      { icon: Building2, title: 'Apply for Visa', period: '', color: 'bg-green-100 border-green-400' },
-      { icon: Plane, title: 'Fly to UAE', period: '', color: 'bg-green-100 border-green-400' },
-    ],
-  },
   Dubai: {
     September: [
       { icon: BookOpen, title: 'IELTS/TOEFL/PTE', period: '', color: 'bg-orange-100 border-orange-300' },
@@ -239,17 +228,6 @@ const timelineData = {
       { icon: DollarSign, title: 'Arrange Finances and Visa Documents', period: '', color: 'bg-green-100 border-green-300' },
       { icon: Building2, title: 'Apply for Visa', period: '', color: 'bg-green-100 border-green-400' },
       { icon: Plane, title: 'Fly to Dubai', period: '', color: 'bg-green-100 border-green-400' },
-    ],
-  },
-  Singapore: {
-    August: [
-      { icon: BookOpen, title: 'IELTS/TOEFL/PTE', period: '', color: 'bg-orange-100 border-orange-300' },
-      { icon: Search, title: 'Choose University and Course', period: '', color: 'bg-blue-100 border-blue-300' },
-      { icon: FileCheck, title: 'Apply to University', period: '', color: 'bg-purple-100 border-purple-300' },
-      { icon: Award, title: 'Receive Offer Letter', period: '', color: 'bg-yellow-100 border-yellow-300' },
-      { icon: DollarSign, title: 'Arrange Finances and Visa Documents', period: '', color: 'bg-green-100 border-green-300' },
-      { icon: Building2, title: 'Apply for Visa', period: '', color: 'bg-green-100 border-green-400' },
-      { icon: Plane, title: 'Fly to Singapore', period: '', color: 'bg-green-100 border-green-400' },
     ],
   },
 };
