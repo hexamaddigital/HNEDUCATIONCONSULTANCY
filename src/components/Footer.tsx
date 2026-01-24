@@ -78,14 +78,26 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-start space-x-2">
-                <MapPin className="w-5 h-5 text-turquoise flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-turquoise flex-shrink-0 mt-0.5" />Palghar Branch:
                 <span className="text-gray-300 text-sm">
-                  123 Education Street, Study City, SC 12345
+                  Shop No 06 Sunshine Developers Near Tulshi Pusph, Palghar, Thane- 401404, Maharashtra
                 </span>
+                 
               </li>
               <li className="flex items-center space-x-2">
-                <Phone className="w-5 h-5 text-turquoise flex-shrink-0" />
+                <Phone className="w-5 h-5 text-turquoise flex-shrink-0" />Palghar Branch Contact No:
                 <span className="text-gray-300 text-sm">+91 9860667552</span>
+              </li>
+                <li className="flex items-start space-x-2">
+                <MapPin className="w-5 h-5 text-turquoise flex-shrink-0 mt-0.5" />Nallasopara Branch:
+                <span className="text-gray-300 text-sm">
+                 301,Poonam Palace,Near Star Hospital NSP(W)-401203,Maharashtra
+                </span>
+              </li>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Phone className="w-5 h-5 text-turquoise flex-shrink-0" />Nallasopara Branch Contact No:
+                <span className="text-gray-300 text-sm">+91 7709476192</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-5 h-5 text-turquoise flex-shrink-0" />
