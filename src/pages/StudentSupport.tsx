@@ -96,18 +96,22 @@ export const StudentSupport = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-heading whitespace-nowrap">
-              Comprehensive <span className="bg-gradient-to-r from-turquoise to-turquoise-dark bg-clip-text text-transparent">Student Support</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-body-text leading-relaxed">
-              End-to-end guidance from initial counselling to your departure and beyond
-            </p>
-          </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="text-center max-w-4xl mx-auto"
+>
+  <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-heading text-center leading-snug">
+    Comprehensive{' '}
+    <span className="bg-gradient-to-r from-turquoise to-turquoise-dark bg-clip-text text-transparent">
+      Student Support
+    </span>
+  </h1>
+
+  <p className="text-base sm:text-lg md:text-2xl text-body-text leading-relaxed text-justify md:text-center">
+    End-to-end guidance from initial counselling to your departure and beyond
+  </p>
+</motion.div>
         </div>
       </section>
 
