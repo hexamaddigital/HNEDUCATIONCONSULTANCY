@@ -24,7 +24,9 @@ function App() {
       <Router>
         <div className="min-h-screen flex flex-col">
           <Header />
-          <main className="flex-grow">
+
+          {/* 👇 THIS LINE FIXES THE OVERLAP ISSUE */}
+          <main className="flex-grow pt-20">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/global-education" element={<GlobalEducation />} />
@@ -41,6 +43,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
           </main>
+
           <Footer />
           <WhatsAppButton />
           <CTAModal />
