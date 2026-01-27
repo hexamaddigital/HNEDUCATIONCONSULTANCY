@@ -75,15 +75,27 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
 👉 Ready to explore which country fits your career goals and long-term plans? Comment below or connect with our study-abroad experts for personalised guidance!
 `
   },
- {
+{
   id: '2',
   slug: 'cost-of-studying-abroad',
   title: 'Cost of Studying Abroad: Tuition & Living Costs',
   category: 'Finance',
   author: 'Global Education',
   published_at: '2026-01-22',
-  content: 'COST_TABLE'
-},
+  content: '',
+  hasCostTable: true,
+  notes: [
+    'Figures are approximate annual costs',
+    'Costs vary by city and university',
+    'Visa and insurance not included'
+  ],
+  tips: [
+    'Choose public universities in Europe',
+    'Work part-time during studies',
+    'Apply for scholarships early'
+  ]
+}
+,
   {
     id: '3',
     slug: 'sop-writing-tips-2026',
