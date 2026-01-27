@@ -253,7 +253,6 @@ export const Dashboard = () => {
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
                     >
                       <option value="">Select Qualification</option>
-                      <option value="High School">High School</option>
                       <option value="Bachelors">Bachelor's Degree</option>
                       <option value="Masters">Master's Degree</option>
                     </select>
