@@ -228,18 +228,19 @@ export const Dashboard = () => {
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="Australia">Australia</option>
-                      <option value="Germany">Dubai</option>
-                      <option value="Germany">France</option>
-                      <option value="Germany">Italy</option>
-                      <option value="Germany">Netherlands</option>
-                      <option value="Germany">Switzerland</option>
-                      <option value="Germany">New Zealand</option>
-                      <option value="Germany">Ireland</option>
-                      <option value="Germany">Sweden</option>
-                      <option value="Germany">Finland</option>
-                      <option value="Germany">Spain</option>
-                      <option value="Germany">Malta</option>
-                      <option value="Germany">Russia</option>
+                       <option value="Germany"Germany</option>
+                      <option value=">Dubai">Dubai</option>
+                      <option value="France">France</option>
+                      <option value="Italy">Italy</option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="Switzerland">Switzerland</option>
+                      <option value="New Zealand">New Zealand</option>
+                      <option value="Ireland">Ireland</option>
+                      <option value="Sweden">Sweden</option>
+                      <option value="Finland">Finland</option>
+                      <option value="Spain">Spain</option>
+                      <option value="Malta">Malta</option>
+                      <option value="Russia">Russia</option>
                     </select>
                   </div>
 
@@ -314,10 +315,23 @@ export const Dashboard = () => {
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
                       >
                         <option value="">Select Country</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Australia">Australia</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="United States">United States</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                       <option value="Germany"Germany</option>
+                      <option value=">Dubai">Dubai</option>
+                      <option value="France">France</option>
+                      <option value="Italy">Italy</option>
+                      <option value="Netherlands">Netherlands</option>
+                      <option value="Switzerland">Switzerland</option>
+                      <option value="New Zealand">New Zealand</option>
+                      <option value="Ireland">Ireland</option>
+                      <option value="Sweden">Sweden</option>
+                      <option value="Finland">Finland</option>
+                      <option value="Spain">Spain</option>
+                      <option value="Malta">Malta</option>
+                      <option value="Russia">Russia</option>
                       </select>
                       {applicationErrors.country && (
                         <p className="text-red-500 text-sm mt-1">
