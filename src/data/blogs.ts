@@ -111,7 +111,7 @@ When budgeting for your study abroad experience, consider both tuition fees and 
 
 Living costs also vary greatly depending on the city and country. Metropolitan areas tend to be more expensive, while smaller cities offer more affordable living options. Below is a comprehensive breakdown of estimated annual costs for popular study destinations.
 `
- }
+ },
 content2:`
 🔎 Important Notes:
 • All figures are approximate annual costs in USD
