@@ -110,7 +110,8 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
 When budgeting for your study abroad experience, consider both tuition fees and living expenses. Some countries like Germany and France offer very affordable or even free tuition at public universities, while others like the USA and UK can be significantly more expensive.
 
 Living costs also vary greatly depending on the city and country. Metropolitan areas tend to be more expensive, while smaller cities offer more affordable living options. Below is a comprehensive breakdown of estimated annual costs for popular study destinations.
-
+`
+content2:`
 🔎 Important Notes:
 • All figures are approximate annual costs in USD
 • Costs vary significantly by city, university, and lifestyle choices
@@ -120,8 +121,7 @@ Living costs also vary greatly depending on the city and country. Metropolitan a
 🧠 Quick Insights:
 • Lowest Tuition: Germany, France, Italy
 • Highest Living Cost: Switzerland, Australia, USA
-• Best Balance: Canada, Ireland, Netherlands
-`
+• Best Balance: Canada, Ireland, Netherlands`
 },
   {
     id: '3',
