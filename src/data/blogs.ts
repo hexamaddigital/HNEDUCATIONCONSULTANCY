@@ -75,15 +75,15 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
 👉 Ready to explore which country fits your career goals and long-term plans? Comment below or connect with our study-abroad experts for personalised guidance!
 `
   },
-  {
-    id: '2',
-    slug: 'cost-of-studying-abroad',
-    title: 'Cost of Studying Abroad: Tuition & Living Costs',
-    category: 'Finance',
-    author: 'Global Education',
-    published_at: '2026-01-22',
-  
-🎓 Cost of Studying Abroad: Tuition + Living (Approx. Per Year)
+{
+  id: '2',
+  slug: 'cost-of-studying-abroad',
+  title: 'Cost of Studying Abroad: Tuition & Living Costs',
+  category: 'Finance',
+  author: 'Global Education',
+  published_at: '2026-01-22',
+  content: `
+🎓 Cost of Studying Abroad: Tuition & Living (Approx. Per Year)
 
 <h2>🎓 Cost of Studying Abroad: Tuition & Living Costs (Approx. Per Year)</h2>
 
@@ -123,68 +123,39 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
         <td style="border:1px solid #ddd; padding:10px;">$27,000 – $50,000</td>
       </tr>
       <tr>
-        <td style="border:1px solid #ddd; padding:10px;">New Zealand</td>
-        <td style="border:1px solid #ddd; padding:10px;">$14,000 – $30,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$10,000 – $18,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$24,000 – $48,000</td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ddd; padding:10px;">Ireland</td>
-        <td style="border:1px solid #ddd; padding:10px;">$15,000 – $25,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$12,000 – $18,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$27,000 – $43,000</td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ddd; padding:10px;">Italy</td>
-        <td style="border:1px solid #ddd; padding:10px;">$2,000 – $5,500</td>
-        <td style="border:1px solid #ddd; padding:10px;">$9,000 – $13,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$11,000 – $18,500</td>
-      </tr>
-      <tr>
         <td style="border:1px solid #ddd; padding:10px;">Germany</td>
         <td style="border:1px solid #ddd; padding:10px;">$0 – $3,000</td>
         <td style="border:1px solid #ddd; padding:10px;">$8,000 – $12,000</td>
         <td style="border:1px solid #ddd; padding:10px;">$8,000 – $15,000</td>
       </tr>
-      <tr>
-        <td style="border:1px solid #ddd; padding:10px;">France</td>
-        <td style="border:1px solid #ddd; padding:10px;">$2,000 – $5,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$10,000 – $14,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$12,000 – $19,000</td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ddd; padding:10px;">Switzerland</td>
-        <td style="border:1px solid #ddd; padding:10px;">$800 – $1,200</td>
-        <td style="border:1px solid #ddd; padding:10px;">$22,000 – $24,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$23,000 – $25,000</td>
-      </tr>
-      <tr>
-        <td style="border:1px solid #ddd; padding:10px;">Netherlands</td>
-        <td style="border:1px solid #ddd; padding:10px;">$8,000 – $20,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$11,000 – $15,000</td>
-        <td style="border:1px solid #ddd; padding:10px;">$19,000 – $35,000</td>
-      </tr>
     </tbody>
   </table>
 </div>
 
-  content: `🔎 Notes on the Table
-• *Figures are approximate annual costs combining tuition + living expenses.
-• Costs vary depending on city, course, university, lifestyle, exchange rates, and scholarships.
-• Figures do not include visa fees, travel, insurance, study materials, or personal expenses.
+<h3>🔎 Notes on the Table</h3>
+<ul>
+  <li>Figures are approximate annual costs combining tuition and living expenses.</li>
+  <li>Costs vary by city, course, university, lifestyle, exchange rates, and scholarships.</li>
+  <li>Does not include visa fees, travel, insurance, or personal expenses.</li>
+</ul>
 
-🧠 Quick Insights
-✅ Most Affordable Tuition: Germany, France, Italy
-✅ Highest Living Costs: Switzerland, Australia, USA, UK
-✅ Balanced Overall Cost: Canada, Ireland, New Zealand, Netherlands
+<h3>🧠 Quick Insights</h3>
+<ul>
+  <li><strong>Most Affordable Tuition:</strong> Germany, France, Italy</li>
+  <li><strong>Highest Living Costs:</strong> Switzerland, Australia, USA, UK</li>
+  <li><strong>Balanced Overall Cost:</strong> Canada, Ireland, New Zealand, Netherlands</li>
+</ul>
 
-📌 Tips to Save on Study Abroad Costs
-• 🎓 Scholarships: University or government support.
-• 🍽 Part-time work: Offsets living costs.
-• 🏠 Shared living: Reduces accommodation costs.
-• ✈️ Travel off-peak: Save on flights.
+<h3>📌 Tips to Save on Study Abroad Costs</h3>
+<ul>
+  <li>🎓 Apply for scholarships</li>
+  <li>🍽 Work part-time</li>
+  <li>🏠 Choose shared accommodation</li>
+  <li>✈️ Book flights early</li>
+</ul>
 `
-  },
+}
+
   {
     id: '3',
     slug: 'sop-writing-tips-2026',
