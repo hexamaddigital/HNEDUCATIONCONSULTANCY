@@ -228,7 +228,18 @@ export const Dashboard = () => {
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="Australia">Australia</option>
-                      <option value="Germany">Germany</option>
+                      <option value="Germany">Dubai</option>
+                      <option value="Germany">France</option>
+                      <option value="Germany">Italy</option>
+                      <option value="Germany">Netherlands</option>
+                      <option value="Germany">Switzerland</option>
+                      <option value="Germany">New Zealand</option>
+                      <option value="Germany">Ireland</option>
+                      <option value="Germany">Sweden</option>
+                      <option value="Germany">Finland</option>
+                      <option value="Germany">Spain</option>
+                      <option value="Germany">Malta</option>
+                      <option value="Germany">Russia</option>
                     </select>
                   </div>
 
