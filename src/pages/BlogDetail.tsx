@@ -215,3 +215,67 @@ export const BlogDetail = () => {
     </>
   );
 };
+// src/pages/BlogDetails.tsx
+import { useParams } from 'react-router-dom';
+import { BLOGS, COST_ESTIMATION } from '../data/blogs';
+
+export const BlogDetails = () => {
+  const { slug } = useParams();
+  const blog = BLOGS.find(b => b.slug === slug);
+
+  if (!blog) {
+    return <div className="pt-32 text-center">Blog not found</div>;
+  }
+
+  return (
+    <div className="container mx-auto px-4 pt-32 pb-16 max-w-5xl">
+      <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
+
+      <div className="text-sm text-gray-500 mb-8">
+        {blog.category} • {blog.author} • {blog.published_at}
+      </div>
+
+      {/* BLOG 2: COST TABLE */}
+      {blog.content === 'COST_TABLE' ? (
+        <>
+          <h2 className="text-2xl font-semibold mb-6">
+            🎓 Cost of Studying Abroad (Approx. Per Year)
+          </h2>
+
+          <div className="overflow-x-auto">
+            <table className="w-full border border-gray-300 rounded-lg">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="border px-4 py-3 text-left">Country</th>
+                  <th className="border px-4 py-3 text-left">Tuition (USD/Year)</th>
+                  <th className="border px-4 py-3 text-left">Living Cost (USD/Year)</th>
+                  <th className="border px-4 py-3 text-left">Total Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                {COST_ESTIMATION.map((row, index) => (
+                  <tr key={index} className="hover:bg-gray-50">
+                    <td className="border px-4 py-3">{row.country}</td>
+                    <td className="border px-4 py-3">{row.tuition}</td>
+                    <td className="border px-4 py-3">{row.living}</td>
+                    <td className="border px-4 py-3 font-semibold">{row.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-8 text-gray-700 space-y-2">
+            <p>• Figures are approximate annual costs.</p>
+            <p>• Costs vary by city, university, and lifestyle.</p>
+            <p>• Visa, insurance, travel, and personal expenses not included.</p>
+          </div>
+        </>
+      ) : (
+        <div className="prose max-w-none whitespace-pre-line">
+          {blog.content}
+        </div>
+      )}
+    </div>
+  );
+};
