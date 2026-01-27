@@ -173,3 +173,103 @@ Copying online SOP samples
 `
   }
 ];
+// src/data/blogs.ts
+
+export interface BlogPost {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  author: string;
+  published_at: string;
+  content: string;
+  hasCostTable?: boolean;
+  notes?: string[];
+  insights?: string[];
+  tips?: string[];
+}
+
+export interface CostEstimation {
+  country: string;
+  tuition: string;
+  living: string;
+  total: string;
+}
+
+/* ================= COST TABLE DATA ================= */
+
+export const COST_ESTIMATION: CostEstimation[] = [
+  { country: 'UK', tuition: '$15,000 – $35,000', living: '$10,000 – $18,000', total: '$25,000 – $53,000' },
+  { country: 'USA', tuition: '$20,000 – $50,000', living: '$12,000 – $20,000', total: '$32,000 – $70,000' },
+  { country: 'Canada', tuition: '$15,000 – $30,000', living: '$10,000 – $15,000', total: '$25,000 – $45,000' },
+  { country: 'Australia', tuition: '$13,000 – $28,000', living: '$14,000 – $22,000', total: '$27,000 – $50,000' },
+  { country: 'New Zealand', tuition: '$14,000 – $30,000', living: '$10,000 – $18,000', total: '$24,000 – $48,000' },
+  { country: 'Ireland', tuition: '$15,000 – $25,000', living: '$12,000 – $18,000', total: '$27,000 – $43,000' },
+  { country: 'Dubai (UAE)', tuition: '$8,000 – $20,000*', living: '$8,000 – $12,000*', total: '$16,000 – $32,000' },
+  { country: 'Italy', tuition: '$2,000 – $5,500', living: '$9,000 – $13,000', total: '$11,000 – $18,500' },
+  { country: 'Germany', tuition: '$0 – $3,000', living: '$8,000 – $12,000', total: '$8,000 – $15,000' },
+  { country: 'France', tuition: '$2,000 – $5,000', living: '$10,000 – $14,000', total: '$12,000 – $19,000' },
+  { country: 'Russia', tuition: '$3,000 – $8,000†', living: '$6,000 – $9,000†', total: '$9,000 – $17,000' },
+  { country: 'Spain', tuition: '$3,000 – $10,000†', living: '$9,000 – $14,000†', total: '$12,000 – $24,000' },
+  { country: 'Sweden', tuition: '$8,000 – $20,000', living: '$10,000 – $14,000', total: '$18,000 – $34,000' },
+  { country: 'Switzerland', tuition: '$800 – $1,200', living: '$22,000 – $24,000', total: '$23,000 – $25,000' },
+  { country: 'Malta', tuition: '$8,000 – $15,000§', living: '$8,000 – $12,000§', total: '$16,000 – $27,000' },
+  { country: 'Finland', tuition: '$8,000 – $15,000§', living: '$9,000 – $13,000§', total: '$17,000 – $28,000' },
+  { country: 'Netherlands', tuition: '$8,000 – $20,000', living: '$11,000 – $15,000', total: '$19,000 – $35,000' },
+];
+
+/* ================= BLOG DATA ================= */
+
+export const BLOGS: BlogPost[] = [
+  {
+    id: '1',
+    slug: 'best-countries-for-pr-after-study',
+    title: 'Best Countries for Permanent Residency (PR) After Studying Abroad',
+    category: 'Study Abroad',
+    author: 'Global Education Team',
+    published_at: '2026-01-20',
+    content: 'PR blog content here...',
+  },
+
+  {
+    id: '2',
+    slug: 'cost-of-studying-abroad',
+    title: 'Cost of Studying Abroad: Tuition + Living',
+    category: 'Finance',
+    author: 'Global Education',
+    published_at: '2026-01-22',
+    hasCostTable: true,
+
+    content: `Understanding the financial commitment of studying abroad is crucial for planning your international education journey. Costs vary significantly depending on country, university, city, and lifestyle.`,
+
+    notes: [
+      'Figures are approximate annual costs combining tuition and living expenses.',
+      'Dubai (UAE) averages are rough estimates and vary widely by city and institution.',
+      'Russia & Spain ranges are estimated from European cost data.',
+      'Visa fees, travel, insurance, and personal expenses are not included.',
+    ],
+
+    insights: [
+      'Most Affordable Tuition: Germany, France, Italy',
+      'Highest Living Costs: Switzerland, Australia, USA, UK',
+      'Best Balance Overall: Canada, Ireland, New Zealand, Netherlands',
+    ],
+
+    tips: [
+      'Scholarships from governments and universities can reduce tuition costs',
+      'Part-time work helps offset living expenses',
+      'Shared accommodation reduces rent significantly',
+      'Booking flights early saves travel costs',
+    ],
+  },
+
+  {
+    id: '3',
+    slug: 'sop-writing-tips-2026',
+    title: 'SOP Writing Tips for Study Abroad 2026',
+    category: 'Admissions',
+    author: 'Admissions Experts',
+    published_at: '2026-01-24',
+    content: 'SOP content here...',
+  },
+];
