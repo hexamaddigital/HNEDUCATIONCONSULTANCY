@@ -83,6 +83,7 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
     author: 'Global Education',
     published_at: '2026-01-22',
   
+🎓 Cost of Studying Abroad: Tuition + Living (Approx. Per Year)
 
 <h2>🎓 Cost of Studying Abroad: Tuition & Living Costs (Approx. Per Year)</h2>
 
@@ -167,7 +168,7 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
   </table>
 </div>
 
-🔎 Notes on the Table
+  content: `🔎 Notes on the Table
 • *Figures are approximate annual costs combining tuition + living expenses.
 • Costs vary depending on city, course, university, lifestyle, exchange rates, and scholarships.
 • Figures do not include visa fees, travel, insurance, study materials, or personal expenses.
