@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
-import { BLOGS, BlogPost } from '../data/blogs';
+import { BLOGS, BlogPost, COST_ESTIMATION } from '../data/blogs';
 
 export const BlogDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -67,6 +67,34 @@ export const BlogDetail = () => {
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="text-body-text leading-relaxed space-y-6 whitespace-pre-wrap">{blog.content}</div>
+
+            {blog.hasCostTable && (
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold mb-6">Cost of Studying Abroad (Approx. Per Year)</h2>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300 rounded-lg">
+                    <thead className="bg-gray-100">
+                      <tr>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Country</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Estimated Tuition (USD/Year)</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Estimated Living Costs (USD/Year)</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Total Estimated Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {COST_ESTIMATION.map((row, index) => (
+                        <tr key={index} className="hover:bg-gray-50 transition">
+                          <td className="border border-gray-300 px-4 py-3">{row.country}</td>
+                          <td className="border border-gray-300 px-4 py-3">{row.tuition}</td>
+                          <td className="border border-gray-300 px-4 py-3">{row.living}</td>
+                          <td className="border border-gray-300 px-4 py-3 font-semibold">{row.total}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
