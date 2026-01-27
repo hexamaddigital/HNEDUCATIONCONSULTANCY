@@ -193,6 +193,14 @@ export const BlogDetail = () => {
           </motion.div>
         </div>
       </section>
+      {/* CTA SECTION */}
+      <section className="py-12 bg-ghost-green"> 
+        <div className="container mx-auto px-4 text-center max-w-4xl"> 
+          <h2 className="text-3xl font-bold mb-4"> Ready to Start Your Journey? 
+          </h2>
+          <p className="text-xl mb-8"> Get personalized guidance from our expert counsellors </p> 
+          <Link to="/contact" className="inline-block px-8 py-4 bg-turquoise text-white rounded-lg font-hover:bg-turquoise-dark transition" > Book Free Counselling </Link> 
+        </div> </section> </> ); };
     </>
   );
 };
