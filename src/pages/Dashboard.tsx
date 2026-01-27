@@ -228,7 +228,7 @@ export const Dashboard = () => {
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="Australia">Australia</option>
-                       <option value="Germany"Germany</option>
+                       <option value="Germany">Germany</option>
                       <option value=">Dubai">Dubai</option>
                       <option value="France">France</option>
                       <option value="Italy">Italy</option>
@@ -319,7 +319,7 @@ export const Dashboard = () => {
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="Australia">Australia</option>
-                       <option value="Germany"Germany</option>
+                       <option value="Germany">Germany</option>
                       <option value=">Dubai">Dubai</option>
                       <option value="France">France</option>
                       <option value="Italy">Italy</option>
