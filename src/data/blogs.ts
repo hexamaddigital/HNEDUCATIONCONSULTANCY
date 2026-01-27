@@ -154,7 +154,7 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
   <li>✈️ Book flights early</li>
 </ul>
 `
-}
+},
 
   {
     id: '3',
