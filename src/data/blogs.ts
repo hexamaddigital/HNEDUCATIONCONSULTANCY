@@ -86,9 +86,13 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
   hasCostTable: true,
   notes: [
    ` •	Figures are approximate annual costs combining tuition + living expenses, useful for general planning. 
+   
 •	Dubai (UAE) averages are rough estimates based on UAE study cost breakdown trends and living costs — tuition & living vary widely by city and institution.
+
 •	Russia & Spain ranges are estimated from a mix of European cost data and student expense insights.
+
 •	Costs vary significantly depending on city, course, university, lifestyle, exchange rates, and scholarships — so always check official university and government pages before budgeting.
+
 •	These figures do not include visa fees, travel, health insurance, study materials, or personal expenses, which can add several thousand dollars to your annual budget.
 `
   ],
