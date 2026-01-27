@@ -141,10 +141,10 @@ export const About = () => {
                 <h3 className="text-2xl font-bold mb-2 text-justify">Founder Name 2</h3>
                 <p className="text-turquoise font-semibold mb-4 text-justify">Co-Founder & Director</p>
                 <p className="text-body-text leading-relaxed mb-4 text-justify">
-                  A visionary leader with extensive knowledge of global education trends, our second founder brings strategic direction and innovation to our consultancy. Their dedication to student success has shaped our ethical and transparent approach.
+                  I am a pure Mumbaikar who studied in London and explored different parts of the world. As a tech enthusiast and serial entrepreneur, I am passionate about making all the districts digital and secure.A visionary leader with extensive knowledge of global education trends, our second founder brings strategic direction and innovation to our consultancy. Their dedication to student success has shaped our ethical and transparent approach.
                 </p>
                 <p className="text-body-text leading-relaxed text-justify">
-                  With a strong background in educational counselling and business development, they ensure every student receives personalized guidance and support throughout their study abroad journey.
+                  I completed my engineering in Computer Science from Mumbai University and pursued a Master’s in Digital Marketing from Roehampton University in London. My focus is on building secure and digitalized solutions for the public sector, particularly for small businesses.
                 </p>
               </div>
             </motion.div>
