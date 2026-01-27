@@ -336,7 +336,7 @@ export const Contact = () => {
                     <Phone className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Phone</p>
-                      <p className="text-body-text">+91 7709476192</p>
+                      <p className="text-body-text">+91 8087507773</p>
                     </div>
                   </div>
 
