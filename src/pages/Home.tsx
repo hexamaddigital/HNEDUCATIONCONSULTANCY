@@ -123,7 +123,7 @@ export const Home = () => {
                 Explore Global Destinations
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                {['UK', 'USA', 'Canada', 'Australia', 'Germany', 'France', 'Netherlands', 'Switzerland', 'Sweden', 'Spain', 'Italy', 'Finland', 'Russia', 'Malta'].map((country, index) => (
+                {['UK', 'USA', 'Canada', 'Australia', 'Germany', 'France', 'Netherlands', 'Switzerland', 'Sweden', 'Spain', 'Italy', 'Finland', 'Russia', 'Malta','Dubai','New Zealand','Ireland','Dubai (UAE)'].map((country, index) => (
                   <motion.div
                     key={country}
                     initial={{ opacity: 0, y: 20 }}
