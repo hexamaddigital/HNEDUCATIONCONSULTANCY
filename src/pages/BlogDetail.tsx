@@ -105,6 +105,83 @@ export const BlogDetail = () => {
                     </tbody>
                   </table>
                 </div>
+                {/* NOTES */}
+<div className="mt-10 space-y-8 text-body-text">
+
+  {/* Notes Section */}
+  <div>
+    <h3 className="text-xl font-semibold mb-3">🔎 Notes on the Table</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>
+        Figures are approximate annual costs combining tuition + living expenses,
+        useful for general planning.
+      </li>
+      <li>
+        Dubai (UAE) averages are rough estimates based on UAE study cost breakdown
+        trends and living costs — tuition & living vary widely by city and institution.
+      </li>
+      <li>
+        Russia & Spain ranges are estimated from a mix of European cost data and
+        student expense insights.
+      </li>
+      <li>
+        Costs vary significantly depending on city, course, university, lifestyle,
+        exchange rates, and scholarships — always check official university and
+        government pages before budgeting.
+      </li>
+      <li>
+        These figures do not include visa fees, travel, health insurance, study
+        materials, or personal expenses, which can add several thousand dollars
+        to your annual budget.
+      </li>
+    </ul>
+  </div>
+
+  {/* Insights Section */}
+  <div>
+    <h3 className="text-xl font-semibold mb-3">🧠 Quick Insights</h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>
+        <strong>Most Affordable (Tuition):</strong> Germany, France, Italy
+        (public institutions often low or free).
+      </li>
+      <li>
+        <strong>Highest Living Costs:</strong> Switzerland, Australia, USA, UK.
+      </li>
+      <li>
+        <strong>Balanced Overall Cost:</strong> Canada, Ireland, New Zealand,
+        Netherlands.
+      </li>
+    </ul>
+  </div>
+
+  {/* Tips Section */}
+  <div>
+    <h3 className="text-xl font-semibold mb-3">
+      📌 Tips to Save on Study Abroad Costs
+    </h3>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>
+        🎓 <strong>Scholarships:</strong> Many universities and governments
+        (e.g., Sweden’s Institute Scholarships) offer tuition or fee support.
+      </li>
+      <li>
+        🍽 <strong>Part-time work:</strong> Student work rights can help offset
+        living costs in Canada, Australia, UK, and more.
+      </li>
+      <li>
+        🏠 <strong>Shared living:</strong> Choosing shared apartments or student
+        dorms can significantly reduce accommodation expenses.
+      </li>
+      <li>
+        ✈️ <strong>Travel off-peak:</strong> Booking flights early and comparing
+        options can save a lot on travel costs.
+      </li>
+    </ul>
+  </div>
+
+</div>
+
 
                 {blog.notes && (
                   <ul className="list-disc pl-6">
