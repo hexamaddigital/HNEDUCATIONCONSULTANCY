@@ -137,71 +137,7 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
 <li><strong>Best Balance:</strong> Canada, Ireland, Netherlands</li>
 </ul>
 `
-}
-{
-  id: '2',
-  slug: 'cost-of-studying-abroad',
-  title: 'Cost of Studying Abroad: Tuition & Living Costs',
-  category: 'Finance',
-  author: 'Global Education',
-  published_at: '2026-01-22',
-  content: `
-<h2>🎓 Cost of Studying Abroad: Tuition & Living (Approx. Per Year)</h2>
-
-<div style="overflow-x:auto;">
-<table style="width:100%; border-collapse: collapse; margin-top:16px;">
-<thead>
-<tr style="background:#f5f5f5;">
-  <th style="border:1px solid #ddd; padding:10px;">Country</th>
-  <th style="border:1px solid #ddd; padding:10px;">Estimated Tuition (USD/Year)</th>
-  <th style="border:1px solid #ddd; padding:10px;">Estimated Living Costs (USD/Year)</th>
-  <th style="border:1px solid #ddd; padding:10px;">Total Estimated Cost</th>
-</tr>
-</thead>
-<tbody>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">UK</td><td style="border:1px solid #ddd; padding:10px;">$15,000 – $35,000</td><td style="border:1px solid #ddd; padding:10px;">$10,000 – $18,000</td><td style="border:1px solid #ddd; padding:10px;">$25,000 – $53,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">USA</td><td style="border:1px solid #ddd; padding:10px;">$20,000 – $50,000</td><td style="border:1px solid #ddd; padding:10px;">$12,000 – $20,000</td><td style="border:1px solid #ddd; padding:10px;">$32,000 – $70,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Canada</td><td style="border:1px solid #ddd; padding:10px;">$15,000 – $30,000</td><td style="border:1px solid #ddd; padding:10px;">$10,000 – $15,000</td><td style="border:1px solid #ddd; padding:10px;">$25,000 – $45,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Australia</td><td style="border:1px solid #ddd; padding:10px;">$13,000 – $28,000</td><td style="border:1px solid #ddd; padding:10px;">$14,000 – $22,000</td><td style="border:1px solid #ddd; padding:10px;">$27,000 – $50,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">New Zealand</td><td style="border:1px solid #ddd; padding:10px;">$14,000 – $30,000</td><td style="border:1px solid #ddd; padding:10px;">$10,000 – $18,000</td><td style="border:1px solid #ddd; padding:10px;">$24,000 – $48,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Ireland</td><td style="border:1px solid #ddd; padding:10px;">$15,000 – $25,000</td><td style="border:1px solid #ddd; padding:10px;">$12,000 – $18,000</td><td style="border:1px solid #ddd; padding:10px;">$27,000 – $43,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Italy</td><td style="border:1px solid #ddd; padding:10px;">$2,000 – $5,500</td><td style="border:1px solid #ddd; padding:10px;">$9,000 – $13,000</td><td style="border:1px solid #ddd; padding:10px;">$11,000 – $18,500</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Germany</td><td style="border:1px solid #ddd; padding:10px;">$0 – $3,000</td><td style="border:1px solid #ddd; padding:10px;">$8,000 – $12,000</td><td style="border:1px solid #ddd; padding:10px;">$8,000 – $15,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">France</td><td style="border:1px solid #ddd; padding:10px;">$2,000 – $5,000</td><td style="border:1px solid #ddd; padding:10px;">$10,000 – $14,000</td><td style="border:1px solid #ddd; padding:10px;">$12,000 – $19,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Switzerland</td><td style="border:1px solid #ddd; padding:10px;">$800 – $1,200</td><td style="border:1px solid #ddd; padding:10px;">$22,000 – $24,000</td><td style="border:1px solid #ddd; padding:10px;">$23,000 – $25,000</td></tr>
-
-<tr><td style="border:1px solid #ddd; padding:10px;">Netherlands</td><td style="border:1px solid #ddd; padding:10px;">$8,000 – $20,000</td><td style="border:1px solid #ddd; padding:10px;">$11,000 – $15,000</td><td style="border:1px solid #ddd; padding:10px;">$19,000 – $35,000</td></tr>
-
-</tbody>
-</table>
-</div>
-
-<h3>🔎 Notes</h3>
-<ul>
-<li>Figures are approximate annual costs.</li>
-<li>Costs vary by city, university, and lifestyle.</li>
-<li>Does not include visa, travel, insurance, or personal expenses.</li>
-</ul>
-
-<h3>🧠 Quick Insights</h3>
-<ul>
-<li><strong>Lowest Tuition:</strong> Germany, France, Italy</li>
-<li><strong>Highest Living Cost:</strong> Switzerland, Australia, USA</li>
-<li><strong>Best Balance:</strong> Canada, Ireland, Netherlands</li>
-</ul>
-`
-}
-,
+},
   {
     id: '3',
     slug: 'sop-writing-tips-2026',
