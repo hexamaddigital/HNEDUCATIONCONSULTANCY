@@ -82,8 +82,7 @@ France offers a temporary “Autorisation Provisoire de Séjour (APS)” after g
     category: 'Finance',
     author: 'Global Education',
     published_at: '2026-01-22',
-    content: `
-🎓 Cost of Studying Abroad: Tuition + Living (Approx. Per Year)
+  
 
 <h2>🎓 Cost of Studying Abroad: Tuition & Living Costs (Approx. Per Year)</h2>
 
