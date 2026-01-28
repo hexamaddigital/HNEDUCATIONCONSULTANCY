@@ -156,6 +156,115 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding stud
           </div>
         </div>
       </section>
+            {/* CAREERS / APPLY NOW SECTION */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Passionate about Helping Students Study Abroad?
+              </h2>
+              <p className="text-lg text-body-text max-w-2xl mx-auto">
+                Do you believe your work as a counsellor is worth more than just a full-time salary?
+                Join us and make a real impact on students’ global education journeys.
+              </p>
+            </div>
+
+            <div className="bg-gradient-to-br from-ghost-green to-white rounded-2xl shadow-xl p-8 md:p-12">
+              <h3 className="text-2xl font-bold mb-6 text-center">
+                Apply Now
+              </h3>
+
+              <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Name */}
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    required
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    required
+                  />
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    required
+                  />
+                </div>
+
+                {/* Qualification */}
+                <div>
+                  <label className="block text-sm font-medium mb-1">
+                    Highest Qualification
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Eg. MBA, BBA, BA, MSc"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    required
+                  />
+                </div>
+
+                {/* Resume Upload */}
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-medium mb-1">
+                    Upload Resume
+                  </label>
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    required
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    Accepted formats: PDF, DOC, DOCX
+                  </p>
+                </div>
+
+                {/* Submit Button */}
+                <div className="md:col-span-2 text-center mt-4">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center rounded-full bg-turquoise px-10 py-3 text-white font-semibold hover:bg-turquoise-dark transition-colors"
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </form>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
     </>
   );
 };
