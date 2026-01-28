@@ -12,7 +12,7 @@ export const Footer = () => {
           <div>
             <div className="mb-4">
               <img
-                src="/logo1jpeg.jpeg"
+                src="/hn_study.png"
                 alt="HN Study Abroad Consultancy"
                 className="h-16 w-auto object-contain"
               />
