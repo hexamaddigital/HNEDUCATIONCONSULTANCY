@@ -243,7 +243,7 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding stud
                     type="file"
                     accept=".pdf,.doc,.docx"
                     className="w-full rounded-lg border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    required
+                   
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     Accepted formats: PDF, DOC, DOCX
