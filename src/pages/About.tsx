@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, CheckCircle, Award, Users, Globe } from 'lucide-react';
+import { useState } from 'react';
+
 
 const values = [
   {
@@ -263,6 +265,26 @@ Join HN Study Abroad and make a lasting difference in students’ lives.
             </div>
           </motion.div>
         </div>
+        {showSuccess && (
+  <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+    <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
+      <h3 className="text-2xl font-bold mb-4 text-heading">
+        Application Submitted 🎉
+      </h3>
+      <p className="text-body-text mb-6">
+        Thank you for applying to HN Study Abroad Consultancy.
+        Our team will contact you shortly.
+      </p>
+      <button
+        onClick={() => setShowSuccess(false)}
+        className="px-8 py-3 rounded-full bg-turquoise text-white font-semibold hover:bg-turquoise-dark transition"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
       </section>
 
     </>
