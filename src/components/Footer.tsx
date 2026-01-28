@@ -16,6 +16,13 @@ export const Footer = () => {
                 alt="HN Study Abroad Consultancy"
                 className="h-16 w-auto object-contain"
               />
+                  {/* Second Logo */}
+    <img
+      src="/british_council_logo.png"
+      alt="Partner Logo"
+      className="h-14 w-auto object-contain"
+    />
+  </div>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Your trusted partner for overseas education with end-to-end support for students aspiring to study abroad.
