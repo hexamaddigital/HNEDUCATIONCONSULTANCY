@@ -152,6 +152,30 @@ export const Dashboard = () => {
     });
 
     if (!error) {
+      try {
+        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`;
+        await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'application',
+            data: {
+              studentName: profile?.full_name || 'Unknown',
+              email: user.email || 'N/A',
+              country: data.country,
+              university: data.university,
+              course: data.course,
+              intake: data.intake,
+            },
+          }),
+        });
+      } catch (emailError) {
+        console.error('Email notification failed:', emailError);
+      }
+
       setShowApplicationForm(false);
       resetApplicationForm();
       fetchData();

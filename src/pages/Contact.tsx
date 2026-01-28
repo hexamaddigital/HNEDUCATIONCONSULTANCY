@@ -34,6 +34,31 @@ export const Contact = () => {
       message: data.message,
     });
 
+    if (!error) {
+      try {
+        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`;
+        await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'contact',
+            data: {
+              fullName: data.fullName,
+              email: data.email,
+              phoneNumber: data.phoneNumber,
+              preferredCountry: data.preferredCountry,
+              message: data.message,
+            },
+          }),
+        });
+      } catch (emailError) {
+        console.error('Email notification failed:', emailError);
+      }
+    }
+
     setIsSubmitting(false);
 
     if (!error) {

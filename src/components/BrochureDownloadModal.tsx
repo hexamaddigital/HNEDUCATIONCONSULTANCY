@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, CheckCircle } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { supabase } from '../lib/supabase';
 
 interface UniversityListModalProps {
   isOpen: boolean;
@@ -47,8 +48,37 @@ export const BrochureDownloadModal = ({
   const universityListLink =
     UNIVERSITY_LIST_LINKS[country] || 'https://drive.google.com';
 
-  const onSubmit = () => {
+  const onSubmit = async (formData: FormData) => {
     setIsSubmitted(true);
+
+    await supabase.from('brochure_downloads').insert({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      country: country,
+    });
+
+    try {
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`;
+      await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'brochure',
+          data: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            country: country,
+          },
+        }),
+      });
+    } catch (error) {
+      console.error('Email notification failed:', error);
+    }
 
     setTimeout(() => {
       window.open(universityListLink, '_blank');
