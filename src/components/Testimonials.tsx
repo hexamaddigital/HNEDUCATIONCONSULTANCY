@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, Users } from 'lucide-react';
 
 const testimonials = [
   {
     id: 1,
     name: 'Priya Sharma',
     destination: 'UK - University of Manchester',
-    image: 'https://images.pexels.com/photos/3762800/pexels-photo-3762800.jpeg?auto=compress&cs=tinysrgb&w=400',
     quote: 'HN Study Abroad made my dream of studying at Manchester a reality. Their guidance through the entire process was exceptional.',
     course: 'MSc Computer Science',
   },
@@ -15,7 +14,6 @@ const testimonials = [
     id: 2,
     name: 'Rahul Verma',
     destination: 'Canada - University of Toronto',
-    image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
     quote: 'The visa assistance and documentation support were flawless. I received my study permit without any hassle.',
     course: 'MBA',
   },
@@ -23,7 +21,6 @@ const testimonials = [
     id: 3,
     name: 'Sneha Patel',
     destination: 'Australia - University of Melbourne',
-    image: 'https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=400',
     quote: 'From application to arrival, every step was handled professionally. Highly recommend for anyone planning to study abroad.',
     course: 'Bachelor of Engineering',
   },
@@ -31,7 +28,6 @@ const testimonials = [
     id: 4,
     name: 'Arjun Singh',
     destination: 'USA - Columbia University',
-    image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
     quote: 'The team helped me secure admission and a scholarship. Their expertise in US admissions is unmatched.',
     course: 'MS Data Science',
   },
@@ -117,11 +113,10 @@ export const Testimonials = () => {
                     "{testimonials[current].quote}"
                   </p>
                   <div className="flex items-center space-x-4">
-                    <img
-                      src={testimonials[current].image}
-                      alt={testimonials[current].name}
-                      className="w-16 h-16 rounded-full object-cover"
-                    />
+                    {/* User Icon instead of image */}
+                    <div className="w-16 h-16 rounded-full bg-turquoise flex items-center justify-center">
+                      <Users className="w-10 h-10 text-white" />
+                    </div>
                     <div>
                       <h4 className="text-lg font-bold text-heading">
                         {testimonials[current].name}
