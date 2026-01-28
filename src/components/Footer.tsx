@@ -14,13 +14,13 @@ export const Footer = () => {
               <img
                 src="/hn_study.png"
                 alt="HN Study Abroad Consultancy"
-                className="h-16 w-auto object-contain"
+                className="h-14 md:h-16 lg:h-20 w-auto object-contain transition-all duration-300"
               />
 
               <img
                 src="/british_council_logo.png"
                 alt="Partner Logo"
-                className="h-14 w-auto object-contain opacity-90"
+                className="h-12 md:h-14 lg:h-18 w-auto object-contain opacity-90 transition-all duration-300"
               />
             </div>
 
