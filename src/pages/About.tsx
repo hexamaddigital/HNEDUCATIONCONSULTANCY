@@ -114,7 +114,7 @@ export const About = () => {
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold mb-2 text-justify">NIYOJ SANKHE</h3>
-                <p className="text-turquoise font-semibold mb-4 text-justify">Co-Founder & CEO</p>
+                <p className="text-turquoise font-semibold mb-4 text-justify">Co-Founder & Director</p>
                 <p className="text-body-text leading-relaxed mb-4 text-justify">
                   I hold a bachelor's degree in business administration (BBA – Honours) from Kingston Business School, where I graduated with First Class Honours. I further completed my Master of Business Administration (MBA) from the University of Westminster, earning a Merit degree. Having personally studied abroad, I understand the academic, cultural, and practical challenges students face while pursuing education overseas.
                 </p>
