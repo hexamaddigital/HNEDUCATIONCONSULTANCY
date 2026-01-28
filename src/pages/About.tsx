@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Target, Eye, CheckCircle, Award, Users, Globe } from 'lucide-react';
 import { useState } from 'react';
 
-
 const values = [
   {
     icon: CheckCircle,
@@ -17,7 +16,7 @@ const values = [
   {
     icon: Users,
     title: 'Student-Centric Approach',
-    description: 'Every decision is made with the student\'s best interests and future goals in mind.',
+    description: "Every decision is made with the student's best interests and future goals in mind.",
   },
   {
     icon: Globe,
@@ -27,6 +26,14 @@ const values = [
 ];
 
 export const About = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setShowSuccess(true);
+    e.currentTarget.reset();
+  };
+
   return (
     <>
       {/* HERO SECTION */}
@@ -59,20 +66,18 @@ export const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Our Story</h2>
               <div className="bg-gradient-to-br from-ghost-green to-white rounded-2xl p-8 md:p-12 shadow-lg">
                 <p className="text-lg text-body-text leading-relaxed mb-6 text-justify">
-                  <strong className="text-heading">HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.</strong>
+                  <strong className="text-heading">
+                    HN Study Abroad Consultancy Pvt. Ltd. was founded by two individuals who have personally experienced the journey of studying abroad.
+                  </strong>
                 </p>
-
                 <p className="text-lg text-body-text leading-relaxed mb-6 text-justify">
                   Having studied overseas ourselves, we understand that the process involves much more than university applications. From choosing the right course and institution to managing documentation, finances, and adapting to a new country, we have faced the same challenges that many students encounter today.
                 </p>
-
                 <p className="text-lg text-body-text leading-relaxed mb-6 text-justify">
                   Our own experiences made us aware of the gaps students often face: unclear guidance, overwhelming procedures, and a lack of personalized support. These firsthand challenges became the foundation for creating HN Study Abroad Consultancy Pvt. Ltd., a platform built to guide students with practical, experience-based advice.
                 </p>
-
                 <p className="text-lg text-body-text leading-relaxed text-justify">
-                  As founders, we are directly involved in counseling and supporting students, ensuring each case is handled with care and attention. We focus on providing accurate information, structured assistance, and honest guidance throughout the study abroad process, including admissions, visa support, and pre-departure preparation.
-                  HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study abroad journey from a student's point of view, helping aspiring students move forward with confidence and clarity.
+                  As founders, we are directly involved in counseling and supporting students, ensuring each case is handled with care and attention. We focus on providing accurate information, structured assistance, and honest guidance throughout the study abroad process, including admissions, visa support, and pre-departure preparation. HN Study Abroad Consultancy Pvt. Ltd. reflects our understanding of the study abroad journey from a student's point of view, helping aspiring students move forward with confidence and clarity.
                 </p>
               </div>
             </motion.div>
@@ -147,18 +152,19 @@ export const About = () => {
                 <h3 className="text-2xl font-bold mb-2 text-justify">Himanshu Dhande</h3>
                 <p className="text-turquoise font-semibold mb-4 text-justify">Co-Founder & Director</p>
                 <p className="text-body-text leading-relaxed mb-4 text-justify">
-                 I am a Mumbai-born professional with international academic exposure, having studied in London and explored diverse global education environments. My own journey as an international student has given me firsthand experience of the academic, cultural, and practical challenges students face when pursuing higher education overseas.
+                  I am a Mumbai-born professional with international academic exposure, having studied in London and explored diverse global education environments. My own journey as an international student has given me firsthand experience of the academic, cultural, and practical challenges students face when pursuing higher education overseas.
                 </p>
                 <p className="text-body-text leading-relaxed text-justify">
-                 I completed my Bachelor’s degree in Computer Science Engineering from the University of Mumbai and pursued a Master’s degree in Digital Marketing from Roehampton University, London. Studying abroad allowed me to deeply understand university selection, application processes, visa requirements, and adapting to a new education system and culture.
-At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding students through every stage of their study abroad journey—from course and country selection to university applications and pre-departure preparation. My approach is rooted in transparency, ethical counseling, and personalized guidance, ensuring students make informed decisions based on real international experience rather than assumptions.
+                  I completed my Bachelor’s degree in Computer Science Engineering from the University of Mumbai and pursued a Master’s degree in Digital Marketing from Roehampton University, London. Studying abroad allowed me to deeply understand university selection, application processes, visa requirements, and adapting to a new education system and culture.
+                  At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding students through every stage of their study abroad journey—from course and country selection to university applications and pre-departure preparation. My approach is rooted in transparency, ethical counseling, and personalized guidance, ensuring students make informed decisions based on real international experience rather than assumptions.
                 </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
-            {/* CAREERS / APPLY NOW SECTION */}
+
+      {/* CAREERS / APPLY NOW SECTION */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -170,11 +176,11 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding stud
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-               Passionate About Guiding Students Beyond Borders?
+                Passionate About Guiding Students Beyond Borders?
               </h2>
               <p className="text-lg text-body-text max-w-2xl mx-auto">
                 If you feel counselling is more than just a job, you’re in the right place.
-Join HN Study Abroad and make a lasting difference in students’ lives.
+                Join HN Study Abroad and make a lasting difference in students’ lives.
               </p>
             </div>
 
@@ -183,80 +189,45 @@ Join HN Study Abroad and make a lasting difference in students’ lives.
                 Apply Now
               </h3>
 
-              <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Name */}
-                <div>
-                  <label className="block text-sm font-medium mb-1">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your full name"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    required
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label className="block text-sm font-medium mb-1">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    required
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label className="block text-sm font-medium mb-1">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Enter your phone number"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    required
-                  />
-                </div>
-
-                {/* Qualification */}
-                <div>
-                  <label className="block text-sm font-medium mb-1">
-                    Highest Qualification
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Eg. MBA, BBA, BA, MSc"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    required
-                  />
-                </div>
-
-                {/* Resume Upload */}
+              <form
+                onSubmit={handleSubmit}
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              >
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                  className="w-full rounded-lg border px-4 py-3"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  required
+                  className="w-full rounded-lg border px-4 py-3"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  className="w-full rounded-lg border px-4 py-3"
+                />
+                <input
+                  type="text"
+                  placeholder="Highest Qualification"
+                  required
+                  className="w-full rounded-lg border px-4 py-3"
+                />
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-medium mb-1">
-                    Upload Resume
-                  </label>
                   <input
                     type="file"
                     accept=".pdf,.doc,.docx"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-turquoise"
-                   
+                    className="w-full rounded-lg border px-4 py-3"
                   />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Accepted formats: PDF, DOC, DOCX
-                  </p>
                 </div>
-
-                {/* Submit Button */}
-                <div className="md:col-span-2 text-center mt-4">
+                <div className="md:col-span-2 text-center">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center rounded-full bg-turquoise px-10 py-3 text-white font-semibold hover:bg-turquoise-dark transition-colors"
+                    className="bg-turquoise text-white px-10 py-3 rounded-full font-semibold hover:bg-turquoise-dark transition"
                   >
                     Submit Application
                   </button>
@@ -265,28 +236,27 @@ Join HN Study Abroad and make a lasting difference in students’ lives.
             </div>
           </motion.div>
         </div>
+
+        {/* SUCCESS POPUP */}
         {showSuccess && (
-  <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-    <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
-      <h3 className="text-2xl font-bold mb-4 text-heading">
-        Application Submitted 🎉
-      </h3>
-      <p className="text-body-text mb-6">
-        Thank you for applying to HN Study Abroad Consultancy.
-        Our team will contact you shortly.
-      </p>
-      <button
-        onClick={() => setShowSuccess(false)}
-        className="px-8 py-3 rounded-full bg-turquoise text-white font-semibold hover:bg-turquoise-dark transition"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
-
+          <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+            <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl">
+              <h3 className="text-2xl font-bold mb-4 text-heading">
+                Application Submitted 🎉
+              </h3>
+              <p className="text-body-text mb-6">
+                Thank you for applying to HN Study Abroad Consultancy. Our team will contact you shortly.
+              </p>
+              <button
+                onClick={() => setShowSuccess(false)}
+                className="px-8 py-3 rounded-full bg-turquoise text-white font-semibold hover:bg-turquoise-dark transition"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </section>
-
     </>
   );
 };
