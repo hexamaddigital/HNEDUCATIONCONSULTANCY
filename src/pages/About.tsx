@@ -138,13 +138,14 @@ export const About = () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="text-2xl font-bold mb-2 text-justify">Founder Name 2</h3>
+                <h3 className="text-2xl font-bold mb-2 text-justify">Himanshu Dhande</h3>
                 <p className="text-turquoise font-semibold mb-4 text-justify">Co-Founder & Director</p>
                 <p className="text-body-text leading-relaxed mb-4 text-justify">
-                  I am a pure Mumbaikar who studied in London and explored different parts of the world. As a tech enthusiast and serial entrepreneur, I am passionate about making all the districts digital and secure.A visionary leader with extensive knowledge of global education trends, our second founder brings strategic direction and innovation to our consultancy. Their dedication to student success has shaped our ethical and transparent approach.
+                 I am a Mumbai-born professional with international academic exposure, having studied in London and explored diverse global education environments. My own journey as an international student has given me firsthand experience of the academic, cultural, and practical challenges students face when pursuing higher education overseas.
                 </p>
                 <p className="text-body-text leading-relaxed text-justify">
-                  I completed my engineering in Computer Science from Mumbai University and pursued a Master’s in Digital Marketing from Roehampton University in London. My focus is on building secure and digitalized solutions for the public sector, particularly for small businesses.
+                 I completed my Bachelor’s degree in Computer Science Engineering from the University of Mumbai and pursued a Master’s degree in Digital Marketing from Roehampton University, London. Studying abroad allowed me to deeply understand university selection, application processes, visa requirements, and adapting to a new education system and culture.
+At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding students through every stage of their study abroad journey—from course and country selection to university applications and pre-departure preparation. My approach is rooted in transparency, ethical counseling, and personalized guidance, ensuring students make informed decisions based on real international experience rather than assumptions.
                 </p>
               </div>
             </motion.div>
