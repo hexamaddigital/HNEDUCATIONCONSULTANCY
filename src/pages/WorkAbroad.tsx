@@ -46,18 +46,7 @@ const workPermits: WorkPermit[] = [
     ],
     prPathway: 'Skilled Independent visa (189) or State Nominated visa (190)',
   },
-  {
-    country: 'United States',
-    flag: '🇺🇸',
-    duration: 'OPT & STEM OPT',
-    details: [
-      'Optional Practical Training: 12 months',
-      'STEM extension: Additional 24 months',
-      'Total up to 3 years for STEM graduates',
-      'Must be related to field of study',
-    ],
-    prPathway: 'H1B visa sponsorship leading to Green Card',
-  },
+ 
   {
     country: 'Germany',
     flag: '🇩🇪',
@@ -70,42 +59,7 @@ const workPermits: WorkPermit[] = [
     ],
     prPathway: 'EU Blue Card or permanent residence after 21 months',
   },
-  {
-    country: 'France',
-    flag: '🇫🇷',
-    duration: '12-24 Months',
-    details: [
-      'Temporary residence permit (APS)',
-      '12 months for Masters graduates',
-      '24 months for PhD graduates',
-      'Can be extended with job offer',
-    ],
-    prPathway: 'Talent Passport or residence permit after 5 years',
-  },
-  {
-    country: 'Netherlands',
-    flag: '🇳🇱',
-    duration: '1 Year',
-    details: [
-      'Orientation year for graduates',
-      'Search for work or start a business',
-      'Can work without restrictions',
-      'Switch to skilled migrant visa',
-    ],
-    prPathway: 'Highly skilled migrant permit leading to permanent residence',
-  },
-  {
-    country: 'Sweden',
-    flag: '🇸🇪',
-    duration: '12 Months',
-    details: [
-      'Job search residence permit',
-      'For all graduates from Swedish universities',
-      'Can work full-time during this period',
-      'Extend with work permit',
-    ],
-    prPathway: 'Work permit leading to permanent residence after 4 years',
-  },
+
 ];
 
 const services = [
