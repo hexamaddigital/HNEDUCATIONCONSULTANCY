@@ -168,11 +168,11 @@ At HN Study Abroad Consultancy Pvt. Ltd., I am actively involved in guiding stud
           >
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Passionate about Helping Students Study Abroad?
+               Passionate About Guiding Students Beyond Borders?
               </h2>
               <p className="text-lg text-body-text max-w-2xl mx-auto">
-                Do you believe your work as a counsellor is worth more than just a full-time salary?
-                Join us and make a real impact on students’ global education journeys.
+                If you feel counselling is more than just a job, you’re in the right place.
+Join HN Study Abroad and make a lasting difference in students’ lives.
               </p>
             </div>
 
