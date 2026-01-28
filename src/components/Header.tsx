@@ -48,7 +48,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-3">
             <img
-              src="/logo1jpeg.jpeg"
+              src="/hn_study.png"
               alt="HN Study Abroad Consultancy"
               className="h-14 w-auto object-contain"
             />
