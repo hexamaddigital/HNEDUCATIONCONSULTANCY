@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter,Youtube } from 'lucide-react';
 import { COUNTRY_NAMES } from '../constants/countries';
 
 export const Footer = () => {
