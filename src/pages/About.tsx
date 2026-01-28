@@ -165,126 +165,116 @@ export const About = () => {
       </section>
 
      {/* CAREERS / APPLY NOW SECTION */}
-<section className="py-20 bg-gradient-to-b from-white to-ghost-green">
-  <div className="container mx-auto px-4">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="max-w-4xl mx-auto"
-    >
-      {/* Section Heading */}
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-wide text-gradient bg-clip-text text-transparent from-turquoise to-green-500">
-          🌏 Passionate About Guiding Students Beyond Borders?
-        </h2>
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-          If you believe counselling is more than just a job, you’re in the right place! 
-          ✨ Join <strong>HN Study Abroad</strong> and transform students’ lives globally.
-        </p>
-      </div>
-
-      {/* Form Card */}
-      <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-16 relative overflow-hidden">
-        {/* Decorative emojis/gradients */}
-        <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-6xl opacity-20">🎓</div>
-        <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 text-7xl opacity-20">🌟</div>
-
-        <h3 className="text-3xl font-bold text-center mb-10 text-turquoise">
-          ✍️ Apply Now
-        </h3>
-
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Name */}
-          <div className="relative">
-            <span className="absolute left-4 top-3 text-gray-400 text-lg">👤</span>
-            <input
-              type="text"
-              placeholder="Full Name"
-              required
-              className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
-            />
-          </div>
-
-          {/* Email */}
-          <div className="relative">
-            <span className="absolute left-4 top-3 text-gray-400 text-lg">📧</span>
-            <input
-              type="email"
-              placeholder="Email Address"
-              required
-              className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
-            />
-          </div>
-
-          {/* Phone */}
-          <div className="relative">
-            <span className="absolute left-4 top-3 text-gray-400 text-lg">📞</span>
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              required
-              className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
-            />
-          </div>
-
-          {/* Qualification */}
-          <div className="relative">
-            <span className="absolute left-4 top-3 text-gray-400 text-lg">🎓</span>
-            <input
-              type="text"
-              placeholder="Highest Qualification"
-              required
-              className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
-            />
-          </div>
-
-          {/* Resume Upload */}
-          <div className="md:col-span-2">
-            <label className="block text-gray-600 font-medium mb-2">📄 Upload Resume</label>
-            <input
-              type="file"
-              accept=".pdf,.doc,.docx"
-              className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
-            />
-            <p className="text-xs text-gray-400 mt-1">Accepted formats: PDF, DOC, DOCX</p>
-          </div>
-
-          {/* Submit Button */}
-          <div className="md:col-span-2 text-center mt-4">
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-turquoise to-green-500 text-white px-12 py-3 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform"
-            >
-              🚀 Submit Application
-            </button>
-          </div>
-        </form>
-      </div>
-    </motion.div>
-
-    {/* SUCCESS POPUP */}
-    {showSuccess && (
-      <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-        <div className="bg-white rounded-3xl p-10 max-w-md w-full text-center shadow-2xl relative">
-          <span className="text-6xl absolute -top-8 left-1/2 -translate-x-1/2">🎉</span>
-          <h3 className="text-3xl font-bold mb-4 text-turquoise">Application Submitted!</h3>
-          <p className="text-gray-700 mb-6">
-            Thank you for applying to <strong>HN Study Abroad Consultancy</strong>. 
-            Our team will contact you shortly.
-          </p>
-          <button
-            onClick={() => setShowSuccess(false)}
-            className="px-10 py-3 rounded-full bg-gradient-to-r from-turquoise to-green-500 text-white font-semibold hover:scale-105 transition-transform"
+      <section className="py-20 bg-gradient-to-b from-white to-ghost-green">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto"
           >
-            Close
-          </button>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-turquoise to-green-500">
+                🌏 Passionate About Guiding Students Beyond Borders?
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+                If you believe counselling is more than just a job, you’re in the right place! ✨ Join <strong>HN Study Abroad</strong> and transform students’ lives globally.
+              </p>
+            </div>
+
+            {/* Form Card */}
+            <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-16 relative overflow-hidden">
+              <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-6xl opacity-20">🎓</div>
+              <div className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 text-7xl opacity-20">🌟</div>
+
+              <h3 className="text-3xl font-bold text-center mb-10 text-turquoise">
+                ✍️ Apply Now
+              </h3>
+
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="relative">
+                  <span className="absolute left-4 top-3 text-gray-400 text-lg">👤</span>
+                  <input
+                    type="text"
+                    placeholder="Full Name"
+                    required
+                    className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
+                  />
+                </div>
+
+                <div className="relative">
+                  <span className="absolute left-4 top-3 text-gray-400 text-lg">📧</span>
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    required
+                    className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
+                  />
+                </div>
+
+                <div className="relative">
+                  <span className="absolute left-4 top-3 text-gray-400 text-lg">📞</span>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    required
+                    className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
+                  />
+                </div>
+
+                <div className="relative">
+                  <span className="absolute left-4 top-3 text-gray-400 text-lg">🎓</span>
+                  <input
+                    type="text"
+                    placeholder="Highest Qualification"
+                    required
+                    className="w-full rounded-xl border border-gray-300 px-12 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="block text-gray-600 font-medium mb-2">📄 Upload Resume</label>
+                  <input
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-turquoise transition"
+                  />
+                  <p className="text-xs text-gray-400 mt-1">Accepted formats: PDF, DOC, DOCX</p>
+                </div>
+
+                <div className="md:col-span-2 text-center mt-4">
+                  <button
+                    type="submit"
+                    className="bg-gradient-to-r from-turquoise to-green-500 text-white px-12 py-3 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform"
+                  >
+                    🚀 Submit Application
+                  </button>
+                </div>
+              </form>
+            </div>
+          </motion.div>
+
+          {/* SUCCESS POPUP */}
+          {showSuccess && (
+            <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+              <div className="bg-white rounded-3xl p-10 max-w-md w-full text-center shadow-2xl relative">
+                <span className="text-6xl absolute -top-8 left-1/2 -translate-x-1/2">🎉</span>
+                <h3 className="text-3xl font-bold mb-4 text-turquoise">Application Submitted!</h3>
+                <p className="text-gray-700 mb-6">
+                  Thank you for applying to <strong>HN Study Abroad Consultancy</strong>. Our team will contact you shortly.
+                </p>
+                <button
+                  onClick={() => setShowSuccess(false)}
+                  className="px-10 py-3 rounded-full bg-gradient-to-r from-turquoise to-green-500 text-white font-semibold hover:scale-105 transition-transform"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-    )}
-  </div>
-</section>
+      </section>
 
     </>
   );
