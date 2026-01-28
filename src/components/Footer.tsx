@@ -30,7 +30,7 @@ export const Footer = () => {
             </p>
 
             <div className="flex space-x-4">
-              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
+              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
