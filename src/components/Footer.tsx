@@ -10,22 +10,23 @@ export const Footer = () => {
 
           {/* Logo & About */}
           <div>
-            <div className="mb-4">
+            <div className="mb-4 flex items-center gap-4">
               <img
                 src="/hn_study.png"
                 alt="HN Study Abroad Consultancy"
                 className="h-16 w-auto object-contain"
               />
-                  {/* Second Logo */}
-    <img
-      src="/british_council_logo.png"
-      alt="Partner Logo"
-      className="h-14 w-auto object-contain"
-    />
-  </div>
+
+              <img
+                src="/british_council_logo.png"
+                alt="Partner Logo"
+                className="h-14 w-auto object-contain opacity-90"
+              />
             </div>
+
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Your trusted partner for overseas education with end-to-end support for students aspiring to study abroad.
+              Your trusted partner for overseas education with end-to-end support
+              for students aspiring to study abroad.
             </p>
 
             <div className="flex space-x-4">
@@ -87,10 +88,10 @@ export const Footer = () => {
 
               <li className="flex items-start gap-2">
                 <MapPin className="w-6 h-6 text-turquoise mt-1 flex-shrink-0" />
-
                 <span className="text-gray-300">
                   <strong>Palghar Branch:</strong><br />
-                  Shop No 06, Sunshine Developers, Near Tulshi Pushp, Palghar, Thane – 401404
+                  Shop No 06, Sunshine Developers, Near Tulshi Pushp,
+                  Palghar, Thane – 401404
                 </span>
               </li>
 
@@ -102,11 +103,11 @@ export const Footer = () => {
               </li>
 
               <li className="flex items-start gap-2">
-               <MapPin className="w-6 h-6 text-turquoise mt-1 flex-shrink-0" />
-
+                <MapPin className="w-6 h-6 text-turquoise mt-1 flex-shrink-0" />
                 <span className="text-gray-300">
                   <strong>Nallasopara Branch:</strong><br />
-                  301, Poonam Palace, Near Star Hospital, NSP (W) – 401203
+                  301, Poonam Palace, Near Star Hospital,
+                  NSP (W) – 401203
                 </span>
               </li>
 
@@ -131,7 +132,8 @@ export const Footer = () => {
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
           <p className="text-gray-300">
-            &copy; {new Date().getFullYear()} HN Study Abroad Consultancy Pvt. Ltd. All rights reserved.
+            &copy; {new Date().getFullYear()} HN Study Abroad Consultancy Pvt. Ltd.
+            All rights reserved.
           </p>
         </div>
       </div>
