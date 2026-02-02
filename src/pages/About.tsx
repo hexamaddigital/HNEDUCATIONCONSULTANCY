@@ -224,6 +224,94 @@ export const About = () => {
     </div>
   </div>
 </section>
+      {/* WHY CHOOSE US – MODERN CARD STYLE */}
+<section className="py-24 bg-[#E9FBFD]">
+  <div className="container mx-auto px-4">
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-heading">
+        Why Choose Us?
+      </h2>
+      <p className="text-lg text-body-text max-w-2xl mx-auto">
+        We stand out through our commitment to excellence and student success
+      </p>
+    </motion.div>
+
+    {/* Cards */}
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      {/* Card 1 */}
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="bg-white rounded-2xl p-8 shadow-lg flex items-start gap-6"
+      >
+        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center flex-shrink-0">
+          <CheckCircle className="w-7 h-7 text-white" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold mb-2">Transparent Guidance</h3>
+          <p className="text-body-text">
+            Honest advice with complete transparency in our processes and fee structure.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Card 2 */}
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="bg-white rounded-2xl p-8 shadow-lg flex items-start gap-6"
+      >
+        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center flex-shrink-0">
+          <Award className="w-7 h-7 text-white" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold mb-2">Certified Counsellors</h3>
+          <p className="text-body-text">
+            Team of experienced and certified education counsellors with deep industry knowledge.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Card 3 */}
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="bg-white rounded-2xl p-8 shadow-lg flex items-start gap-6"
+      >
+        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center flex-shrink-0">
+          <Users className="w-7 h-7 text-white" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold mb-2">Student-Centric Approach</h3>
+          <p className="text-body-text">
+            Every decision is made with the student's best interests and future goals in mind.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Card 4 */}
+      <motion.div
+        whileHover={{ y: -5 }}
+        className="bg-white rounded-2xl p-8 shadow-lg flex items-start gap-6"
+      >
+        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center flex-shrink-0">
+          <Globe className="w-7 h-7 text-white" />
+        </div>
+        <div>
+          <h3 className="text-xl font-bold mb-2">Global Network</h3>
+          <p className="text-body-text">
+            Strong partnerships with universities across multiple study destinations worldwide.
+          </p>
+        </div>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
      {/* CAREERS / APPLY NOW SECTION */}
       <section className="py-20 bg-gradient-to-b from-white to-ghost-green">
