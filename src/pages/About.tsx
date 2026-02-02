@@ -164,66 +164,71 @@ export const About = () => {
         </div>
       </section>
       
-     {/* VISION & MISSION SECTION */}
-<section className="py-20 bg-white">
-  <div className="container mx-auto px-4">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-14"
-    >
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Our Vision & Mission
-      </h2>
-      <p className="text-lg text-body-text max-w-2xl mx-auto">
-        Driving purpose, transparency, and global student success
-      </p>
-    </motion.div>
-
-    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-      {/* Vision */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="bg-white rounded-2xl p-10 shadow-xl border border-turquoise/30"
-      >
-        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center mb-6">
-          <Eye className="w-7 h-7 text-white" />
+<section className="py-24 bg-white">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-10">
+      
+      {/* OUR VISION */}
+      <div className="bg-white border border-[#BEEAF2] rounded-2xl p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+        <div className="w-14 h-14 bg-[#00B6C9] rounded-full flex items-center justify-center mb-6">
+          {/* Eye Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="white"
+            className="w-7 h-7"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.25 12s3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z"
+            />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
         </div>
-        <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-        <p className="text-body-text leading-relaxed text-justify">
-          To empower students with global education opportunities and become the
-          most trusted partner in their international education journey,
-          helping them achieve academic excellence and career success worldwide.
-        </p>
-      </motion.div>
 
-      {/* Mission */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="bg-white rounded-2xl p-10 shadow-xl border border-turquoise/30"
-      >
-        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center mb-6">
-          <Target className="w-7 h-7 text-white" />
-        </div>
-        <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-        <p className="text-body-text leading-relaxed text-justify">
-          To provide transparent, ethical, and comprehensive guidance to students,
-          ensuring they make informed decisions about their education. We are
-          committed to maintaining high visa success rates and building long-term
-          relationships with our students.
+        <h3 className="text-2xl font-bold text-[#003B44] mb-4">
+          Our Vision
+        </h3>
+
+        <p className="text-[#4B5F63] leading-relaxed text-[16px]">
+          To empower students with global education opportunities and become the most trusted partner in their international education journey, helping them achieve academic excellence and career success worldwide.
         </p>
-      </motion.div>
+      </div>
+
+      {/* OUR MISSION */}
+      <div className="bg-white border border-[#BEEAF2] rounded-2xl p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+        <div className="w-14 h-14 bg-[#00B6C9] rounded-full flex items-center justify-center mb-6">
+          {/* Target Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="white"
+            className="w-7 h-7"
+          >
+            <circle cx="12" cy="12" r="9" />
+            <circle cx="12" cy="12" r="5" />
+            <circle cx="12" cy="12" r="1.5" fill="white" />
+          </svg>
+        </div>
+
+        <h3 className="text-2xl font-bold text-[#003B44] mb-4">
+          Our Mission
+        </h3>
+
+        <p className="text-[#4B5F63] leading-relaxed text-[16px]">
+          To provide transparent, ethical, and comprehensive guidance to students, ensuring they make informed decisions about their education. We are committed to maintaining high visa success rates and building long-term relationships with our students.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
+
       {/* WHY CHOOSE US – MODERN CARD STYLE */}
 <section className="py-24 bg-[#E9FBFD]">
   <div className="container mx-auto px-4">
