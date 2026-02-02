@@ -163,36 +163,67 @@ export const About = () => {
           </div>
         </div>
       </section>
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
-              We stand out through our commitment to excellence and student success
-            </p>
-          </motion.div>
+      
+     {/* VISION & MISSION SECTION */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-14"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Our Vision & Mission
+      </h2>
+      <p className="text-lg text-body-text max-w-2xl mx-auto">
+        Driving purpose, transparency, and global student success
+      </p>
+    </motion.div>
 
-          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-turquoise rounded-full flex items-center justify-center">
-                    <value.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                    <p className="text-body-text">{value.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      {/* Vision */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-white rounded-2xl p-10 shadow-xl border border-turquoise/30"
+      >
+        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center mb-6">
+          <Eye className="w-7 h-7 text-white" />
         </div>
-      </section>
+        <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+        <p className="text-body-text leading-relaxed text-justify">
+          To empower students with global education opportunities and become the
+          most trusted partner in their international education journey,
+          helping them achieve academic excellence and career success worldwide.
+        </p>
+      </motion.div>
+
+      {/* Mission */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="bg-white rounded-2xl p-10 shadow-xl border border-turquoise/30"
+      >
+        <div className="w-14 h-14 bg-turquoise rounded-full flex items-center justify-center mb-6">
+          <Target className="w-7 h-7 text-white" />
+        </div>
+        <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+        <p className="text-body-text leading-relaxed text-justify">
+          To provide transparent, ethical, and comprehensive guidance to students,
+          ensuring they make informed decisions about their education. We are
+          committed to maintaining high visa success rates and building long-term
+          relationships with our students.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
      {/* CAREERS / APPLY NOW SECTION */}
       <section className="py-20 bg-gradient-to-b from-white to-ghost-green">
