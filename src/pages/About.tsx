@@ -163,6 +163,36 @@ export const About = () => {
           </div>
         </div>
       </section>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
+            <p className="text-lg text-body-text max-w-2xl mx-auto">
+              We stand out through our commitment to excellence and student success
+            </p>
+          </motion.div>
+
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-turquoise rounded-full flex items-center justify-center">
+                    <value.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                    <p className="text-body-text">{value.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
      {/* CAREERS / APPLY NOW SECTION */}
       <section className="py-20 bg-gradient-to-b from-white to-ghost-green">
