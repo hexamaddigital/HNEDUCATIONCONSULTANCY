@@ -132,26 +132,11 @@ export const GlobalEducation = () => {
                   <div className="space-y-3">
                     <button
                       onClick={() => setShowBrochureModal(true)}
-                      className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-white border-2 border-turquoise text-turquoise rounded-xl font-medium hover:bg-turquoise hover:text-white transition-all duration-300"
+                      className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                     >
                       <Download className="w-5 h-5" />
                       <span>Download Complete Universities List</span>
                     </button>
-
-                    {(selectedCountry.name === 'USA' || selectedCountry.name === 'UK') && (
-                      <a
-                        href={selectedCountry.name === 'USA'
-                          ? 'https://drive.google.com/file/d/1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp/view?usp=drive_link'
-                          : 'https://drive.google.com/file/d/1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB/view?usp=drive_link'
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105"
-                      >
-                        <Download className="w-5 h-5" />
-                        <span>Download All {selectedCountry.name} Universities</span>
-                      </a>
-                    )}
                   </div>
                 </div>
 
@@ -235,7 +220,6 @@ export const GlobalEducation = () => {
                 </div>
 
                 <div className="mt-8 grid md:grid-cols-2 gap-4">
-                 
                   <a
                     href="/contact"
                     className="flex items-center justify-center space-x-2 px-6 py-4 bg-white border-2 border-turquoise text-turquoise rounded-xl font-semibold hover:bg-turquoise hover:text-white transition-all duration-300 transform hover:scale-105"
@@ -269,4 +253,4 @@ export const GlobalEducation = () => {
       )}
     </>
   );
-};
+};0
