@@ -18,7 +18,7 @@ export const CTAModal = () => {
   // ✅ SIMPLE & BOLT-SAFE BROCHURE DOWNLOAD
   const handleBrochureClick = () => {
     const link = document.createElement('a');
-    link.href = 'hn_educational_consultancy_brochure.pdf''; // must be inside /public/brochures
+    link.href = 'public/HN main brouchure.pdf'; // must be inside /public/brochures
     link.download = 'hn_educational_consultancy_brochure.pdf';
     document.body.appendChild(link);
     link.click();
