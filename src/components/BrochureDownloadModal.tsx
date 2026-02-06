@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download, CheckCircle } from 'lucide-react';
+import { X, Download, CheckCircle, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { supabase } from '../lib/supabase';
 
@@ -16,26 +16,26 @@ interface FormData {
   phone: string;
 }
 
-/* 🔹 Country → University List PDF (Google Drive) - Preview links (reliable, no virus warning) */
+/* 🔹 Direct download links – no virus warning, no preview page */
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
-  Main:       'https://drive.google.com/file/d/1_Yjd8SftRyMOLCFdOmCMhHlX1Cnay8SH/view?usp=drive_link',
-  USA:        'https://drive.google.com/file/d/1BVcABQKVRuq8WpjYTo1rpELYpauaSdk8/view?usp=drive_linke',
-  UK:         'https://drive.google.com/file/d/1GYgnbPqJQlHX0dEXt_egUekl7dDVvAKZ/view?usp=drive_link',
-  Canada:     'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view?usp=drive_link',
-  Australia:  'https://drive.google.com/file/d/1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C/view?usp=drive_link',
-  Germany:    'https://drive.google.com/file/d/1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43/view?usp=drive_link',
-  France:     'https://drive.google.com/file/d/15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x/view?usp=drive_link',
-  Netherlands:'https://drive.google.com/file/d/1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH/view?usp=drive_link',
-  Switzerland:'https://drive.google.com/file/d/1uvO5m26usMCbr-TuuPs277xKxVo-fZwo/view?usp=drive_link',
-  Sweden:     'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view?usp=drive_link',
-  'New Zealand': 'https://drive.google.com/file/d/1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7/view?usp=drive_link',
-  Dubai:      'https://drive.google.com/file/d/1D5YTqyPKvbU79KZPabnCduumyq3bdgsP/view?usp=drive_link',
-  Ireland:    'https://drive.google.com/file/d/1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP/view?usp=drive_link',
-  Spain:      'https://drive.google.com/file/d/1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT/view?usp=drive_link',
-  Italy:      'https://drive.google.com/file/d/14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK/view?usp=drive_link',
-  Finland:    'https://drive.google.com/file/d/1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH/view?usp=drive_link',
-  Russia:     'https://drive.google.com/file/d/199383S743gkY1GAHbng2meZdGjNNrriv/view?usp=drive_link',
-  Malta:      'https://drive.google.com/file/d/1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia/view?usp=drive_link',
+  Main:       'https://drive.google.com/uc?export=download&id=1_Yjd8SftRyMOLCFdOmCMhHlX1Cnay8SH',
+  USA:        'https://drive.google.com/uc?export=download&id=1BVcABQKVRuq8WpjYTo1rpELYpauaSdk8',
+  UK:         'https://drive.google.com/uc?export=download&id=1GYgnbPqJQlHX0dEXt_egUekl7dDVvAKZ',
+  Canada:     'https://drive.google.com/uc?export=download&id=12uo1nRKoSttYBLNcr9LBNctoARdJGPwY',
+  Australia:  'https://drive.google.com/uc?export=download&id=1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C',
+  Germany:    'https://drive.google.com/uc?export=download&id=1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43',
+  France:     'https://drive.google.com/uc?export=download&id=15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x',
+  Netherlands:'https://drive.google.com/uc?export=download&id=1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH',
+  Switzerland:'https://drive.google.com/uc?export=download&id=1uvO5m26usMCbr-TuuPs277xKxVo-fZwo',
+  Sweden:     'https://drive.google.com/uc?export=download&id=10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4',
+  'New Zealand': 'https://drive.google.com/uc?export=download&id=1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7',
+  Dubai:      'https://drive.google.com/uc?export=download&id=1D5YTqyPKvbU79KZPabnCduumyq3bdgsP',
+  Ireland:    'https://drive.google.com/uc?export=download&id=1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP',
+  Spain:      'https://drive.google.com/uc?export=download&id=1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT',
+  Italy:      'https://drive.google.com/uc?export=download&id=14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK',
+  Finland:    'https://drive.google.com/uc?export=download&id=1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH',
+  Russia:     'https://drive.google.com/uc?export=download&id=199383S743gkY1GAHbng2meZdGjNNrriv',
+  Malta:      'https://drive.google.com/uc?export=download&id=1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia',
 };
 
 export const BrochureDownloadModal = ({
@@ -44,24 +44,28 @@ export const BrochureDownloadModal = ({
   country,
 }: UniversityListModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, reset } = useForm<FormData>();
 
   const universityListLink =
     UNIVERSITY_LIST_LINKS[country] || 'https://drive.google.com';
 
   const onSubmit = async (formData: FormData) => {
-    setIsSubmitted(true);
-
-    await supabase.from('brochure_downloads').insert({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      country: country,
-    });
+    setIsLoading(true);
 
     try {
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`;
-      await fetch(apiUrl, {
+      // 1. Save to Supabase
+      const { error } = await supabase.from('brochure_downloads').insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        country: country,
+      });
+
+      if (error) throw error;
+
+      // 2. Trigger notification (fire-and-forget – don't block download)
+      fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
@@ -76,31 +80,35 @@ export const BrochureDownloadModal = ({
             country: country,
           },
         }),
-      });
+      }).catch((err) => console.error('Notification failed:', err));
+
+      // 3. Trigger direct download
+      const a = document.createElement('a');
+      a.href = universityListLink;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      // 4. Show success state briefly
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setIsLoading(false);
+        reset();
+        onClose();
+      }, 2200);
     } catch (error) {
-      console.error('Email notification failed:', error);
+      console.error('Submission failed:', error);
+      setIsLoading(false);
+      // Optionally: show error toast/message here
     }
-
-    setTimeout(() => {
-  const a = document.createElement('a');
-  a.href = universityListLink;
-  a.target = '_blank';
-  a.rel = 'noopener noreferrer';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}, 700);
-
-
-    setTimeout(() => {
-      setIsSubmitted(false);
-      reset();
-      onClose();
-    }, 2200);
   };
 
   const handleClose = () => {
     setIsSubmitted(false);
+    setIsLoading(false);
     reset();
     onClose();
   };
@@ -121,15 +129,18 @@ export const BrochureDownloadModal = ({
                 <h2 className="text-2xl font-bold">
                   {country === 'Main' ? 'Download Our Brochure' : 'Download University List'}
                 </h2>
-                <button onClick={handleClose}>
-                  <X />
+                <button
+                  onClick={handleClose}
+                  aria-label="Close modal"
+                  className="text-white hover:opacity-80"
+                >
+                  <X size={24} />
                 </button>
               </div>
               <p className="text-sm mt-2">
                 {country === 'Main'
                   ? 'Get detailed information about our language coaching and study abroad services'
-                  : `Complete university list for ${country}`
-                }
+                  : `Complete university list for ${country}`}
               </p>
             </div>
 
@@ -139,31 +150,46 @@ export const BrochureDownloadModal = ({
                   <input
                     {...register('name', { required: true })}
                     placeholder="Full Name"
-                    className="w-full border p-3 rounded-lg"
+                    className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    disabled={isLoading}
                   />
                   <input
                     {...register('email', { required: true })}
                     placeholder="Email"
-                    className="w-full border p-3 rounded-lg"
+                    type="email"
+                    className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    disabled={isLoading}
                   />
                   <input
                     {...register('phone', { required: true })}
                     placeholder="Phone"
-                    className="w-full border p-3 rounded-lg"
+                    type="tel"
+                    className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
+                    disabled={isLoading}
                   />
                   <button
                     type="submit"
-                    className="w-full py-3 bg-turquoise text-white rounded-lg flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    className="w-full py-3 bg-turquoise text-white rounded-lg flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <Download />
-                    {country === 'Main' ? 'Download Brochure' : 'Download University List'}
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="animate-spin" size={20} />
+                        Processing...
+                      </>
+                    ) : (
+                      <>
+                        <Download size={20} />
+                        {country === 'Main' ? 'Download Brochure' : 'Download University List'}
+                      </>
+                    )}
                   </button>
                 </form>
               ) : (
                 <div className="text-center py-8">
                   <CheckCircle className="mx-auto text-green-600 w-14 h-14" />
-                  <p className="mt-4 font-semibold">
-                    {country === 'Main' ? 'Brochure is opening…' : 'University list is opening…'}
+                  <p className="mt-4 font-semibold text-lg">
+                    {country === 'Main' ? 'Brochure is downloading…' : 'University list is downloading…'}
                   </p>
                 </div>
               )}
