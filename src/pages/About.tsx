@@ -194,7 +194,7 @@ export const About = () => {
         </h3>
 
         <p className="text-[#4B5F63] leading-relaxed text-[16px]">
-          To empower students with global education opportunities and become the most trusted partner in their international education journey, helping them achieve academic excellence and career success worldwide.
+          Our vision is to create global education and career opportunities for students worldwide.
         </p>
       </div>
 
@@ -221,7 +221,7 @@ export const About = () => {
         </h3>
 
         <p className="text-[#4B5F63] leading-relaxed text-[16px]">
-          To provide transparent, ethical, and comprehensive guidance to students, ensuring they make informed decisions about their education. We are committed to maintaining high visa success rates and building long-term relationships with our students.
+          Our mission is simple — transparent, ethical, and experience-driven guidance.
         </p>
       </div>
 
