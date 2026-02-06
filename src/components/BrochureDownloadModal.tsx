@@ -18,8 +18,8 @@ interface FormData {
 
 /* 🔹 Country → University List PDF (Google Drive) */
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
-  USA: 'https://drive.google.com/file/d/1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp/view?usp=drive_link',
-  UK: 'https://drive.google.com/file/d/1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB/view?usp=drive_link',
+  USA: 'https://drive.google.com/uc?export=download&id=1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp',
+  UK: 'https://drive.google.com/uc?export=download&id=1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB',
   Canada: 'https://drive.google.com/uc?export=download&id=12uo1nRKoSttYBLNcr9LBNctoARdJGPwY',
   Australia: 'https://drive.google.com/uc?export=download&id=1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C',
   Germany: 'https://drive.google.com/uc?export=download&id=1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43',
@@ -27,7 +27,7 @@ const UNIVERSITY_LIST_LINKS: Record<string, string> = {
   Netherlands: 'https://drive.google.com/uc?export=download&id=1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH',
   Switzerland: 'https://drive.google.com/uc?export=download&id=1uvO5m26usMCbr-TuuPs277xKxVo-fZwo',
   Sweden: 'https://drive.google.com/uc?export=download&id=10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4',
-  New Zealand: 'https://drive.google.com/uc?export=download&id=1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7',
+  'New Zealand': 'https://drive.google.com/uc?export=download&id=1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7',
   Dubai: 'https://drive.google.com/uc?export=download&id=1D5YTqyPKvbU79KZPabnCduumyq3bdgsP',
   Ireland: 'https://drive.google.com/uc?export=download&id=1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP',
   Spain: 'https://drive.google.com/uc?export=download&id=1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT',
