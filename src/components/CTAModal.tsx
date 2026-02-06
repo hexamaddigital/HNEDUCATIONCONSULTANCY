@@ -15,23 +15,15 @@ export const CTAModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleBrochureClick = async () => {
-    try {
-      const response = await fetch('/brochures/sample-brochure.pdf');
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'hn_educational_consultancy_main_brouchure copy.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-      setIsOpen(false);
-    } catch (error) {
-      console.error('Error downloading brochure:', error);
-      setIsOpen(false);
-    }
+  // ✅ SIMPLE & BOLT-SAFE BROCHURE DOWNLOAD
+  const handleBrochureClick = () => {
+    const link = document.createElement('a');
+    link.href = 'hn_educational_consultancy_brochure.pdf''; // must be inside /public/brochures
+    link.download = 'hn_educational_consultancy_brochure.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setIsOpen(false);
   };
 
   const handleCounsellingClick = () => {
@@ -57,6 +49,7 @@ export const CTAModal = () => {
           onClick={(e) => e.stopPropagation()}
           className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden"
         >
+          {/* HEADER */}
           <div className="bg-gradient-to-r from-turquoise to-turquoise-dark p-6 text-white relative">
             <button
               onClick={() => setIsOpen(false)}
@@ -65,10 +58,14 @@ export const CTAModal = () => {
               <X className="w-5 h-5" />
             </button>
             <h2 className="text-2xl font-bold mb-2">Start Your Journey!</h2>
-            <p className="text-white/90">Choose how we can help you today</p>
+            <p className="text-white/90">
+              Choose how we can help you today
+            </p>
           </div>
 
+          {/* BODY */}
           <div className="p-6 space-y-4">
+            {/* DOWNLOAD BROCHURE */}
             <button
               onClick={handleBrochureClick}
               className="w-full bg-white border-2 border-turquoise text-turquoise rounded-xl p-6 hover:bg-turquoise hover:text-white transition-all hover:scale-105 group"
@@ -84,6 +81,7 @@ export const CTAModal = () => {
               </div>
             </button>
 
+            {/* FREE COUNSELLING */}
             <button
               onClick={handleCounsellingClick}
               className="w-full bg-turquoise text-white rounded-xl p-6 hover:bg-turquoise-dark transition-all hover:scale-105 group"
@@ -100,6 +98,7 @@ export const CTAModal = () => {
             </button>
           </div>
 
+          {/* FOOTER */}
           <div className="px-6 pb-6">
             <button
               onClick={() => setIsOpen(false)}
