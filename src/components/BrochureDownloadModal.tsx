@@ -82,7 +82,8 @@ export const BrochureDownloadModal = ({
     }
 
     setTimeout(() => {
-      window.open(universityListLink, '_blank');
+     window.open(universityListLink + '&usp=preview', '_blank');
+
     }, 700);
 
     setTimeout(() => {
