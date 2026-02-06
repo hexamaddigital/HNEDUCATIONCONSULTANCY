@@ -146,7 +146,7 @@ export const Footer = () => {
         {/* Footer Bottom */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
           <p className="text-gray-300">
-            &copy; {new Date().getFullYear()} All rights reserved. Designed & Developed by Hexamad Digital.
+            &copy; {new Date().getFullYear()}.All rights reserved. Designed & Developed by Hexamad Digital.
           </p>
         </div>
       </div>
