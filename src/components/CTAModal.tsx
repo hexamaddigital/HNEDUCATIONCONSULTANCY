@@ -22,7 +22,7 @@ export const CTAModal = () => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'HN-Study-Abroad-Brochure.pdf';
+      link.download = 'hn_educational_consultancy_main_brouchure copy.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
