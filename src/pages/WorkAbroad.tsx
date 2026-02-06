@@ -1,4 +1,4 @@
-'''import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Briefcase, Clock, MapPin, TrendingUp, Award, Users } from 'lucide-react';
 
 interface WorkPermit {
@@ -244,4 +244,3 @@ export const WorkAbroad = () => {
     </>
   );
 };
-'''
