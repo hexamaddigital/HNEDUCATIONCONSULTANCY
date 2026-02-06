@@ -18,6 +18,7 @@ interface FormData {
 
 /* 🔹 Country → University List PDF (Google Drive) - Preview links (reliable, no virus warning) */
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
+  Main:       '/brochures/hn_educational_consultancy_main_brouchure.pdf',
   USA:        'https://drive.google.com/file/d/1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp/view?usp=drive_link',
   UK:         'https://drive.google.com/file/d/1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB/view?usp=drive_link',
   Canada:     'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view?usp=drive_link',
@@ -110,13 +111,18 @@ export const BrochureDownloadModal = ({
           >
             <div className="bg-gradient-to-r from-turquoise to-turquoise-dark p-6 text-white">
               <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-bold">Download University List</h2>
+                <h2 className="text-2xl font-bold">
+                  {country === 'Main' ? 'Download Our Brochure' : 'Download University List'}
+                </h2>
                 <button onClick={handleClose}>
                   <X />
                 </button>
               </div>
               <p className="text-sm mt-2">
-                Complete university list for {country}
+                {country === 'Main'
+                  ? 'Get detailed information about our language coaching and study abroad services'
+                  : `Complete university list for ${country}`
+                }
               </p>
             </div>
 
@@ -142,14 +148,15 @@ export const BrochureDownloadModal = ({
                     type="submit"
                     className="w-full py-3 bg-turquoise text-white rounded-lg flex items-center justify-center gap-2"
                   >
-                    <Download /> Download University List
+                    <Download />
+                    {country === 'Main' ? 'Download Brochure' : 'Download University List'}
                   </button>
                 </form>
               ) : (
                 <div className="text-center py-8">
                   <CheckCircle className="mx-auto text-green-600 w-14 h-14" />
                   <p className="mt-4 font-semibold">
-                    University list is opening…
+                    {country === 'Main' ? 'Brochure is opening…' : 'University list is opening…'}
                   </p>
                 </div>
               )}
