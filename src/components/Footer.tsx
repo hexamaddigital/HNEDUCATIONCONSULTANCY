@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Twitter,Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin,Instagram, Linkedin, Twitter,Youtube } from 'lucide-react';
 import { COUNTRY_NAMES } from '../constants/countries';
 
 export const Footer = () => {
@@ -52,7 +52,6 @@ export const Footer = () => {
                 { to: '/student-support', label: 'Student Support' },
                 { to: '/trending-courses', label: 'Trending Courses' },
                 { to: '/loan-assistance', label: 'Loan Assistance' },
-                { to: '/work-abroad', label: 'Work Abroad' },
                 { to: '/blog', label: 'Blog' },
                 { to: '/faq', label: 'FAQ' },
                 { to: '/contact', label: 'Contact' },
