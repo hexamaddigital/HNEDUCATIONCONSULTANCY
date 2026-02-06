@@ -82,9 +82,15 @@ export const BrochureDownloadModal = ({
     }
 
     setTimeout(() => {
-     window.open(universityListLink + '&usp=preview', '_blank');
+  const a = document.createElement('a');
+  a.href = universityListLink;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}, 700);
 
-    }, 700);
 
     setTimeout(() => {
       setIsSubmitted(false);
