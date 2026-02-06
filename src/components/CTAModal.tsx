@@ -15,10 +15,12 @@ export const CTAModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ SIMPLE & BOLT-SAFE BROCHURE DOWNLOAD
+  // ✅ GOOGLE DRIVE DIRECT DOWNLOAD (WORKING)
   const handleBrochureClick = () => {
     const link = document.createElement('a');
-    link.href = 'https://drive.google.com/file/d/1_Yjd8SftRyMOLCFdOmCMhHlX1Cnay8SH/view?usp=drive_link'; // must be inside /public/brochures
+    link.href =
+      'https://drive.google.com/uc?export=download&id=1_Yjd8SftRyMOLCFdOmCMhHlX1Cnay8SH';
+    link.target = '_blank'; // important for Drive
     link.download = 'hn_educational_consultancy_brochure.pdf';
     document.body.appendChild(link);
     link.click();
