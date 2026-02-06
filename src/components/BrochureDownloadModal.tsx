@@ -18,7 +18,7 @@ interface FormData {
 
 /* 🔹 Country → University List PDF (Google Drive) */
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
-  USA: 'https://drive.google.com/file/d/1hgTLOxsRFWfwlJsJWKoVfdcvXEqO9Usp/view?usp=drive_link',
+  USA: 'https://drive.google.com/uc?export=download&id=1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB',
   UK: 'https://drive.google.com/file/d/1e6ZhIIPdf9sBA2Gi1CucT8H9VBGDclnB/view?usp=drive_link',
   Canada: 'https://drive.google.com/uc?export=download&id=12uo1nRKoSttYBLNcr9LBNctoARdJGPwY',
   Australia: 'https://drive.google.com/uc?export=download&id=1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C',
