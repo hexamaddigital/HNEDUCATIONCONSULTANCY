@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin,Instagram, Linkedin, Twitter,Youtube } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { COUNTRY_NAMES } from '../constants/countries';
 
 export const Footer = () => {
@@ -30,15 +30,30 @@ export const Footer = () => {
             </p>
 
             <div className="flex space-x-4">
-              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="text-gray-300 hover:text-turquoise transition-colors"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
+              <a
+                href="https://www.youtube.com/@HNSTUDYABROADCONSULTANCYPVTLTD"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-turquoise transition-colors"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/hn-study-abroad-consultancy-private-limited"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-turquoise transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/hnstudyabroadpvtltd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-turquoise transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
             </div>
           </div>
 

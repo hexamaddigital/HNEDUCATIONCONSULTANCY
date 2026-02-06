@@ -11,7 +11,6 @@ const navLinks = [
   { name: 'Student Support', path: '/student-support' },
   { name: 'Trending Courses', path: '/trending-courses' },
   { name: 'Loan Assistance', path: '/loan-assistance' },
-  { name: 'Work Abroad', path: '/work-abroad' },
   { name: 'Blog', path: '/blog' },
   { name: 'FAQ', path: '/faq' },
   { name: 'Contact', path: '/contact' },
@@ -50,7 +49,7 @@ export const Header = () => {
             <img
               src="/hn_study.png"
               alt="HN Study Abroad Consultancy"
-              className="h-12 md:h-16 lg:h-20 xl:h-24 w-auto object-contain transition-all duration-300"
+              className="h-14 md:h-18 lg:h-24 xl:h-28 w-auto object-contain transition-all duration-300"
             />
           </Link>
 

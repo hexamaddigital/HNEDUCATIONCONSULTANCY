@@ -9,7 +9,6 @@ import { GlobalEducation } from './pages/GlobalEducation';
 import { StudentSupport } from './pages/StudentSupport';
 import { TrendingCourses } from './pages/TrendingCourses';
 import { LoanAssistance } from './pages/LoanAssistance';
-import { WorkAbroad } from './pages/WorkAbroad';
 import { Blog } from './pages/Blog';
 import { BlogDetail } from './pages/BlogDetail';
 import { About } from './pages/About';
@@ -33,7 +32,6 @@ function App() {
               <Route path="/student-support" element={<StudentSupport />} />
               <Route path="/trending-courses" element={<TrendingCourses />} />
               <Route path="/loan-assistance" element={<LoanAssistance />} />
-              <Route path="/work-abroad" element={<WorkAbroad />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/about" element={<About />} />
