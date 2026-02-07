@@ -16,26 +16,25 @@ interface FormData {
   phone: string;
 }
 
-/* 🔹 Direct download links – no virus warning, no preview page */
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
   Main:            '/brochures/hn_educational_consultancy_main_brouchure.pdf',
-  'United States': 'https://drive.google.com/uc?export=download&id=1sVV-eVLQQ6Z5K02W_lijZKOT8OUGAxge',
-  'United Kingdom':'https://drive.google.com/uc?export=download&id=1GYgnbPqJQlHX0dEXt_egUekl7dDVvAKZ',
-  Canada:          'https://drive.google.com/uc?export=download&id=12uo1nRKoSttYBLNcr9LBNctoARdJGPwY',
-  Australia:       'https://drive.google.com/uc?export=download&id=1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C',
-  Germany:         'https://drive.google.com/uc?export=download&id=1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43',
-  France:          'https://drive.google.com/uc?export=download&id=15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x',
-  Netherlands:     'https://drive.google.com/uc?export=download&id=1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH',
-  Switzerland:     'https://drive.google.com/uc?export=download&id=1uvO5m26usMCbr-TuuPs277xKxVo-fZwo',
-  Sweden:          'https://drive.google.com/uc?export=download&id=10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4',
-  'New Zealand':   'https://drive.google.com/uc?export=download&id=1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7',
-  Dubai:           'https://drive.google.com/uc?export=download&id=1D5YTqyPKvbU79KZPabnCduumyq3bdgsP',
-  Ireland:         'https://drive.google.com/uc?export=download&id=1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP',
-  Spain:           'https://drive.google.com/uc?export=download&id=1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT',
-  Italy:           'https://drive.google.com/uc?export=download&id=14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK',
-  Finland:         'https://drive.google.com/uc?export=download&id=1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH',
-  Russia:          'https://drive.google.com/uc?export=download&id=199383S743gkY1GAHbng2meZdGjNNrriv',
-  Malta:           'https://drive.google.com/uc?export=download&id=1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia',
+  'United States': 'https://drive.google.com/file/d/1sVV-eVLQQ6Z5K02W_lijZKOT8OUGAxge/view',
+  'United Kingdom':'https://drive.google.com/file/d/1GYgnbPqJQlHX0dEXt_egUekl7dDVvAKZ/view',
+  Canada:          'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view',
+  Australia:       'https://drive.google.com/file/d/1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C/view',
+  Germany:         'https://drive.google.com/file/d/1L7qBNzqTskPdg2Odg5hE6lrPcdFI1H43/view',
+  France:          'https://drive.google.com/file/d/15ztOz8rCXxbu6jALiA8-ZxsA3TX9uD3x/view',
+  Netherlands:     'https://drive.google.com/file/d/1cSrxH7VtxRiztHdzJEl5_35CpjEDwVgH/view',
+  Switzerland:     'https://drive.google.com/file/d/1uvO5m26usMCbr-TuuPs277xKxVo-fZwo/view',
+  Sweden:          'https://drive.google.com/file/d/10pcw-fnDxsifswrQ5vaNPIw8IiXEbEk4/view',
+  'New Zealand':   'https://drive.google.com/file/d/1iXog-K3WqYRkkBTMeNoaqtHL11GuEpL7/view',
+  Dubai:           'https://drive.google.com/file/d/1D5YTqyPKvbU79KZPabnCduumyq3bdgsP/view',
+  Ireland:         'https://drive.google.com/file/d/1eFvPqPVYDxICZ9pdMa1Y6B2MFjC6wucP/view',
+  Spain:           'https://drive.google.com/file/d/1HQTrVBWfgjOg5k6uc9XbtrzBMqp3PayT/view',
+  Italy:           'https://drive.google.com/file/d/14YYT2Rj4iwxTeXO1cwxITSMvu10SzztK/view',
+  Finland:         'https://drive.google.com/file/d/1stVI6zXDc37ZIwRv3WyulXV-qRBX_GMH/view',
+  Russia:          'https://drive.google.com/file/d/199383S743gkY1GAHbng2meZdGjNNrriv/view',
+  Malta:           'https://drive.google.com/file/d/1a2K7Ljve6gW66-il2u05E8jk6CKXA4Ia/view',
 };
 
 export const BrochureDownloadModal = ({
@@ -82,14 +81,21 @@ export const BrochureDownloadModal = ({
         }),
       }).catch((err) => console.error('Notification failed:', err));
 
-      // 3. Trigger direct download
-      const a = document.createElement('a');
-      a.href = universityListLink;
-      a.target = '_blank';
-      a.rel = 'noopener noreferrer';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      // 3. Open brochure in new tab
+      const isLocalFile = universityListLink.startsWith('/');
+
+      if (isLocalFile) {
+        const a = document.createElement('a');
+        a.href = universityListLink;
+        a.download = universityListLink.split('/').pop() || 'brochure.pdf';
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } else {
+        window.open(universityListLink, '_blank', 'noopener,noreferrer');
+      }
 
       // 4. Show success state briefly
       setIsSubmitted(true);
@@ -189,7 +195,10 @@ export const BrochureDownloadModal = ({
                 <div className="text-center py-8">
                   <CheckCircle className="mx-auto text-green-600 w-14 h-14" />
                   <p className="mt-4 font-semibold text-lg">
-                    {country === 'Main' ? 'Brochure is downloading…' : 'University list is downloading…'}
+                    {country === 'Main' ? 'Opening brochure…' : 'Opening university list…'}
+                  </p>
+                  <p className="mt-2 text-sm text-body-text">
+                    You can download it from the new tab
                   </p>
                 </div>
               )}
