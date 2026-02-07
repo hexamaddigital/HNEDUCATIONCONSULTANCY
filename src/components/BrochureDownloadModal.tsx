@@ -19,7 +19,7 @@ interface FormData {
 /* 🔹 Direct download links – no virus warning, no preview page */
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
   Main:            '/brochures/hn_educational_consultancy_main_brouchure.pdf',
-  'United States': 'https://drive.google.com/uc?export=download&id=1BVcABQKVRuq8WpjYTo1rpELYpauaSdk8',
+  'United States': 'https://drive.google.com/uc?export=download&id=1sVV-eVLQQ6Z5K02W_lijZKOT8OUGAxge',
   'United Kingdom':'https://drive.google.com/uc?export=download&id=1GYgnbPqJQlHX0dEXt_egUekl7dDVvAKZ',
   Canada:          'https://drive.google.com/uc?export=download&id=12uo1nRKoSttYBLNcr9LBNctoARdJGPwY',
   Australia:       'https://drive.google.com/uc?export=download&id=1mMPWBcOwkBKsNh4rf7ktcJft3sVDSN5C',
