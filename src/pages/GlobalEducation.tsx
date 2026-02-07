@@ -253,4 +253,4 @@ export const GlobalEducation = () => {
       )}
     </>
   );
-};0
+};
