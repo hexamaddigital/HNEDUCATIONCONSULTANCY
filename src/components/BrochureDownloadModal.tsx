@@ -81,21 +81,8 @@ export const BrochureDownloadModal = ({
         }),
       }).catch((err) => console.error('Notification failed:', err));
 
-      // 3. Open brochure in new tab
-      const isLocalFile = universityListLink.startsWith('/');
-
-      if (isLocalFile) {
-        const a = document.createElement('a');
-        a.href = universityListLink;
-        a.download = universityListLink.split('/').pop() || 'brochure.pdf';
-        a.target = '_blank';
-        a.rel = 'noopener noreferrer';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      } else {
-        window.open(universityListLink, '_blank', 'noopener,noreferrer');
-      }
+      // 3. Open brochure (iOS Safari compatible)
+      window.open(universityListLink, '_blank', 'noopener,noreferrer');
 
       // 4. Show success state briefly
       setIsSubmitted(true);
@@ -195,10 +182,10 @@ export const BrochureDownloadModal = ({
                 <div className="text-center py-8">
                   <CheckCircle className="mx-auto text-green-600 w-14 h-14" />
                   <p className="mt-4 font-semibold text-lg">
-                    {country === 'Main' ? 'Opening brochure…' : 'Opening university list…'}
+                    {country === 'Main' ? 'Brochure opened!' : 'University list opened!'}
                   </p>
                   <p className="mt-2 text-sm text-body-text">
-                    You can download it from the new tab
+                    Tap the share/download button in the opened tab to save
                   </p>
                 </div>
               )}
