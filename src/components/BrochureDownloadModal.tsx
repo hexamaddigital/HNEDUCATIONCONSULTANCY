@@ -81,8 +81,18 @@ export const BrochureDownloadModal = ({
         }),
       }).catch((err) => console.error('Notification failed:', err));
 
-      // 3. Open brochure (iOS Safari compatible)
-      window.open(universityListLink, '_blank', 'noopener,noreferrer');
+      // 3. Download brochure (iOS Safari compatible)
+      const isLocalFile = universityListLink.startsWith('/');
+
+      if (isLocalFile) {
+        // Use edge function for local files to force download on Safari
+        const filename = universityListLink.substring(1); // Remove leading slash
+        const downloadUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/download-brochure?filename=${encodeURIComponent(filename)}`;
+        window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        // For Google Drive links, open directly
+        window.open(universityListLink, '_blank', 'noopener,noreferrer');
+      }
 
       // 4. Show success state briefly
       setIsSubmitted(true);
