@@ -75,18 +75,20 @@ export const BrochureDownloadModal = ({
         },
       });
 
-      // 3. Download brochure (iOS Safari compatible)
-      const isLocalFile = universityListLink.startsWith('/');
+      // 3. Wait a moment for WhatsApp windows to open, then download brochure
+      setTimeout(() => {
+        const isLocalFile = universityListLink.startsWith('/');
 
-      if (isLocalFile) {
-        // Use edge function for local files to force download on Safari
-        const filename = universityListLink.substring(1); // Remove leading slash
-        const downloadUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/download-brochure?filename=${encodeURIComponent(filename)}`;
-        window.open(downloadUrl, '_blank', 'noopener,noreferrer');
-      } else {
-        // For Google Drive links, open directly
-        window.open(universityListLink, '_blank', 'noopener,noreferrer');
-      }
+        if (isLocalFile) {
+          // Use edge function for local files to force download on Safari
+          const filename = universityListLink.substring(1); // Remove leading slash
+          const downloadUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/download-brochure?filename=${encodeURIComponent(filename)}`;
+          window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+        } else {
+          // For Google Drive links, open directly
+          window.open(universityListLink, '_blank', 'noopener,noreferrer');
+        }
+      }, 500);
 
       // 4. Show success state briefly
       setIsSubmitted(true);
@@ -95,7 +97,7 @@ export const BrochureDownloadModal = ({
         setIsLoading(false);
         reset();
         onClose();
-      }, 2200);
+      }, 2500);
     } catch (error) {
       console.error('Submission failed:', error);
       setIsLoading(false);
