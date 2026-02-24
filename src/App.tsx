@@ -16,7 +16,7 @@ import { Contact } from './pages/Contact';
 import { SignIn } from './pages/SignIn';
 import { Dashboard } from './pages/Dashboard';
 import { FAQPage } from './pages/FAQPage';
-
+import Admin from './pages/Admin';
 function App() {
   return (
     <AuthProvider>
@@ -39,6 +39,7 @@ function App() {
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/admin" element={<Admin />} />
             </Routes>
           </main>
 
