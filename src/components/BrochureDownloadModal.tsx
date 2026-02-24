@@ -18,7 +18,7 @@ interface FormData {
 }
 
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
-  Main:            '/brochures/hn_educational_consultancy_main_brouchure.pdf',
+  Main:            '/brochures/HN_Educational_Consultancy_Main_Brouchure.pdf',
   'United States': 'https://drive.google.com/file/d/1sVV-eVLQQ6Z5K02W_lijZKOT8OUGAxge/view',
   'United Kingdom':'https://drive.google.com/file/d/1GYgnbPqJQlHX0dEXt_egUekl7dDVvAKZ/view',
   Canada:          'https://drive.google.com/file/d/12uo1nRKoSttYBLNcr9LBNctoARdJGPwY/view',
