@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Download, CheckCircle, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { supabase } from '../lib/supabase';
+import { sendWhatsAppNotifications } from '../utils/whatsapp';
 
 interface UniversityListModalProps {
   isOpen: boolean;
@@ -63,23 +64,16 @@ export const BrochureDownloadModal = ({
 
       if (error) throw error;
 
-      // 2. Trigger notification (fire-and-forget – don't block download)
-      fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
+      // 2. Send WhatsApp notifications
+      sendWhatsAppNotifications({
+        type: 'brochure',
+        data: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          country: country,
         },
-        body: JSON.stringify({
-          type: 'brochure',
-          data: {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            country: country,
-          },
-        }),
-      }).catch((err) => console.error('Notification failed:', err));
+      });
 
       // 3. Download brochure (iOS Safari compatible)
       const isLocalFile = universityListLink.startsWith('/');

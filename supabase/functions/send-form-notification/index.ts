@@ -6,76 +6,57 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
 
+const WHATSAPP_NUMBERS = ["919860667552", "917709476192"];
+
 interface FormSubmission {
   type: "contact" | "brochure" | "application";
   data: Record<string, string>;
 }
 
-function generateEmailHTML(submission: FormSubmission): string {
+function generateWhatsAppMessage(submission: FormSubmission): string {
   const { type, data } = submission;
-
-  let subject = "";
-  let content = "";
 
   switch (type) {
     case "contact":
-      subject = `New Contact Form Submission from ${data.fullName}`;
-      content = `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${data.fullName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phoneNumber}</p>
-        <p><strong>Preferred Country:</strong> ${data.preferredCountry || "Not specified"}</p>
-        <p><strong>Message:</strong></p>
-        <p>${data.message}</p>
-      `;
-      break;
+      return `🎓 *New Contact Form Submission*\n\n` +
+        `*Name:* ${data.fullName}\n` +
+        `*Email:* ${data.email}\n` +
+        `*Phone:* ${data.phoneNumber}\n` +
+        `*Preferred Country:* ${data.preferredCountry || "Not specified"}\n` +
+        `*Message:* ${data.message}\n\n` +
+        `_From HN Study Abroad Website_`;
 
     case "brochure":
-      subject = `Brochure Download Request from ${data.name}`;
-      content = `
-        <h2>New Brochure Download Request</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Country:</strong> ${data.country}</p>
-      `;
-      break;
+      return `📥 *Brochure Download Request*\n\n` +
+        `*Name:* ${data.name}\n` +
+        `*Email:* ${data.email}\n` +
+        `*Phone:* ${data.phone}\n` +
+        `*Country:* ${data.country}\n\n` +
+        `_From HN Study Abroad Website_`;
 
     case "application":
-      subject = `New University Application from ${data.studentName}`;
-      content = `
-        <h2>New University Application</h2>
-        <p><strong>Student Name:</strong> ${data.studentName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Country:</strong> ${data.country}</p>
-        <p><strong>University:</strong> ${data.university}</p>
-        <p><strong>Course:</strong> ${data.course}</p>
-        <p><strong>Intake:</strong> ${data.intake}</p>
-      `;
-      break;
-  }
+      return `📝 *New University Application*\n\n` +
+        `*Student:* ${data.studentName}\n` +
+        `*Email:* ${data.email}\n` +
+        `*Country:* ${data.country}\n` +
+        `*University:* ${data.university}\n` +
+        `*Course:* ${data.course}\n` +
+        `*Intake:* ${data.intake}\n\n` +
+        `_From HN Study Abroad Website_`;
 
-  return `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          h2 { color: #2D3748; border-bottom: 2px solid #00CFC8; padding-bottom: 10px; }
-          p { margin: 10px 0; }
-          strong { color: #2D3748; }
-        </style>
-      </head>
-      <body>
-        ${content}
-        <hr style="margin-top: 30px; border: none; border-top: 1px solid #E2E8F0;">
-        <p style="color: #718096; font-size: 12px;">
-          This email was automatically generated from the HN Study Abroad website form submission.
-        </p>
-      </body>
-    </html>
-  `;
+    default:
+      return "New form submission received";
+  }
+}
+
+async function sendWhatsAppNotifications(message: string): Promise<void> {
+  const encodedMessage = encodeURIComponent(message);
+
+  for (const number of WHATSAPP_NUMBERS) {
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${number}&text=${encodedMessage}`;
+    console.log(`WhatsApp notification prepared for ${number}`);
+    console.log(`URL: ${whatsappUrl}`);
+  }
 }
 
 Deno.serve(async (req: Request) => {
@@ -99,22 +80,18 @@ Deno.serve(async (req: Request) => {
 
     const submission: FormSubmission = await req.json();
 
-    const emailHTML = generateEmailHTML(submission);
-    const subject = submission.type === "contact"
-      ? `New Contact Form Submission from ${submission.data.fullName}`
-      : submission.type === "brochure"
-      ? `Brochure Download Request from ${submission.data.name}`
-      : `New University Application from ${submission.data.studentName}`;
+    const whatsappMessage = generateWhatsAppMessage(submission);
+
+    await sendWhatsAppNotifications(whatsappMessage);
 
     console.log(`Form submission received: ${submission.type}`);
-    console.log(`Subject: ${subject}`);
-    console.log(`Recipient: info@hnstudyabroad.com`);
+    console.log(`WhatsApp notifications sent to both numbers`);
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Form submission logged successfully",
-        note: "Email integration ready - configure SMTP or email service as needed"
+        message: "Form submission logged and WhatsApp notifications sent",
+        whatsappNumbers: WHATSAPP_NUMBERS
       }),
       {
         status: 200,

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { COUNTRY_NAMES } from '../constants/countries';
+import { sendWhatsAppNotifications } from '../utils/whatsapp';
 
 interface ContactFormData {
   fullName: string;
@@ -35,28 +36,16 @@ export const Contact = () => {
     });
 
     if (!error) {
-      try {
-        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`;
-        await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            type: 'contact',
-            data: {
-              fullName: data.fullName,
-              email: data.email,
-              phoneNumber: data.phoneNumber,
-              preferredCountry: data.preferredCountry,
-              message: data.message,
-            },
-          }),
-        });
-      } catch (emailError) {
-        console.error('Email notification failed:', emailError);
-      }
+      sendWhatsAppNotifications({
+        type: 'contact',
+        data: {
+          fullName: data.fullName,
+          email: data.email,
+          phoneNumber: data.phoneNumber,
+          preferredCountry: data.preferredCountry,
+          message: data.message,
+        },
+      });
     }
 
     setIsSubmitting(false);
