@@ -248,7 +248,6 @@ export const GlobalEducation = () => {
           isOpen={showBrochureModal}
           onClose={() => setShowBrochureModal(false)}
           country={selectedCountry.name}
-          brochureUrl="/brochures/sample-brochure.pdf"
         />
       )}
     </>
