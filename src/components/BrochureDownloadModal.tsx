@@ -98,7 +98,18 @@ export const BrochureDownloadModal = ({
     setIsLoading(true);
 
     try {
-      // 1️⃣ Save data to Supabase
+      // 1️⃣ FIRST: Open WhatsApp (must be synchronous with user click)
+      sendWhatsAppNotifications({
+        type: 'brochure',
+        data: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          country: country,
+        },
+      });
+
+      // 2️⃣ Save data to Supabase
       const { error } = await supabase.from('brochure_downloads').insert({
         name: formData.name,
         email: formData.email,
@@ -108,7 +119,7 @@ export const BrochureDownloadModal = ({
 
       if (error) throw error;
 
-      // 2️⃣ Prepare download URL
+      // 3️⃣ Prepare download URL
       const isLocalFile = universityListLink.startsWith('/');
       let downloadUrl = universityListLink;
 
@@ -119,20 +130,7 @@ export const BrochureDownloadModal = ({
         )}`;
       }
 
-      // 3️⃣ Send WhatsApp notification in background (non-blocking)
-      setTimeout(() => {
-        sendWhatsAppNotifications({
-          type: 'brochure',
-          data: {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            country: country,
-          },
-        });
-      }, 0);
-
-      // 4️⃣ Force immediate download using invisible anchor (INSTANT - NO DELAY)
+      // 4️⃣ Force immediate download using invisible anchor
       const link = document.createElement('a');
       link.href = downloadUrl;
       link.target = '_blank';
