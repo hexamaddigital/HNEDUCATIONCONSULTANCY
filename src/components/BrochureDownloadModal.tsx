@@ -119,20 +119,10 @@ export const BrochureDownloadModal = ({
 
       if (error) throw error;
 
-      // 3️⃣ Prepare download URL
-      const isLocalFile = universityListLink.startsWith('/');
-      let downloadUrl = universityListLink;
-
-      if (isLocalFile) {
-        const filename = universityListLink.substring(1);
-        downloadUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/download-brochure?filename=${encodeURIComponent(
-          filename
-        )}`;
-      }
-
-      // 4️⃣ Force immediate download using invisible anchor
+      // 3️⃣ Force immediate download using invisible anchor
       const link = document.createElement('a');
-      link.href = downloadUrl;
+      link.href = universityListLink;
+      link.download = country === 'Main' ? 'HN_Brouchure.pdf' : `${country}_University_List.pdf`;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       document.body.appendChild(link);
