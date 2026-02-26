@@ -119,16 +119,7 @@ export const BrochureDownloadModal = ({
         )}`;
       }
 
-      // 3️⃣ Force download using invisible anchor (SAFE METHOD)
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      // 4️⃣ Send WhatsApp notification in background (non-blocking)
+      // 3️⃣ Send WhatsApp notification in background (non-blocking)
       setTimeout(() => {
         sendWhatsAppNotifications({
           type: 'brochure',
@@ -140,6 +131,15 @@ export const BrochureDownloadModal = ({
           },
         });
       }, 0);
+
+      // 4️⃣ Force immediate download using invisible anchor (INSTANT - NO DELAY)
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
       // 5️⃣ Show success UI
       setIsSubmitted(true);
