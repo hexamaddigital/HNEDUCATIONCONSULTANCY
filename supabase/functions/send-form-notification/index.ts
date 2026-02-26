@@ -49,14 +49,12 @@ function generateWhatsAppMessage(submission: FormSubmission): string {
   }
 }
 
-async function sendWhatsAppNotifications(message: string): Promise<void> {
+function generateWhatsAppUrls(message: string): string[] {
   const encodedMessage = encodeURIComponent(message);
 
-  for (const number of WHATSAPP_NUMBERS) {
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${number}&text=${encodedMessage}`;
-    console.log(`WhatsApp notification prepared for ${number}`);
-    console.log(`URL: ${whatsappUrl}`);
-  }
+  return WHATSAPP_NUMBERS.map((number) => {
+    return `https://wa.me/${number}?text=${encodedMessage}`;
+  });
 }
 
 Deno.serve(async (req: Request) => {
@@ -82,16 +80,16 @@ Deno.serve(async (req: Request) => {
 
     const whatsappMessage = generateWhatsAppMessage(submission);
 
-    await sendWhatsAppNotifications(whatsappMessage);
+    const whatsappUrls = generateWhatsAppUrls(whatsappMessage);
 
     console.log(`Form submission received: ${submission.type}`);
-    console.log(`WhatsApp notifications sent to both numbers`);
+    console.log(`WhatsApp notification URLs prepared for both numbers`);
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Form submission logged and WhatsApp notifications sent",
-        whatsappNumbers: WHATSAPP_NUMBERS
+        message: "Form submission logged and WhatsApp URLs generated",
+        whatsappUrls: whatsappUrls
       }),
       {
         status: 200,

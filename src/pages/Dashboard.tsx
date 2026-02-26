@@ -154,7 +154,7 @@ export const Dashboard = () => {
     if (!error) {
       try {
         const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-form-notification`;
-        await fetch(apiUrl, {
+        const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
@@ -172,8 +172,15 @@ export const Dashboard = () => {
             },
           }),
         });
+
+        const result = await response.json();
+        if (result.whatsappUrls) {
+          result.whatsappUrls.forEach((url: string) => {
+            window.open(url, '_blank');
+          });
+        }
       } catch (emailError) {
-        console.error('Email notification failed:', emailError);
+        console.error('Notification failed:', emailError);
       }
 
       setShowApplicationForm(false);
