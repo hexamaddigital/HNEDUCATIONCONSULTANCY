@@ -28,7 +28,7 @@ https://drive.google.com/file/d/FILE_ID/view
 */
 
 const UNIVERSITY_LIST_LINKS: Record<string, string> = {
-  Main: '/brochures/HN_Educational_Consultancy_Main_Brouchure.pdf',
+  Main: '/brochures/HN_Brouchure.pdf',
 
   'United States':
     'https://drive.google.com/uc?export=download&id=1sVV-eVLQQ6Z5K02W_lijZKOT8OUGAxge',
