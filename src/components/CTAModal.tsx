@@ -15,12 +15,11 @@ export const CTAModal = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // ✅ GOOGLE DRIVE DIRECT DOWNLOAD (WORKING)
   const handleBrochureClick = () => {
     const link = document.createElement('a');
     link.href =
-      'https://drive.google.com/uc?export=download&id=1_Yjd8SftRyMOLCFdOmCMhHlX1Cnay8SH';
-    link.target = '_blank'; // important for Drive
+      'https://drive.google.com/uc?export=download&id=1ffkHybDiLfBu_IUZEXgE5x0QT3NEBphE';
+    link.target = '_blank';
     link.download = 'hn_educational_consultancy_brochure.pdf';
     document.body.appendChild(link);
     link.click();
