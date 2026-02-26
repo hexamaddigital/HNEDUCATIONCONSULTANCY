@@ -6,7 +6,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
 
-const WHATSAPP_NUMBERS = ["919860667552", "917709476192"];
+const OWNER_WHATSAPP = "919860667552";
 
 interface FormSubmission {
   type: "contact" | "brochure" | "application";
@@ -49,12 +49,9 @@ function generateWhatsAppMessage(submission: FormSubmission): string {
   }
 }
 
-function generateWhatsAppUrls(message: string): string[] {
+function generateWhatsAppUrl(message: string): string {
   const encodedMessage = encodeURIComponent(message);
-
-  return WHATSAPP_NUMBERS.map((number) => {
-    return `https://wa.me/${number}?text=${encodedMessage}`;
-  });
+  return `https://wa.me/${OWNER_WHATSAPP}?text=${encodedMessage}`;
 }
 
 Deno.serve(async (req: Request) => {
@@ -80,16 +77,16 @@ Deno.serve(async (req: Request) => {
 
     const whatsappMessage = generateWhatsAppMessage(submission);
 
-    const whatsappUrls = generateWhatsAppUrls(whatsappMessage);
+    const whatsappUrl = generateWhatsAppUrl(whatsappMessage);
 
     console.log(`Form submission received: ${submission.type}`);
-    console.log(`WhatsApp notification URLs prepared for both numbers`);
+    console.log(`WhatsApp notification URL prepared`);
 
     return new Response(
       JSON.stringify({
         success: true,
-        message: "Form submission logged and WhatsApp URLs generated",
-        whatsappUrls: whatsappUrls
+        message: "Form submission logged and WhatsApp URL generated",
+        whatsappUrl: whatsappUrl
       }),
       {
         status: 200,

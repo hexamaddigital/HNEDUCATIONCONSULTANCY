@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBERS = ["919860667552", "917709476192"];
+const OWNER_WHATSAPP = "919860667552";
 
 interface FormData {
   type: "contact" | "brochure" | "application";
@@ -44,9 +44,7 @@ function generateWhatsAppMessage(formData: FormData): string {
 export function sendWhatsAppNotifications(formData: FormData): void {
   const message = generateWhatsAppMessage(formData);
   const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${OWNER_WHATSAPP}?text=${encodedMessage}`;
 
-  WHATSAPP_NUMBERS.forEach((number) => {
-    const whatsappUrl = `https://wa.me/${number}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
-  });
+  window.open(whatsappUrl, '_blank');
 }

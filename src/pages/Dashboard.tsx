@@ -174,10 +174,8 @@ export const Dashboard = () => {
         });
 
         const result = await response.json();
-        if (result.whatsappUrls) {
-          result.whatsappUrls.forEach((url: string) => {
-            window.open(url, '_blank');
-          });
+        if (result.whatsappUrl) {
+          window.open(result.whatsappUrl, '_blank');
         }
       } catch (emailError) {
         console.error('Notification failed:', emailError);
