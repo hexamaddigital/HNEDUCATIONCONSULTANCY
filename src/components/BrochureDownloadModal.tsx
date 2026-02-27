@@ -120,7 +120,15 @@ export const BrochureDownloadModal = ({
 
         try {
           const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`;
-          await fetch(apiUrl, {
+          console.log('Sending to JotForm:', {
+            name: data.fullName,
+            email: data.email,
+            phone: data.phoneNumber,
+            country: country,
+            formType: 'Brochure Download',
+          });
+
+          const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
@@ -134,6 +142,15 @@ export const BrochureDownloadModal = ({
               formType: 'Brochure Download',
             }),
           });
+
+          const result = await response.json();
+          console.log('JotForm Response:', result);
+
+          if (!response.ok) {
+            console.error('JotForm submission failed:', result);
+          } else {
+            console.log('JotForm submission successful!');
+          }
         } catch (jotformError) {
           console.error('JotForm submission error:', jotformError);
         }
