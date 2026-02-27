@@ -126,12 +126,16 @@ export const BrochureDownloadModal = ({
 
       const downloadLink = UNIVERSITY_LIST_LINKS[country];
       if (downloadLink) {
-        const link = document.createElement('a');
-        link.href = downloadLink;
-        link.download = `${country}_University_List.pdf`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        if (downloadLink.startsWith('http')) {
+          window.open(downloadLink, '_blank');
+        } else {
+          const link = document.createElement('a');
+          link.href = downloadLink;
+          link.download = `${country}_Brochure.pdf`;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
       }
 
       setTimeout(() => {
