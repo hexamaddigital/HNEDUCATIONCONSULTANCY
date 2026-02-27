@@ -99,69 +99,71 @@ export const BrochureDownloadModal = ({
   const onSubmit = async (data: BrochureFormData) => {
     setIsSubmitting(true);
 
-    const { error } = await supabase.from('brochure_downloads').insert({
-      full_name: data.fullName,
-      email: data.email,
-      phone_number: data.phoneNumber,
-      country: country,
-    });
-
-    if (!error) {
-      sendWhatsAppNotifications({
-        type: 'brochure',
-        data: {
-          fullName: data.fullName,
-          email: data.email,
-          phoneNumber: data.phoneNumber,
-          country: country,
-        },
+    try {
+      const { error } = await supabase.from('brochure_downloads').insert({
+        full_name: data.fullName,
+        email: data.email,
+        phone_number: data.phoneNumber,
+        country: country,
       });
 
-      try {
-        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`;
-        await fetch(apiUrl, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: data.fullName,
+      if (!error) {
+        sendWhatsAppNotifications({
+          type: 'brochure',
+          data: {
+            fullName: data.fullName,
             email: data.email,
-            phone: data.phoneNumber,
+            phoneNumber: data.phoneNumber,
             country: country,
-            formType: 'Brochure Download',
-          }),
+          },
         });
-      } catch (jotformError) {
-        console.error('JotForm submission error:', jotformError);
-      }
-    }
 
-    setIsSubmitting(false);
-
-    if (!error) {
-      setIsSuccess(true);
-      reset();
-
-      const downloadLink = UNIVERSITY_LIST_LINKS[country];
-      if (downloadLink) {
-        if (downloadLink.startsWith('http')) {
-          window.open(downloadLink, '_blank');
-        } else {
-          const link = document.createElement('a');
-          link.href = downloadLink;
-          link.download = `${country}_Brochure.pdf`;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
+        try {
+          const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`;
+          await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: data.fullName,
+              email: data.email,
+              phone: data.phoneNumber,
+              country: country,
+              formType: 'Brochure Download',
+            }),
+          });
+        } catch (jotformError) {
+          console.error('JotForm submission error:', jotformError);
         }
-      }
 
-      setTimeout(() => {
-        setIsSuccess(false);
-        onClose();
-      }, 2000);
+        setIsSuccess(true);
+        reset();
+
+        const downloadLink = UNIVERSITY_LIST_LINKS[country];
+        if (downloadLink) {
+          if (downloadLink.startsWith('http')) {
+            window.open(downloadLink, '_blank');
+          } else {
+            const link = document.createElement('a');
+            link.href = downloadLink;
+            link.download = `${country}_Brochure.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+        }
+
+        setTimeout(() => {
+          setIsSuccess(false);
+          onClose();
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
