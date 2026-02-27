@@ -142,23 +142,43 @@ export const BrochureDownloadModal = ({
         reset();
 
         const downloadLink = UNIVERSITY_LIST_LINKS[country];
+        console.log('Country:', country);
+        console.log('Download Link:', downloadLink);
+
         if (downloadLink) {
-          if (downloadLink.startsWith('http')) {
-            window.open(downloadLink, '_blank');
-          } else {
-            const link = document.createElement('a');
-            link.href = downloadLink;
-            link.download = `${country}_Brochure.pdf`;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }
+          setTimeout(() => {
+            if (downloadLink.startsWith('http')) {
+              const anchor = document.createElement('a');
+              anchor.href = downloadLink;
+              anchor.target = '_blank';
+              anchor.rel = 'noopener noreferrer';
+              document.body.appendChild(anchor);
+              anchor.click();
+              document.body.removeChild(anchor);
+            } else {
+              fetch(downloadLink)
+                .then(response => response.blob())
+                .then(blob => {
+                  const url = window.URL.createObjectURL(blob);
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.download = `${country}_Brochure.pdf`;
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  window.URL.revokeObjectURL(url);
+                })
+                .catch(err => console.error('Download error:', err));
+            }
+          }, 500);
+        } else {
+          console.error('No download link found for country:', country);
         }
 
         setTimeout(() => {
           setIsSuccess(false);
           onClose();
-        }, 2000);
+        }, 2500);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
