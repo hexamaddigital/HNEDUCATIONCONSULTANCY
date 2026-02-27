@@ -101,9 +101,9 @@ export const BrochureDownloadModal = ({
 
     try {
       const { error } = await supabase.from('brochure_downloads').insert({
-        full_name: data.fullName,
+        name: data.fullName,
         email: data.email,
-        phone_number: data.phoneNumber,
+        phone: data.phoneNumber,
         country: country,
       });
 
