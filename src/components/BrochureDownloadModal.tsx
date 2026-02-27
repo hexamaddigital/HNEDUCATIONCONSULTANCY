@@ -116,6 +116,26 @@ export const BrochureDownloadModal = ({
           country: country,
         },
       });
+
+      try {
+        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`;
+        await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.fullName,
+            email: data.email,
+            phone: data.phoneNumber,
+            country: country,
+            formType: 'Brochure Download',
+          }),
+        });
+      } catch (jotformError) {
+        console.error('JotForm submission error:', jotformError);
+      }
     }
 
     setIsSubmitting(false);
