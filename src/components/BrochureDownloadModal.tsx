@@ -1,20 +1,10 @@
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Download, CheckCircle, Loader2 } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import { supabase } from '../lib/supabase';
-import { sendWhatsAppNotifications } from '../utils/whatsapp';
+import { X } from 'lucide-react';
 
 interface UniversityListModalProps {
   isOpen: boolean;
   onClose: () => void;
   country: string;
-}
-
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
 }
 
 /*
@@ -87,68 +77,7 @@ export const BrochureDownloadModal = ({
   onClose,
   country,
 }: UniversityListModalProps) => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const { register, handleSubmit, reset } = useForm<FormData>();
-
-  const universityListLink =
-    UNIVERSITY_LIST_LINKS[country] || UNIVERSITY_LIST_LINKS['Main'];
-
-  const onSubmit = async (formData: FormData) => {
-    setIsLoading(true);
-
-    try {
-      // 1️⃣ FIRST: Open WhatsApp (must be synchronous with user click)
-      sendWhatsAppNotifications({
-        type: 'brochure',
-        data: {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          country: country,
-        },
-      });
-
-      // 2️⃣ Save data to Supabase
-      const { error } = await supabase.from('brochure_downloads').insert({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        country: country,
-      });
-
-      if (error) throw error;
-
-      // 3️⃣ Force immediate download using invisible anchor
-      const link = document.createElement('a');
-      link.href = universityListLink;
-      link.download = country === 'Main' ? 'HN_Brouchure.pdf' : `${country}_University_List.pdf`;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      // 5️⃣ Show success UI
-      setIsSubmitted(true);
-
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setIsLoading(false);
-        reset();
-        onClose();
-      }, 2500);
-    } catch (error) {
-      console.error('Submission failed:', error);
-      setIsLoading(false);
-      alert('Something went wrong. Please try again.');
-    }
-  };
-
   const handleClose = () => {
-    setIsSubmitted(false);
-    setIsLoading(false);
-    reset();
     onClose();
   };
 
@@ -185,63 +114,23 @@ export const BrochureDownloadModal = ({
             </div>
 
             <div className="p-6">
-              {!isSubmitted ? (
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-                  <input
-                    {...register('name', { required: true })}
-                    placeholder="Full Name"
-                    className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    disabled={isLoading}
-                  />
-
-                  <input
-                    {...register('email', { required: true })}
-                    placeholder="Email"
-                    type="email"
-                    className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    disabled={isLoading}
-                  />
-
-                  <input
-                    {...register('phone', { required: true })}
-                    placeholder="Phone"
-                    type="tel"
-                    className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    disabled={isLoading}
-                  />
-
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full py-3 bg-turquoise text-white rounded-lg flex items-center justify-center gap-2 disabled:opacity-70"
-                  >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="animate-spin" size={20} />
-                        Processing...
-                      </>
-                    ) : (
-                      <>
-                        <Download size={20} />
-                        {country === 'Main'
-                          ? 'Download Brochure'
-                          : 'Download University List'}
-                      </>
-                    )}
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-8">
-                  <CheckCircle className="mx-auto text-green-600 w-14 h-14" />
-                  <p className="mt-4 font-semibold text-lg">
-                    Download started successfully!
-                  </p>
-                  <p className="mt-2 text-sm text-body-text">
-                    If it didn't start automatically, please check your popup
-                    settings.
-                  </p>
-                </div>
-              )}
+              <div className="bg-white rounded-xl">
+                <iframe
+                  id="JotFormIFrame-260572269858067"
+                  title="Brochure Download Form"
+                  onLoad={() => window.parent.scrollTo(0,0)}
+                  allow="geolocation; microphone; camera; fullscreen"
+                  src="https://form.jotform.com/260572269858067"
+                  frameBorder="0"
+                  style={{
+                    minWidth: '100%',
+                    maxWidth: '100%',
+                    height: '500px',
+                    border: 'none',
+                  }}
+                  scrolling="no"
+                ></iframe>
+              </div>
             </div>
           </motion.div>
         </motion.div>
