@@ -1,61 +1,18 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
-import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
-import { COUNTRY_NAMES } from '../constants/countries';
-import { sendWhatsAppNotifications } from '../utils/whatsapp';
-
-interface ContactFormData {
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  preferredCountry: string;
-  message: string;
-}
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 export const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormData>();
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-
-    const { error } = await supabase.from('contact_submissions').insert({
-      full_name: data.fullName,
-      email: data.email,
-      phone_number: data.phoneNumber,
-      preferred_country: data.preferredCountry,
-      message: data.message,
-    });
-
-    if (!error) {
-      sendWhatsAppNotifications({
-        type: 'contact',
-        data: {
-          fullName: data.fullName,
-          email: data.email,
-          phoneNumber: data.phoneNumber,
-          preferredCountry: data.preferredCountry,
-          message: data.message,
-        },
-      });
-    }
-
-    setIsSubmitting(false);
-
-    if (!error) {
-      setIsSuccess(true);
-      reset();
-      setTimeout(() => setIsSuccess(false), 5000);
-    }
-  };
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
@@ -86,118 +43,23 @@ export const Contact = () => {
             >
               <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
 
-              {isSuccess && (
-                <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg flex items-center">
-                  <CheckCircle className="w-5 h-5 mr-2" />
-                  Thank you! We will contact you soon.
-                </div>
-              )}
-
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-heading mb-2">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    {...register('fullName', { required: 'Full name is required' })}
-                    type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    placeholder="John Doe"
-                  />
-                  {errors.fullName && (
-                    <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-heading mb-2">
-                    Email Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    {...register('email', {
-                      required: 'Email is required',
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Invalid email address',
-                      },
-                    })}
-                    type="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    placeholder="john@example.com"
-                  />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-heading mb-2">
-                    Phone Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    {...register('phoneNumber', {
-                      required: 'Phone number is required',
-                      pattern: {
-                        value: /^[0-9+\-\s()]+$/,
-                        message: 'Invalid phone number',
-                      },
-                    })}
-                    type="tel"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                    placeholder="+91 98765 43210"
-                  />
-                  {errors.phoneNumber && (
-                    <p className="text-red-500 text-sm mt-1">{errors.phoneNumber.message}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-heading mb-2">
-                    Preferred Country
-                  </label>
-                  <select
-                    {...register('preferredCountry')}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
-                  >
-                    <option value="">Select Country</option>
-                    {COUNTRY_NAMES.map((country) => (
-                      <option key={country} value={country}>
-                        {country}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-heading mb-2">
-                    Message <span className="text-red-500">*</span>
-                  </label>
-                  <textarea
-                    {...register('message', { required: 'Message is required' })}
-                    rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise resize-none"
-                    placeholder="Tell us about your study abroad plans..."
-                  ></textarea>
-                  {errors.message && (
-                    <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
-                  )}
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-turquoise text-white rounded-lg font-semibold hover:bg-turquoise-dark transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                >
-                  {isSubmitting ? (
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </button>
-              </form>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <iframe
+                  id="JotFormIFrame-260572638804058"
+                  title="Contact Form"
+                  onLoad={() => window.parent.scrollTo(0,0)}
+                  allow="geolocation; microphone; camera; fullscreen"
+                  src="https://form.jotform.com/260572638804058"
+                  frameBorder="0"
+                  style={{
+                    minWidth: '100%',
+                    maxWidth: '100%',
+                    height: '700px',
+                    border: 'none',
+                  }}
+                  scrolling="no"
+                ></iframe>
+              </div>
             </motion.div>
 
             <motion.div

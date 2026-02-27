@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
@@ -77,6 +78,21 @@ export const BrochureDownloadModal = ({
   onClose,
   country,
 }: UniversityListModalProps) => {
+  useEffect(() => {
+    if (isOpen) {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        if (document.body.contains(script)) {
+          document.body.removeChild(script);
+        }
+      };
+    }
+  }, [isOpen]);
+
   const handleClose = () => {
     onClose();
   };
