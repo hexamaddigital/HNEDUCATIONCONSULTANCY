@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { X, Download, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-import { sendWhatsAppNotifications } from '../utils/whatsapp';
 
 interface UniversityListModalProps {
   isOpen: boolean;
@@ -108,25 +107,8 @@ export const BrochureDownloadModal = ({
       });
 
       if (!error) {
-        sendWhatsAppNotifications({
-          type: 'brochure',
-          data: {
-            fullName: data.fullName,
-            email: data.email,
-            phoneNumber: data.phoneNumber,
-            country: country,
-          },
-        });
-
         try {
           const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`;
-          console.log('Sending to JotForm:', {
-            name: data.fullName,
-            email: data.email,
-            phone: data.phoneNumber,
-            country: country,
-            formType: 'Brochure Download',
-          });
 
           const response = await fetch(apiUrl, {
             method: 'POST',
@@ -143,13 +125,9 @@ export const BrochureDownloadModal = ({
             }),
           });
 
-          const result = await response.json();
-          console.log('JotForm Response:', result);
-
           if (!response.ok) {
+            const result = await response.json();
             console.error('JotForm submission failed:', result);
-          } else {
-            console.log('JotForm submission successful!');
           }
         } catch (jotformError) {
           console.error('JotForm submission error:', jotformError);
@@ -159,8 +137,6 @@ export const BrochureDownloadModal = ({
         reset();
 
         const downloadLink = UNIVERSITY_LIST_LINKS[country];
-        console.log('Country:', country);
-        console.log('Download Link:', downloadLink);
 
         if (downloadLink) {
           setTimeout(() => {
@@ -188,8 +164,6 @@ export const BrochureDownloadModal = ({
                 .catch(err => console.error('Download error:', err));
             }
           }, 500);
-        } else {
-          console.error('No download link found for country:', country);
         }
 
         setTimeout(() => {
