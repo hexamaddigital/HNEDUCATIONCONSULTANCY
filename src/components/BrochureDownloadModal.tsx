@@ -1,11 +1,20 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { X, Download, CheckCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
+import { sendWhatsAppNotifications } from '../utils/whatsapp';
 
 interface UniversityListModalProps {
   isOpen: boolean;
   onClose: () => void;
   country: string;
+}
+
+interface BrochureFormData {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
 }
 
 /*
@@ -78,22 +87,63 @@ export const BrochureDownloadModal = ({
   onClose,
   country,
 }: UniversityListModalProps) => {
-  useEffect(() => {
-    if (isOpen) {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js';
-      script.async = true;
-      document.body.appendChild(script);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<BrochureFormData>();
 
-      return () => {
-        if (document.body.contains(script)) {
-          document.body.removeChild(script);
-        }
-      };
+  const onSubmit = async (data: BrochureFormData) => {
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from('brochure_downloads').insert({
+      full_name: data.fullName,
+      email: data.email,
+      phone_number: data.phoneNumber,
+      country: country,
+    });
+
+    if (!error) {
+      sendWhatsAppNotifications({
+        type: 'brochure',
+        data: {
+          fullName: data.fullName,
+          email: data.email,
+          phoneNumber: data.phoneNumber,
+          country: country,
+        },
+      });
     }
-  }, [isOpen]);
+
+    setIsSubmitting(false);
+
+    if (!error) {
+      setIsSuccess(true);
+      reset();
+
+      const downloadLink = UNIVERSITY_LIST_LINKS[country];
+      if (downloadLink) {
+        const link = document.createElement('a');
+        link.href = downloadLink;
+        link.download = `${country}_University_List.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      setTimeout(() => {
+        setIsSuccess(false);
+        onClose();
+      }, 2000);
+    }
+  };
 
   const handleClose = () => {
+    reset();
+    setIsSuccess(false);
     onClose();
   };
 
@@ -130,23 +180,89 @@ export const BrochureDownloadModal = ({
             </div>
 
             <div className="p-6">
-              <div className="bg-white rounded-xl">
-                <iframe
-                  id="JotFormIFrame-260572269858067"
-                  title="Brochure Download Form"
-                  onLoad={() => window.parent.scrollTo(0,0)}
-                  allow="geolocation; microphone; camera; fullscreen"
-                  src="https://form.jotform.com/260572269858067"
-                  frameBorder="0"
-                  style={{
-                    minWidth: '100%',
-                    maxWidth: '100%',
-                    height: '500px',
-                    border: 'none',
-                  }}
-                  scrolling="no"
-                ></iframe>
-              </div>
+              {isSuccess ? (
+                <div className="text-center py-8">
+                  <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                  <h3 className="text-xl font-bold mb-2">Download Started!</h3>
+                  <p className="text-body-text">
+                    Your download should begin shortly. Check your downloads folder.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-semibold text-heading mb-2">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      {...register('fullName', { required: 'Full name is required' })}
+                      type="text"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
+                      placeholder="John Doe"
+                    />
+                    {errors.fullName && (
+                      <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-heading mb-2">
+                      Email Address <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: 'Invalid email address',
+                        },
+                      })}
+                      type="email"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
+                      placeholder="john@example.com"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-heading mb-2">
+                      Phone Number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      {...register('phoneNumber', {
+                        required: 'Phone number is required',
+                        pattern: {
+                          value: /^[0-9+\-\s()]+$/,
+                          message: 'Invalid phone number',
+                        },
+                      })}
+                      type="tel"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-turquoise"
+                      placeholder="+91 98765 43210"
+                    />
+                    {errors.phoneNumber && (
+                      <p className="text-red-500 text-sm mt-1">{errors.phoneNumber.message}</p>
+                    )}
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full px-8 py-4 bg-turquoise text-white rounded-lg font-semibold hover:bg-turquoise-dark transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                  >
+                    {isSubmitting ? (
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    ) : (
+                      <>
+                        <Download className="w-5 h-5 mr-2" />
+                        Download Now
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </motion.div>
         </motion.div>
