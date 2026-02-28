@@ -52,9 +52,15 @@ Deno.serve(async (req: Request) => {
 
     // Based on actual JotForm field IDs from form 260582207023044
     if (data.name) {
-      // Full Name field - try both formats
-      submissionData['submission[2]'] = data.name;
-      submissionData['submission[q2_fullName]'] = data.name;
+      // Full Name field - q2_fullname0 with first_2 and last_2
+      const nameParts = data.name.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+
+      submissionData['submission[2][first]'] = firstName;
+      submissionData['submission[2][last]'] = lastName;
+      submissionData['submission[q2_fullname0][first]'] = firstName;
+      submissionData['submission[q2_fullname0][last]'] = lastName;
     }
     if (data.email) {
       // Email field - Field ID: input_3
