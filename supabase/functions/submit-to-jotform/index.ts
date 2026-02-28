@@ -40,6 +40,14 @@ Deno.serve(async (req: Request) => {
     console.log('Received data:', data);
     console.log('Using Form ID:', JOTFORM_FORM_ID);
 
+    // First, get the form fields to know the correct field IDs
+    const formInfoResponse = await fetch(
+      `https://api.jotform.com/form/${JOTFORM_FORM_ID}/questions?apiKey=${JOTFORM_API_KEY}`
+    );
+
+    const formInfo = await formInfoResponse.json();
+    console.log('Form fields:', JSON.stringify(formInfo, null, 2));
+
     const submissionData: Record<string, string> = {};
 
     if (data.name) {
