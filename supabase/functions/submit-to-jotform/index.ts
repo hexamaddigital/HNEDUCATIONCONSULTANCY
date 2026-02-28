@@ -34,6 +34,9 @@ Deno.serve(async (req: Request) => {
 
     const data: SubmissionData = await req.json();
 
+    console.log('Received data:', data);
+    console.log('Using Form ID:', JOTFORM_FORM_ID);
+
     const submissionData: Record<string, string> = {};
 
     if (data.name) {
@@ -46,7 +49,7 @@ Deno.serve(async (req: Request) => {
     if (data.email) submissionData['submission[3]'] = data.email;
     if (data.phone) submissionData['submission[4][full]'] = data.phone;
 
-    console.log('Submitting to JotForm:', submissionData);
+    console.log('Submitting to JotForm with data:', submissionData);
 
     const formBody = new URLSearchParams(submissionData);
 
