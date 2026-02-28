@@ -101,10 +101,15 @@ Deno.serve(async (req: Request) => {
 
     const responseData = await jotformResponse.json();
 
+    console.log('JotForm Response Status:', jotformResponse.status);
+    console.log('JotForm Response Data:', JSON.stringify(responseData, null, 2));
+
     if (!jotformResponse.ok) {
       console.error("JotForm API Error:", responseData);
       throw new Error(responseData.message || "Failed to submit to JotForm");
     }
+
+    console.log('✅ Successfully submitted to JotForm! Submission ID:', responseData.content?.submissionID);
 
     return new Response(
       JSON.stringify({
