@@ -50,24 +50,32 @@ Deno.serve(async (req: Request) => {
 
     const submissionData: Record<string, string> = {};
 
+    // Based on actual JotForm field IDs from form 260582207023044
     if (data.name) {
-      const nameParts = data.name.trim().split(' ');
-      const firstName = nameParts[0] || '';
-      const lastName = nameParts.slice(1).join(' ') || '';
-
-      // Try multiple formats
-      submissionData['submission[q2_fullname0][first]'] = firstName;
-      submissionData['submission[q2_fullname0][last]'] = lastName;
-      submissionData['submission[2][first]'] = firstName;
-      submissionData['submission[2][last]'] = lastName;
+      // Full Name field - try both formats
+      submissionData['submission[2]'] = data.name;
+      submissionData['submission[q2_fullName]'] = data.name;
     }
     if (data.email) {
-      submissionData['submission[q3_email1]'] = data.email;
+      // Email field - Field ID: input_3
       submissionData['submission[3]'] = data.email;
+      submissionData['submission[q3_email1]'] = data.email;
     }
     if (data.phone) {
-      submissionData['submission[q4_phone2][full]'] = data.phone;
+      // Phone field - Field ID: input_4_full
       submissionData['submission[4][full]'] = data.phone;
+      submissionData['submission[4]'] = data.phone;
+      submissionData['submission[q4_phone2][full]'] = data.phone;
+      submissionData['submission[q4_phone2]'] = data.phone;
+    }
+    if (data.country) {
+      submissionData['submission[5]'] = data.country;
+    }
+    if (data.message) {
+      submissionData['submission[6]'] = data.message;
+    }
+    if (data.course) {
+      submissionData['submission[7]'] = data.course;
     }
 
     console.log('Submitting to JotForm with data:', submissionData);
