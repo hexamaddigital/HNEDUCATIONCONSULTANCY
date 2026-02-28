@@ -36,7 +36,13 @@ Deno.serve(async (req: Request) => {
 
     const submissionData: Record<string, string> = {};
 
-    if (data.name) submissionData['submission[8]'] = data.name;
+    if (data.name) {
+      const nameParts = data.name.trim().split(' ');
+      const firstName = nameParts[0] || '';
+      const lastName = nameParts.slice(1).join(' ') || '';
+      submissionData['submission[2][first]'] = firstName;
+      submissionData['submission[2][last]'] = lastName;
+    }
     if (data.email) submissionData['submission[3]'] = data.email;
     if (data.phone) submissionData['submission[4][full]'] = data.phone;
 
