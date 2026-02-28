@@ -28,6 +28,9 @@ Deno.serve(async (req: Request) => {
     const JOTFORM_API_KEY = Deno.env.get("JOTFORM_API_KEY");
     const JOTFORM_FORM_ID = Deno.env.get("JOTFORM_FORM_ID");
 
+    console.log('Environment check - API Key exists:', !!JOTFORM_API_KEY);
+    console.log('Environment check - Form ID:', JOTFORM_FORM_ID);
+
     if (!JOTFORM_API_KEY || !JOTFORM_FORM_ID) {
       throw new Error("JotForm API credentials not configured");
     }
