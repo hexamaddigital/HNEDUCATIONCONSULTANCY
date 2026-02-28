@@ -1,31 +1,47 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import * as XLSX from "xlsx";
 
 export default function Admin() {
+  const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     checkUser();
   }, []);
 
   const checkUser = async () => {
-    const { data } = await supabase.auth.getUser();
-    if (data.user) {
-      setUser(data.user);
-      fetchData();
-    }
-  };
+    const { data: { user } } = await supabase.auth.getUser();
 
-  const login = async (email: string, password: string) => {
-    await supabase.auth.signInWithPassword({ email, password });
-    checkUser();
+    if (!user) {
+      navigate('/signin');
+      return;
+    }
+
+    const { data: studentData } = await supabase
+      .from('students')
+      .select('is_admin')
+      .eq('id', user.id)
+      .maybeSingle();
+
+    if (!studentData?.is_admin) {
+      navigate('/dashboard');
+      return;
+    }
+
+    setUser(user);
+    setIsAdmin(true);
+    setLoading(false);
+    fetchData();
   };
 
   const logout = async () => {
     await supabase.auth.signOut();
-    setUser(null);
+    navigate('/signin');
   };
 
   const fetchData = async () => {
@@ -44,19 +60,16 @@ export default function Admin() {
     XLSX.writeFile(workbook, "leads.xlsx");
   };
 
-  if (!user) {
+  if (loading) {
     return (
-      <div style={{ padding: 50 }}>
-        <h2>Admin Login</h2>
-        <button
-          onClick={() =>
-            login("youradmin@email.com", "yourpassword")
-          }
-        >
-          Login
-        </button>
+      <div style={{ padding: 50, textAlign: 'center' }}>
+        <p>Loading...</p>
       </div>
     );
+  }
+
+  if (!user || !isAdmin) {
+    return null;
   }
 
   return (

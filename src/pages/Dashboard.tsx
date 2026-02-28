@@ -99,6 +99,10 @@ export const Dashboard = () => {
       .maybeSingle();
 
     if (profileData) {
+      if (profileData.is_admin) {
+        navigate('/admin');
+        return;
+      }
       setProfile(profileData);
       setValue('fullName', profileData.full_name);
       setValue('phoneNumber', profileData.phone_number || '');
