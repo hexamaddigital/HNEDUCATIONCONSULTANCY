@@ -36,13 +36,9 @@ Deno.serve(async (req: Request) => {
 
     const submissionData: Record<string, string> = {};
 
-    if (data.name) submissionData['submission[4]'] = data.name;
-    if (data.email) submissionData['submission[5]'] = data.email;
-    if (data.phone) submissionData['submission[6]'] = data.phone;
-    if (data.country) submissionData['submission[6]'] = data.country;
-    if (data.message) submissionData['submission[7]'] = data.message;
-    if (data.course) submissionData['submission[8]'] = data.course;
-    if (data.formType) submissionData['submission[9]'] = data.formType;
+    if (data.name) submissionData['submission[8]'] = data.name;
+    if (data.email) submissionData['submission[3]'] = data.email;
+    if (data.phone) submissionData['submission[4][full]'] = data.phone;
 
     console.log('Submitting to JotForm:', submissionData);
 
