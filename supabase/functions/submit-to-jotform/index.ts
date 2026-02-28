@@ -54,11 +54,21 @@ Deno.serve(async (req: Request) => {
       const nameParts = data.name.trim().split(' ');
       const firstName = nameParts[0] || '';
       const lastName = nameParts.slice(1).join(' ') || '';
-      submissionData['q2_fullname0[first]'] = firstName;
-      submissionData['q2_fullname0[last]'] = lastName;
+
+      // Try multiple formats
+      submissionData['submission[q2_fullname0][first]'] = firstName;
+      submissionData['submission[q2_fullname0][last]'] = lastName;
+      submissionData['submission[2][first]'] = firstName;
+      submissionData['submission[2][last]'] = lastName;
     }
-    if (data.email) submissionData['q3_email1'] = data.email;
-    if (data.phone) submissionData['q4_phone2[full]'] = data.phone;
+    if (data.email) {
+      submissionData['submission[q3_email1]'] = data.email;
+      submissionData['submission[3]'] = data.email;
+    }
+    if (data.phone) {
+      submissionData['submission[q4_phone2][full]'] = data.phone;
+      submissionData['submission[4][full]'] = data.phone;
+    }
 
     console.log('Submitting to JotForm with data:', submissionData);
 
