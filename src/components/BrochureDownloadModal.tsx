@@ -134,11 +134,18 @@ export const BrochureDownloadModal = ({
 
           const result = await response.json();
 
+          console.log('📋 FULL JotForm Response:', JSON.stringify(result, null, 2));
+
           if (!response.ok) {
             console.error('❌ JotForm submission failed:', result);
             console.error('Response status:', response.status);
           } else {
             console.log('✅ JotForm submission successful:', result);
+            if (result.data?.content?.submissionID) {
+              console.log('🎉 Submission ID:', result.data.content.submissionID);
+            } else {
+              console.warn('⚠️ No submission ID in response - check data:', result.data);
+            }
           }
         } catch (jotformError) {
           console.error('❌ JotForm submission error:', jotformError);
