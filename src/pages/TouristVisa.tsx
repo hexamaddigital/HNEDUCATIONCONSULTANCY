@@ -17,6 +17,7 @@ import {
   Download,
 } from 'lucide-react';
 import { BrochureDownloadModal } from '../components/BrochureDownloadModal';
+import { supabase } from '../lib/supabase';
 
 interface VisaRequirement {
   title: string;
@@ -34,6 +35,8 @@ interface VisaType {
 export const TouristVisa = () => {
   const [showBrochureModal, setShowBrochureModal] = useState(false);
   const [selectedBrochureCountry, setSelectedBrochureCountry] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -179,9 +182,42 @@ export const TouristVisa = () => {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitSuccess(false);
+
+    try {
+      const { error } = await supabase.from('tourist_visa_applications').insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          travel_date: formData.travelDate || null,
+          message: formData.message || '',
+        },
+      ]);
+
+      if (error) throw error;
+
+      setSubmitSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        country: '',
+        travelDate: '',
+        message: '',
+      });
+
+      setTimeout(() => setSubmitSuccess(false), 5000);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -622,11 +658,18 @@ export const TouristVisa = () => {
                 />
               </div>
 
+              {submitSuccess && (
+                <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-xl text-center">
+                  Thank you! Your application has been submitted successfully. We'll contact you within 24 hours.
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-8 py-5 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105"
+                disabled={isSubmitting}
+                className="w-full px-8 py-5 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Request Free Consultation
+                {isSubmitting ? 'Submitting...' : 'Request Free Consultation'}
               </button>
 
               <p className="text-sm text-body-text text-center">

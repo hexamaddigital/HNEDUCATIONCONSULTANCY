@@ -14,6 +14,7 @@ import {
   Globe,
   MessageSquare,
   Calendar,
+  Plane,
   BookOpen,
   CheckCircle,
   Clock,
@@ -88,6 +89,17 @@ interface JobOpening {
   created_at: string;
 }
 
+interface TouristVisaApplication {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  country: string;
+  travel_date: string | null;
+  message: string;
+  created_at: string;
+}
+
 export default function Admin() {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
@@ -99,8 +111,9 @@ export default function Admin() {
   const [brochureDownloads, setBrochureDownloads] = useState<BrochureDownload[]>([]);
   const [students, setStudents] = useState<Student[]>([]);
   const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([]);
+  const [touristVisaApplications, setTouristVisaApplications] = useState<TouristVisaApplication[]>([]);
 
-  const [activeTab, setActiveTab] = useState<'contacts' | 'applications' | 'brochures' | 'students' | 'jobs'>('contacts');
+  const [activeTab, setActiveTab] = useState<'contacts' | 'applications' | 'brochures' | 'students' | 'jobs' | 'tourist-visa'>('contacts');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -133,12 +146,13 @@ export default function Admin() {
   };
 
   const fetchAllData = async () => {
-    const [contactsRes, applicationsRes, brochuresRes, studentsRes, jobsRes] = await Promise.all([
+    const [contactsRes, applicationsRes, brochuresRes, studentsRes, jobsRes, touristVisaRes] = await Promise.all([
       supabase.from("contact_submissions").select("*").order("created_at", { ascending: false }),
       supabase.from("applications").select("*, students(full_name)").order("created_at", { ascending: false }),
       supabase.from("brochure_downloads").select("*").order("created_at", { ascending: false }),
       supabase.from("students").select("*").order("created_at", { ascending: false }),
-      supabase.from("job_openings").select("*").order("display_order", { ascending: true })
+      supabase.from("job_openings").select("*").order("display_order", { ascending: true }),
+      supabase.from("tourist_visa_applications").select("*").order("created_at", { ascending: false })
     ]);
 
     if (contactsRes.data) setContactSubmissions(contactsRes.data);
@@ -146,6 +160,7 @@ export default function Admin() {
     if (brochuresRes.data) setBrochureDownloads(brochuresRes.data);
     if (studentsRes.data) setStudents(studentsRes.data);
     if (jobsRes.data) setJobOpenings(jobsRes.data);
+    if (touristVisaRes.data) setTouristVisaApplications(touristVisaRes.data);
   };
 
   const logout = async () => {
@@ -231,6 +246,19 @@ export default function Admin() {
     }
   };
 
+  const deleteTouristVisa = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this tourist visa application?')) return;
+
+    const { error } = await supabase
+      .from('tourist_visa_applications')
+      .delete()
+      .eq('id', id);
+
+    if (!error) {
+      setTouristVisaApplications(prev => prev.filter(item => item.id !== id));
+    }
+  };
+
   const downloadExcel = () => {
     const workbook = XLSX.utils.book_new();
 
@@ -282,6 +310,19 @@ export default function Admin() {
     );
     XLSX.utils.book_append_sheet(workbook, studentsSheet, "Students");
 
+    const touristVisaSheet = XLSX.utils.json_to_sheet(
+      touristVisaApplications.map(item => ({
+        Name: item.name,
+        Email: item.email,
+        Phone: item.phone,
+        Country: item.country,
+        'Travel Date': item.travel_date ? new Date(item.travel_date).toLocaleDateString('en-IN') : 'Not specified',
+        Message: item.message,
+        Date: new Date(item.created_at).toLocaleString('en-IN')
+      }))
+    );
+    XLSX.utils.book_append_sheet(workbook, touristVisaSheet, "Tourist Visa");
+
     XLSX.writeFile(workbook, `HN_Study_Abroad_Data_${new Date().toISOString().split('T')[0]}.xlsx`);
   };
 
@@ -331,6 +372,7 @@ export default function Admin() {
   const filteredApplications = filterData(applications);
   const filteredBrochures = filterData(brochureDownloads);
   const filteredStudents = filterData(students);
+  const filteredTouristVisa = filterData(touristVisaApplications);
 
   return (
     <section className="min-h-screen pt-24 pb-12 bg-ghost-green">
@@ -358,7 +400,7 @@ export default function Admin() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
           <div className="bg-white rounded-2xl shadow-xl p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -403,6 +445,18 @@ export default function Admin() {
               </div>
               <div className="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center">
                 <Users className="w-7 h-7 text-yellow-600" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-body-text text-sm font-semibold mb-1">Tourist Visa Apps</p>
+                <p className="text-3xl font-bold text-heading">{touristVisaApplications.length}</p>
+              </div>
+              <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center">
+                <Plane className="w-7 h-7 text-orange-600" />
               </div>
             </div>
           </div>
@@ -460,6 +514,16 @@ export default function Admin() {
                 }`}
               >
                 Job Openings ({jobOpenings.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('tourist-visa')}
+                className={`px-4 py-2 font-semibold transition-colors ${
+                  activeTab === 'tourist-visa'
+                    ? 'text-turquoise border-b-2 border-turquoise'
+                    : 'text-body-text hover:text-heading'
+                }`}
+              >
+                Tourist Visa ({touristVisaApplications.length})
               </button>
             </div>
 
@@ -792,13 +856,77 @@ export default function Admin() {
                 ))}
               </div>
             )}
+
+            {activeTab === 'tourist-visa' && (
+              <table className="w-full">
+                <thead className="bg-ghost-green">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Name</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Email</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Phone</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Country</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Travel Date</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Message</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Submitted</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {filteredTouristVisa.map((item) => (
+                    <tr key={item.id} className="hover:bg-ghost-green transition-colors">
+                      <td className="px-6 py-4 text-sm text-heading font-semibold">{item.name}</td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Mail className="w-4 h-4 mr-2 text-turquoise" />
+                          {item.email}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Phone className="w-4 h-4 mr-2 text-turquoise" />
+                          {item.phone}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Globe className="w-4 h-4 mr-2 text-turquoise" />
+                          {item.country}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        {item.travel_date ? new Date(item.travel_date).toLocaleDateString('en-IN') : 'Not specified'}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text max-w-xs truncate">
+                        {item.message || '-'}
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-2 text-turquoise" />
+                          {new Date(item.created_at).toLocaleString('en-IN')}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <button
+                          onClick={() => deleteTouristVisa(item.id)}
+                          className="text-red-600 hover:text-red-800 transition-colors"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
 
           {((activeTab === 'contacts' && filteredContacts.length === 0) ||
             (activeTab === 'applications' && filteredApplications.length === 0) ||
             (activeTab === 'brochures' && filteredBrochures.length === 0) ||
             (activeTab === 'students' && filteredStudents.length === 0) ||
-            (activeTab === 'jobs' && jobOpenings.length === 0)) && (
+            (activeTab === 'jobs' && jobOpenings.length === 0) ||
+            (activeTab === 'tourist-visa' && filteredTouristVisa.length === 0)) && (
             <div className="text-center py-12">
               <p className="text-body-text">No data found {searchTerm && 'matching your search'}</p>
             </div>
