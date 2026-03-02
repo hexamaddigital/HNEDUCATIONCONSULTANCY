@@ -12,8 +12,6 @@ import {
   MapPin,
   Calendar,
   CreditCard,
-  ChevronDown,
-  ChevronUp,
   Phone,
   Mail,
   Download,
@@ -33,14 +31,7 @@ interface VisaType {
   icon: string;
 }
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
-
 export const TouristVisa = () => {
-  const [selectedCountry, setSelectedCountry] = useState('');
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [showBrochureModal, setShowBrochureModal] = useState(false);
   const [selectedBrochureCountry, setSelectedBrochureCountry] = useState('');
   const [formData, setFormData] = useState({
@@ -185,33 +176,6 @@ export const TouristVisa = () => {
       icon: <FileText className="w-8 h-8" />,
       title: 'Complete Support',
       description: 'End-to-end assistance from application to visa stamping',
-    },
-  ];
-
-  const faqs: FAQ[] = [
-    {
-      question: 'How long does tourist visa processing take?',
-      answer: 'Processing times vary by country, typically ranging from 3-60 days. UAE visas can be processed in 3-5 days, while US tourist visas may take 30-60 days. We provide expedited services where available.',
-    },
-    {
-      question: 'What is the validity of a tourist visa?',
-      answer: 'Tourist visa validity depends on the destination country. Single-entry visas are typically valid for 3-6 months, while multiple-entry visas can be valid for 1-5 years. The duration of stay per visit is usually 30-90 days.',
-    },
-    {
-      question: 'Can I extend my tourist visa while abroad?',
-      answer: 'Extension possibilities vary by country. Some countries like the US allow visa extensions under specific circumstances, while others require you to leave and reapply. We advise checking extension rules before travel.',
-    },
-    {
-      question: 'What if my tourist visa application is rejected?',
-      answer: 'We provide complete analysis of rejection reasons and guidance for reapplication. Our high success rate means rejections are rare, but we offer full support for resubmission with strengthened documentation.',
-    },
-    {
-      question: 'Do I need travel insurance for tourist visa?',
-      answer: 'Many countries, especially Schengen nations, require travel insurance as a mandatory document. We can help you obtain appropriate travel insurance that meets embassy requirements.',
-    },
-    {
-      question: 'How much bank balance is required for tourist visa?',
-      answer: 'Required bank balance varies by destination and length of stay. Generally, you should show sufficient funds to cover your entire trip (₹50,000-₹2,00,000 per person). We provide country-specific guidance.',
     },
   ];
 
@@ -536,58 +500,7 @@ export const TouristVisa = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-ghost-green to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-heading mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
-              Get answers to common tourist visa queries
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                  className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-ghost-green transition-colors"
-                >
-                  <span className="text-lg font-semibold text-heading pr-4">
-                    {faq.question}
-                  </span>
-                  {openFAQ === index ? (
-                    <ChevronUp className="w-6 h-6 text-turquoise flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-6 h-6 text-turquoise flex-shrink-0" />
-                  )}
-                </button>
-                {openFAQ === index && (
-                  <div className="px-8 py-6 bg-ghost-green/30 border-t border-gray-200">
-                    <p className="text-body-text leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="consultation" className="py-24 bg-white">
+      <section id="consultation" className="py-24 bg-gradient-to-br from-ghost-green to-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
