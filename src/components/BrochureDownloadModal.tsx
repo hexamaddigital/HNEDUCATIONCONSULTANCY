@@ -107,82 +107,51 @@ export const BrochureDownloadModal = ({
       });
 
       if (!error) {
-        try {
-          const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`;
-
-          console.log('🚀 Sending to JotForm:', {
-            name: data.fullName,
-            email: data.email,
-            phone: data.phoneNumber,
-            country: country,
-          });
-
-          const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              name: data.fullName,
-              email: data.email,
-              phone: data.phoneNumber,
-              country: country,
-              formType: 'Brochure Download',
-            }),
-          });
-
-          const result = await response.json();
-
-          console.log('📋 FULL JotForm Response:', JSON.stringify(result, null, 2));
-
-          if (!response.ok) {
-            console.error('❌ JotForm submission failed:', result);
-            console.error('Response status:', response.status);
-          } else {
-            console.log('✅ JotForm submission successful:', result);
-            if (result.data?.content?.submissionID) {
-              console.log('🎉 Submission ID:', result.data.content.submissionID);
-            } else {
-              console.warn('⚠️ No submission ID in response - check data:', result.data);
-            }
-          }
-        } catch (jotformError) {
-          console.error('❌ JotForm submission error:', jotformError);
-        }
-
         setIsSuccess(true);
         reset();
 
         const downloadLink = UNIVERSITY_LIST_LINKS[country];
 
         if (downloadLink) {
-          setTimeout(() => {
-            if (downloadLink.startsWith('http')) {
-              const anchor = document.createElement('a');
-              anchor.href = downloadLink;
-              anchor.target = '_blank';
-              anchor.rel = 'noopener noreferrer';
-              document.body.appendChild(anchor);
-              anchor.click();
-              document.body.removeChild(anchor);
-            } else {
-              fetch(downloadLink)
-                .then(response => response.blob())
-                .then(blob => {
-                  const url = window.URL.createObjectURL(blob);
-                  const link = document.createElement('a');
-                  link.href = url;
-                  link.download = `${country}_Brochure.pdf`;
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                  window.URL.revokeObjectURL(url);
-                })
-                .catch(err => console.error('Download error:', err));
-            }
-          }, 500);
+          if (downloadLink.startsWith('http')) {
+            const anchor = document.createElement('a');
+            anchor.href = downloadLink;
+            anchor.target = '_blank';
+            anchor.rel = 'noopener noreferrer';
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+          } else {
+            fetch(downloadLink)
+              .then(response => response.blob())
+              .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `${country}_Brochure.pdf`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                window.URL.revokeObjectURL(url);
+              })
+              .catch(err => console.error('Download error:', err));
+          }
         }
+
+        fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.fullName,
+            email: data.email,
+            phone: data.phoneNumber,
+            country: country,
+            formType: 'Brochure Download',
+          }),
+        }).catch(err => console.error('JotForm submission error:', err));
 
         setTimeout(() => {
           setIsSuccess(false);
