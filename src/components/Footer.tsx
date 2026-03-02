@@ -135,7 +135,7 @@ export const Footer = () => {
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-turquoise" />
                 <span className="text-gray-300">
-                  info@hnstudyabroad.com
+                  info@hnstudyabroadpvtltd.com
                 </span>
               </li>
 

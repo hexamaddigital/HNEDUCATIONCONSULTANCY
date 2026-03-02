@@ -742,11 +742,11 @@ export const TouristVisa = () => {
                 <span>+91 9860667552</span>
               </a>
               <a
-                href="mailto:info@hnstudyabroad.com"
+                href="mailto:info@hnstudyabroadpvtltd.com"
                 className="flex items-center space-x-3 px-8 py-4 bg-white text-turquoise rounded-full font-semibold hover:bg-ghost-green transition-all duration-300 hover:scale-105 shadow-xl"
               >
                 <Mail className="w-5 h-5" />
-                <span>info@hnstudyabroad.com</span>
+                <span>info@hnstudyabroadpvtltd.com</span>
               </a>
             </div>
           </div>

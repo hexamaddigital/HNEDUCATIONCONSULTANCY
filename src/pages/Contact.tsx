@@ -247,7 +247,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-heading mb-1">Email Address</h3>
-                    <p className="text-body-text">info@hnstudyabroad.com</p>
+                    <p className="text-body-text">info@hnstudyabroadpvtltd.com</p>
                   </div>
                 </div>
               </div>
@@ -305,7 +305,7 @@ export const Contact = () => {
                     <Mail className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Email</p>
-                      <p className="text-body-text">info@hnstudyabroad.com</p>
+                      <p className="text-body-text">info@hnstudyabroadpvtltd.com</p>
                     </div>
                   </div>
                 </div>
@@ -358,7 +358,7 @@ export const Contact = () => {
                     <Mail className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Email</p>
-                      <p className="text-body-text">info@hnstudyabroad.com</p>
+                      <p className="text-body-text">info@hnstudyabroadpvtltd.com</p>
                     </div>
                   </div>
                 </div>
