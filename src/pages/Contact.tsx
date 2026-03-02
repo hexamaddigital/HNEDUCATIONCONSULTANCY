@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
 import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { COUNTRY_NAMES } from '../constants/countries';
@@ -17,12 +18,22 @@ interface ContactFormData {
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const location = useLocation();
+  const jobContext = location.state as { jobTitle?: string; jobLocation?: string; sourcePage?: string } | null;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<ContactFormData>();
+
+  useEffect(() => {
+    if (jobContext?.jobTitle) {
+      setValue('message', `I am interested in applying for the ${jobContext.jobTitle} position in ${jobContext.jobLocation}.`);
+    }
+  }, [jobContext, setValue]);
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
@@ -33,6 +44,8 @@ export const Contact = () => {
       phone_number: data.phoneNumber,
       preferred_country: data.preferredCountry,
       message: data.message,
+      source_page: jobContext?.sourcePage || 'contact',
+      job_title: jobContext?.jobTitle || null,
     });
 
     if (!error) {

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { Briefcase, Clock, MapPin, TrendingUp, Award, Users, GraduationCap, DollarSign, FileText, CheckCircle } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { CTAModal } from '../components/CTAModal';
 
 interface WorkPermit {
   country: string;
@@ -107,8 +107,7 @@ const services = [
 export const WorkAbroad = () => {
   const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchJobOpenings();
@@ -140,8 +139,13 @@ export const WorkAbroad = () => {
   const irelandJobs = jobOpenings.filter(job => job.location.includes('Ireland'));
 
   const handleApplyNow = (job: JobOpening) => {
-    setSelectedJob(job);
-    setIsModalOpen(true);
+    navigate('/contact', {
+      state: {
+        jobTitle: job.title,
+        jobLocation: job.location,
+        sourcePage: 'work-abroad'
+      }
+    });
   };
 
   return (
@@ -497,15 +501,6 @@ export const WorkAbroad = () => {
           </div>
         </div>
       </section>
-
-      {selectedJob && (
-        <CTAModal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
-          title={`Apply for ${selectedJob.title}`}
-          description={`Submit your details to apply for this position in ${selectedJob.location}`}
-        />
-      )}
     </>
   );
 };

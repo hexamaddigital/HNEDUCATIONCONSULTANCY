@@ -36,6 +36,8 @@ interface ContactSubmission {
   preferred_country: string;
   message: string;
   created_at: string;
+  source_page?: string;
+  job_title?: string;
 }
 
 interface Application {
@@ -238,6 +240,8 @@ export default function Admin() {
         Email: item.email,
         Phone: item.phone,
         Country: item.preferred_country,
+        Source: item.source_page === 'work-abroad' ? 'Work Abroad' : 'Contact',
+        'Job Title': item.job_title || '-',
         Message: item.message,
         Date: new Date(item.created_at).toLocaleString('en-IN')
       }))
@@ -480,6 +484,8 @@ export default function Admin() {
                     <th className="px-6 py-3 text-left text-sm font-bold text-heading">Email</th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-heading">Phone</th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-heading">Country</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Source</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Job Title</th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-heading">Message</th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-heading">Date</th>
                     <th className="px-6 py-3 text-left text-sm font-bold text-heading">Action</th>
@@ -506,6 +512,25 @@ export default function Admin() {
                           <Globe className="w-4 h-4 mr-2 text-turquoise" />
                           {item.preferred_country}
                         </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${
+                          item.source_page === 'work-abroad'
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-gray-100 text-gray-800'
+                        }`}>
+                          {item.source_page === 'work-abroad' ? 'Work Abroad' : 'Contact'}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        {item.job_title ? (
+                          <div className="flex items-center">
+                            <Briefcase className="w-4 h-4 mr-2 text-turquoise" />
+                            <span className="font-semibold">{item.job_title}</span>
+                          </div>
+                        ) : (
+                          <span className="text-gray-400">-</span>
+                        )}
                       </td>
                       <td className="px-6 py-4 text-sm text-body-text max-w-xs truncate">{item.message}</td>
                       <td className="px-6 py-4 text-sm text-body-text">
