@@ -158,7 +158,7 @@ export const WorkAbroad = () => {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Work Abroad After Studies</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Work Abroad </h1>
             <p className="text-xl text-body-text">
               Explore post-study work opportunities and pathways to permanent residency
             </p>
@@ -284,77 +284,6 @@ export const WorkAbroad = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Post Study Work Visa Details
-            </h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
-              Most study destinations offer work permits after graduation to gain valuable international experience
-            </p>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto space-y-8">
-            {workPermits.map((permit, index) => (
-              <motion.div
-                key={permit.country}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-gradient-to-br from-white to-ghost-green rounded-2xl shadow-xl p-8 border-2 border-turquoise/20 hover:border-turquoise/50 transition-all"
-              >
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                  <div className="flex items-center mb-4 md:mb-0">
-                    <span className="text-5xl mr-4">{permit.flag}</span>
-                    <div>
-                      <h3 className="text-2xl font-bold">{permit.country}</h3>
-                      <div className="flex items-center text-turquoise font-semibold mt-1">
-                        <Clock className="w-4 h-4 mr-2" />
-                        <span>{permit.duration}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-heading mb-3 flex items-center">
-                      <Briefcase className="w-5 h-5 text-turquoise mr-2" />
-                      Work Permit Details
-                    </h4>
-                    <ul className="space-y-2">
-                      {permit.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-turquoise rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                          <span className="text-body-text text-sm">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-heading mb-3 flex items-center">
-                      <MapPin className="w-5 h-5 text-turquoise mr-2" />
-                      Permanent Residency Pathway
-                    </h4>
-                    <p className="text-body-text bg-white rounded-lg p-4 border border-turquoise/20">
-                      {permit.prPathway}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="py-16 bg-ghost-green">
         <div className="container mx-auto px-4">
