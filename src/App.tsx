@@ -16,6 +16,7 @@ import { Contact } from './pages/Contact';
 import { SignIn } from './pages/SignIn';
 import { Dashboard } from './pages/Dashboard';
 import { FAQPage } from './pages/FAQPage';
+import { TouristVisa } from './pages/TouristVisa';
 import Admin from './pages/Admin';
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/student-support" element={<StudentSupport />} />
               <Route path="/trending-courses" element={<TrendingCourses />} />
               <Route path="/loan-assistance" element={<LoanAssistance />} />
+              <Route path="/tourist-visa" element={<TouristVisa />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/about" element={<About />} />
