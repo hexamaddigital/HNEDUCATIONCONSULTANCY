@@ -84,14 +84,14 @@ export const TouristVisa = () => {
   ];
 
   const popularDestinations = [
-    { name: 'United Kingdom', flag: '🇬🇧', processing: '15-20 days', brochure: 'UK' },
-    { name: 'United States', flag: '🇺🇸', processing: '30-60 days', brochure: null },
-    { name: 'Canada', flag: '🇨🇦', processing: '20-30 days', brochure: 'Canada' },
-    { name: 'Australia', flag: '🇦🇺', processing: '15-30 days', brochure: 'Australia' },
-    { name: 'Schengen (Europe)', flag: '🇪🇺', processing: '15-30 days', brochure: 'Schengen' },
-    { name: 'Dubai (UAE)', flag: '🇦🇪', processing: '3-5 days', brochure: null },
-    { name: 'Singapore', flag: '🇸🇬', processing: '3-5 days', brochure: null },
-    { name: 'New Zealand', flag: '🇳🇿', processing: '20-30 days', brochure: null },
+    { name: 'United Kingdom', flag: '🇬🇧', processing: '15-20 days' },
+    { name: 'United States', flag: '🇺🇸', processing: '30-60 days' },
+    { name: 'Canada', flag: '🇨🇦', processing: '20-30 days' },
+    { name: 'Australia', flag: '🇦🇺', processing: '15-30 days' },
+    { name: 'Schengen (Europe)', flag: '🇪🇺', processing: '15-30 days' },
+    { name: 'Dubai (UAE)', flag: '🇦🇪', processing: '3-5 days' },
+    { name: 'Singapore', flag: '🇸🇬', processing: '3-5 days' },
+    { name: 'New Zealand', flag: '🇳🇿', processing: '20-30 days' },
   ];
 
   const handleBrochureClick = (country: string) => {
@@ -337,19 +337,10 @@ export const TouristVisa = () => {
                 <h3 className="text-lg font-bold text-heading mb-2 text-center">
                   {destination.name}
                 </h3>
-                <div className="flex items-center justify-center text-sm text-body-text mb-4">
+                <div className="flex items-center justify-center text-sm text-body-text">
                   <Clock className="w-4 h-4 mr-2 text-turquoise" />
                   {destination.processing}
                 </div>
-                {destination.brochure && (
-                  <button
-                    onClick={() => handleBrochureClick(destination.brochure!)}
-                    className="w-full mt-3 flex items-center justify-center space-x-2 px-4 py-2 bg-turquoise/10 text-turquoise rounded-lg font-medium hover:bg-turquoise hover:text-white transition-all duration-300 text-sm"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Download Brochure</span>
-                  </button>
-                )}
               </motion.div>
             ))}
           </div>
