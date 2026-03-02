@@ -136,6 +136,9 @@ export const WorkAbroad = () => {
     }
   };
 
+  const ukJobs = jobOpenings.filter(job => job.location.includes('UK') || job.location.includes('United Kingdom'));
+  const irelandJobs = jobOpenings.filter(job => job.location.includes('Ireland'));
+
   const handleApplyNow = (job: JobOpening) => {
     setSelectedJob(job);
     setIsModalOpen(true);
@@ -180,9 +183,9 @@ export const WorkAbroad = () => {
             <div className="text-center py-12">
               <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-turquoise border-r-transparent"></div>
             </div>
-          ) : jobOpenings.length > 0 ? (
+          ) : ukJobs.length > 0 ? (
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {jobOpenings.map((job, index) => (
+              {ukJobs.map((job, index) => (
                 <motion.div
                   key={job.id}
                   initial={{ opacity: 0, y: 30 }}
@@ -253,6 +256,105 @@ export const WorkAbroad = () => {
           ) : (
             <div className="text-center py-12">
               <p className="text-body-text">No job openings available at the moment. Please check back later.</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="py-16 bg-ghost-green">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ireland Job Opportunities
+            </h2>
+            <p className="text-lg text-body-text max-w-2xl mx-auto">
+              Discover exciting career opportunities in Ireland with excellent work-life balance and growth potential
+            </p>
+          </motion.div>
+
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-turquoise border-r-transparent"></div>
+            </div>
+          ) : irelandJobs.length > 0 ? (
+            <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {irelandJobs.map((job, index) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-turquoise/20 hover:border-turquoise/50 hover:shadow-2xl transition-all group"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={job.image_url}
+                      alt={job.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-3 text-heading line-clamp-2 min-h-[3.5rem]">
+                      {job.title}
+                    </h3>
+
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center text-body-text">
+                        <DollarSign className="w-4 h-4 text-turquoise mr-2 flex-shrink-0" />
+                        <span className="text-sm">
+                          €{job.salary_min.toLocaleString()} - €{job.salary_max.toLocaleString()} Annually
+                        </span>
+                      </div>
+
+                      <div className="flex items-center text-body-text">
+                        <MapPin className="w-4 h-4 text-turquoise mr-2 flex-shrink-0" />
+                        <span className="text-sm">{job.location}</span>
+                      </div>
+
+                      <div className="flex items-center text-body-text">
+                        <GraduationCap className="w-4 h-4 text-turquoise mr-2 flex-shrink-0" />
+                        <span className="text-sm">{job.qualification}</span>
+                      </div>
+
+                      <div className="flex items-center text-body-text">
+                        <Clock className="w-4 h-4 text-turquoise mr-2 flex-shrink-0" />
+                        <span className="text-sm">{job.experience_years}+ years experience</span>
+                      </div>
+                    </div>
+
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-heading mb-2 text-sm">Applicant Criteria:</h4>
+                      <ul className="space-y-1.5">
+                        {job.criteria.slice(0, 2).map((criterion, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <CheckCircle className="w-3.5 h-3.5 text-turquoise mr-2 mt-0.5 flex-shrink-0" />
+                            <span className="text-xs text-body-text line-clamp-2">{criterion}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <button
+                      onClick={() => handleApplyNow(job)}
+                      className="w-full px-6 py-3 bg-turquoise text-white rounded-lg font-semibold hover:bg-turquoise-dark transition-all hover:scale-105"
+                    >
+                      Apply Now
+                    </button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-body-text">No Ireland job openings available at the moment. Please check back later.</p>
             </div>
           )}
         </div>
