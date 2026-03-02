@@ -633,14 +633,14 @@ export const TouristVisa = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
-                href="tel:+919876543210"
+                href="tel:+91 9860667552"
                 className="flex items-center space-x-3 px-8 py-4 bg-white text-turquoise rounded-full font-semibold hover:bg-ghost-green transition-all duration-300 hover:scale-105 shadow-xl"
               >
                 <Phone className="w-5 h-5" />
                 <span>+91 9860667552</span>
               </a>
               <a
-                href="mailto:visa@hnstudyabroad.com"
+                href="mailto:info@hnstudyabroad.com"
                 className="flex items-center space-x-3 px-8 py-4 bg-white text-turquoise rounded-full font-semibold hover:bg-ghost-green transition-all duration-300 hover:scale-105 shadow-xl"
               >
                 <Mail className="w-5 h-5" />
