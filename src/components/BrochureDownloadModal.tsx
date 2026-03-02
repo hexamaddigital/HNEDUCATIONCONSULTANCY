@@ -113,29 +113,14 @@ export const BrochureDownloadModal = ({
         const downloadLink = UNIVERSITY_LIST_LINKS[country];
 
         if (downloadLink) {
-          if (downloadLink.startsWith('http')) {
-            const anchor = document.createElement('a');
-            anchor.href = downloadLink;
-            anchor.target = '_blank';
-            anchor.rel = 'noopener noreferrer';
-            document.body.appendChild(anchor);
-            anchor.click();
-            document.body.removeChild(anchor);
-          } else {
-            fetch(downloadLink)
-              .then(response => response.blob())
-              .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const link = document.createElement('a');
-                link.href = url;
-                link.download = `${country}_Brochure.pdf`;
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                window.URL.revokeObjectURL(url);
-              })
-              .catch(err => console.error('Download error:', err));
-          }
+          const anchor = document.createElement('a');
+          anchor.href = downloadLink;
+          anchor.download = downloadLink.startsWith('http') ? '' : `${country}_Brochure.pdf`;
+          anchor.target = '_blank';
+          anchor.rel = 'noopener noreferrer';
+          document.body.appendChild(anchor);
+          anchor.click();
+          document.body.removeChild(anchor);
         }
 
         fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/submit-to-jotform`, {
