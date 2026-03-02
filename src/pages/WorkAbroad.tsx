@@ -122,7 +122,12 @@ export const WorkAbroad = () => {
         .eq('is_active', true)
         .order('display_order', { ascending: true });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase error:', error);
+        throw error;
+      }
+
+      console.log('Job openings fetched:', data?.length || 0);
       setJobOpenings(data || []);
     } catch (error) {
       console.error('Error fetching job openings:', error);
