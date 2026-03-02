@@ -159,29 +159,28 @@ export const WorkAbroad = () => {
         </div>
       </section>
 
-      {jobOpenings.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Urgent UK Job Opportunities
-              </h2>
-              <p className="text-lg text-body-text max-w-2xl mx-auto">
-                Explore current job openings in the United Kingdom with competitive salaries and comprehensive support
-              </p>
-            </motion.div>
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Urgent UK Job Opportunities
+            </h2>
+            <p className="text-lg text-body-text max-w-2xl mx-auto">
+              Explore current job openings in the United Kingdom with competitive salaries and comprehensive support
+            </p>
+          </motion.div>
 
-            {loading ? (
-              <div className="text-center py-12">
-                <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-turquoise border-r-transparent"></div>
-              </div>
-            ) : (
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-turquoise border-r-transparent"></div>
+            </div>
+          ) : jobOpenings.length > 0 ? (
               <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {jobOpenings.map((job, index) => (
                   <motion.div
@@ -253,8 +252,13 @@ export const WorkAbroad = () => {
               </div>
             )}
           </div>
-        </section>
-      )}
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-body-text">No job openings available at the moment. Please check back later.</p>
+            </div>
+          )}
+        </div>
+      </section>
 
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
