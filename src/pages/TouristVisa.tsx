@@ -484,57 +484,7 @@ export const TouristVisa = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-ghost-green to-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-heading mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-body-text max-w-2xl mx-auto">
-              Get answers to common tourist visa queries
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
-                  className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-ghost-green transition-colors"
-                >
-                  <span className="text-lg font-semibold text-heading pr-4">
-                    {faq.question}
-                  </span>
-                  {openFAQ === index ? (
-                    <ChevronUp className="w-6 h-6 text-turquoise flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-6 h-6 text-turquoise flex-shrink-0" />
-                  )}
-                </button>
-                {openFAQ === index && (
-                  <div className="px-8 py-6 bg-ghost-green/30 border-t border-gray-200">
-                    <p className="text-body-text leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       <section id="consultation" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
