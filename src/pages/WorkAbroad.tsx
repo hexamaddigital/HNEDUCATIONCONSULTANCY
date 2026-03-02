@@ -200,13 +200,10 @@ export const WorkAbroad = () => {
                 >
                   <div className="relative overflow-hidden">
                     <img
-  src={`/${job.image_url}`}
-  alt={job.title}
-  onError={(e) => {
-    e.currentTarget.src = "/hn_study.png"; // fallback image
-  }}
-  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-/>
+                      src={job.image_url}
+                      alt={job.title}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
 
                   <div className="p-6">
