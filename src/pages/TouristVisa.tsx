@@ -16,7 +16,9 @@ import {
   ChevronUp,
   Phone,
   Mail,
+  Download,
 } from 'lucide-react';
+import { BrochureDownloadModal } from '../components/BrochureDownloadModal';
 
 interface VisaRequirement {
   title: string;
@@ -39,6 +41,8 @@ interface FAQ {
 export const TouristVisa = () => {
   const [selectedCountry, setSelectedCountry] = useState('');
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+  const [showBrochureModal, setShowBrochureModal] = useState(false);
+  const [selectedBrochureCountry, setSelectedBrochureCountry] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -80,15 +84,20 @@ export const TouristVisa = () => {
   ];
 
   const popularDestinations = [
-    { name: 'United Kingdom', flag: '🇬🇧', processing: '15-20 days' },
-    { name: 'United States', flag: '🇺🇸', processing: '30-60 days' },
-    { name: 'Canada', flag: '🇨🇦', processing: '20-30 days' },
-    { name: 'Australia', flag: '🇦🇺', processing: '15-30 days' },
-    { name: 'Schengen (Europe)', flag: '🇪🇺', processing: '15-30 days' },
-    { name: 'Dubai (UAE)', flag: '🇦🇪', processing: '3-5 days' },
-    { name: 'Singapore', flag: '🇸🇬', processing: '3-5 days' },
-    { name: 'New Zealand', flag: '🇳🇿', processing: '20-30 days' },
+    { name: 'United Kingdom', flag: '🇬🇧', processing: '15-20 days', brochure: 'UK' },
+    { name: 'United States', flag: '🇺🇸', processing: '30-60 days', brochure: null },
+    { name: 'Canada', flag: '🇨🇦', processing: '20-30 days', brochure: 'Canada' },
+    { name: 'Australia', flag: '🇦🇺', processing: '15-30 days', brochure: 'Australia' },
+    { name: 'Schengen (Europe)', flag: '🇪🇺', processing: '15-30 days', brochure: 'Schengen' },
+    { name: 'Dubai (UAE)', flag: '🇦🇪', processing: '3-5 days', brochure: null },
+    { name: 'Singapore', flag: '🇸🇬', processing: '3-5 days', brochure: null },
+    { name: 'New Zealand', flag: '🇳🇿', processing: '20-30 days', brochure: null },
   ];
+
+  const handleBrochureClick = (country: string) => {
+    setSelectedBrochureCountry(country);
+    setShowBrochureModal(true);
+  };
 
   const requirements: VisaRequirement[] = [
     {
@@ -322,16 +331,25 @@ export const TouristVisa = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                className="group p-6 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
                 <div className="text-5xl mb-4 text-center">{destination.flag}</div>
                 <h3 className="text-lg font-bold text-heading mb-2 text-center">
                   {destination.name}
                 </h3>
-                <div className="flex items-center justify-center text-sm text-body-text">
+                <div className="flex items-center justify-center text-sm text-body-text mb-4">
                   <Clock className="w-4 h-4 mr-2 text-turquoise" />
                   {destination.processing}
                 </div>
+                {destination.brochure && (
+                  <button
+                    onClick={() => handleBrochureClick(destination.brochure!)}
+                    className="w-full mt-3 flex items-center justify-center space-x-2 px-4 py-2 bg-turquoise/10 text-turquoise rounded-lg font-medium hover:bg-turquoise hover:text-white transition-all duration-300 text-sm"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Download Brochure</span>
+                  </button>
+                )}
               </motion.div>
             ))}
           </div>
@@ -484,7 +502,100 @@ export const TouristVisa = () => {
         </div>
       </section>
 
-      
+      <section className="py-16 bg-gradient-to-r from-turquoise to-turquoise-dark">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto text-center"
+          >
+            <div className="flex justify-center mb-6">
+              <Download className="w-12 h-12 text-white" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Download Visa Service Brochures
+            </h2>
+            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+              Get detailed information about visa requirements, processing times, and our services for your destination
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { name: 'UK Visa', country: 'UK' },
+                { name: 'Canada Visa', country: 'Canada' },
+                { name: 'Australia Visa', country: 'Australia' },
+                { name: 'Schengen Visa', country: 'Schengen' },
+              ].map((brochure, index) => (
+                <motion.button
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  onClick={() => handleBrochureClick(brochure.country)}
+                  className="group inline-flex items-center justify-center space-x-3 px-6 py-4 bg-white text-turquoise rounded-full font-semibold hover:bg-ghost-green transition-all duration-300 hover:scale-105 shadow-xl hover:shadow-2xl"
+                >
+                  <Download className="w-5 h-5 group-hover:animate-bounce" />
+                  <span>{brochure.name}</span>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-br from-ghost-green to-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-heading mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-body-text max-w-2xl mx-auto">
+              Get answers to common tourist visa queries
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              >
+                <button
+                  onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left hover:bg-ghost-green transition-colors"
+                >
+                  <span className="text-lg font-semibold text-heading pr-4">
+                    {faq.question}
+                  </span>
+                  {openFAQ === index ? (
+                    <ChevronUp className="w-6 h-6 text-turquoise flex-shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6 text-turquoise flex-shrink-0" />
+                  )}
+                </button>
+                {openFAQ === index && (
+                  <div className="px-8 py-6 bg-ghost-green/30 border-t border-gray-200">
+                    <p className="text-body-text leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="consultation" className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -650,6 +761,12 @@ export const TouristVisa = () => {
           </div>
         </div>
       </section>
+
+      <BrochureDownloadModal
+        isOpen={showBrochureModal}
+        onClose={() => setShowBrochureModal(false)}
+        country={selectedBrochureCountry}
+      />
     </>
   );
 };
