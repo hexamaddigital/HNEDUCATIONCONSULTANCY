@@ -18,7 +18,14 @@ import {
   CheckCircle,
   Clock,
   XCircle,
-  Trash2
+  Trash2,
+  Briefcase,
+  Plus,
+  Edit,
+  Eye,
+  EyeOff,
+  DollarSign,
+  MapPin
 } from "lucide-react";
 
 interface ContactSubmission {
@@ -62,6 +69,23 @@ interface Student {
   created_at: string;
 }
 
+interface JobOpening {
+  id: string;
+  title: string;
+  salary_min: number;
+  salary_max: number;
+  location: string;
+  qualification: string;
+  experience_years: number;
+  criteria: string[];
+  package_charge: number;
+  registration_fee: number;
+  image_url: string;
+  is_active: boolean;
+  display_order: number;
+  created_at: string;
+}
+
 export default function Admin() {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
@@ -72,8 +96,9 @@ export default function Admin() {
   const [applications, setApplications] = useState<Application[]>([]);
   const [brochureDownloads, setBrochureDownloads] = useState<BrochureDownload[]>([]);
   const [students, setStudents] = useState<Student[]>([]);
+  const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([]);
 
-  const [activeTab, setActiveTab] = useState<'contacts' | 'applications' | 'brochures' | 'students'>('contacts');
+  const [activeTab, setActiveTab] = useState<'contacts' | 'applications' | 'brochures' | 'students' | 'jobs'>('contacts');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -106,17 +131,19 @@ export default function Admin() {
   };
 
   const fetchAllData = async () => {
-    const [contactsRes, applicationsRes, brochuresRes, studentsRes] = await Promise.all([
+    const [contactsRes, applicationsRes, brochuresRes, studentsRes, jobsRes] = await Promise.all([
       supabase.from("contact_submissions").select("*").order("created_at", { ascending: false }),
       supabase.from("applications").select("*, students(full_name)").order("created_at", { ascending: false }),
       supabase.from("brochure_downloads").select("*").order("created_at", { ascending: false }),
-      supabase.from("students").select("*").order("created_at", { ascending: false })
+      supabase.from("students").select("*").order("created_at", { ascending: false }),
+      supabase.from("job_openings").select("*").order("display_order", { ascending: true })
     ]);
 
     if (contactsRes.data) setContactSubmissions(contactsRes.data);
     if (applicationsRes.data) setApplications(applicationsRes.data);
     if (brochuresRes.data) setBrochureDownloads(brochuresRes.data);
     if (studentsRes.data) setStudents(studentsRes.data);
+    if (jobsRes.data) setJobOpenings(jobsRes.data);
   };
 
   const logout = async () => {
@@ -173,6 +200,32 @@ export default function Admin() {
 
     if (!error) {
       setStudents(prev => prev.filter(item => item.id !== id));
+    }
+  };
+
+  const toggleJobStatus = async (id: string, currentStatus: boolean) => {
+    const { error } = await supabase
+      .from('job_openings')
+      .update({ is_active: !currentStatus })
+      .eq('id', id);
+
+    if (!error) {
+      setJobOpenings(prev => prev.map(job =>
+        job.id === id ? { ...job, is_active: !currentStatus } : job
+      ));
+    }
+  };
+
+  const deleteJob = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this job opening?')) return;
+
+    const { error } = await supabase
+      .from('job_openings')
+      .delete()
+      .eq('id', id);
+
+    if (!error) {
+      setJobOpenings(prev => prev.filter(job => job.id !== id));
     }
   };
 
@@ -393,6 +446,16 @@ export default function Admin() {
                 }`}
               >
                 Students ({students.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('jobs')}
+                className={`px-4 py-2 font-semibold transition-colors ${
+                  activeTab === 'jobs'
+                    ? 'text-turquoise border-b-2 border-turquoise'
+                    : 'text-body-text hover:text-heading'
+                }`}
+              >
+                Job Openings ({jobOpenings.length})
               </button>
             </div>
 
@@ -626,12 +689,91 @@ export default function Admin() {
                 </tbody>
               </table>
             )}
+
+            {activeTab === 'jobs' && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {jobOpenings.map((job) => (
+                  <div
+                    key={job.id}
+                    className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+                  >
+                    <div className="relative h-48">
+                      <img
+                        src={job.image_url}
+                        alt={job.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 right-2 flex gap-2">
+                        <button
+                          onClick={() => toggleJobStatus(job.id, job.is_active)}
+                          className={`p-2 rounded-full ${
+                            job.is_active ? 'bg-green-500' : 'bg-gray-400'
+                          } text-white hover:opacity-80 transition-opacity`}
+                          title={job.is_active ? 'Active - Click to deactivate' : 'Inactive - Click to activate'}
+                        >
+                          {job.is_active ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="p-4">
+                      <h3 className="font-bold text-lg mb-2 line-clamp-2">{job.title}</h3>
+
+                      <div className="space-y-2 mb-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <DollarSign className="w-4 h-4 text-turquoise mr-2" />
+                          £{job.salary_min.toLocaleString()} - £{job.salary_max.toLocaleString()}
+                        </div>
+                        <div className="flex items-center">
+                          <MapPin className="w-4 h-4 text-turquoise mr-2" />
+                          {job.location}
+                        </div>
+                        <div className="flex items-center">
+                          <Briefcase className="w-4 h-4 text-turquoise mr-2" />
+                          {job.experience_years}+ years exp
+                        </div>
+                        <div className="flex items-center">
+                          <GraduationCap className="w-4 h-4 text-turquoise mr-2" />
+                          {job.qualification}
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <p className="text-xs font-semibold text-gray-600 mb-1">Criteria:</p>
+                        <ul className="space-y-1">
+                          {job.criteria.slice(0, 2).map((criterion, idx) => (
+                            <li key={idx} className="text-xs text-body-text line-clamp-2 flex items-start">
+                              <span className="text-turquoise mr-1">•</span>
+                              {criterion}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-200">
+                        <div className="text-xs text-body-text">
+                          Order: {job.display_order}
+                        </div>
+                        <button
+                          onClick={() => deleteJob(job.id)}
+                          className="text-red-600 hover:text-red-800 transition-colors p-2"
+                          title="Delete job"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {((activeTab === 'contacts' && filteredContacts.length === 0) ||
             (activeTab === 'applications' && filteredApplications.length === 0) ||
             (activeTab === 'brochures' && filteredBrochures.length === 0) ||
-            (activeTab === 'students' && filteredStudents.length === 0)) && (
+            (activeTab === 'students' && filteredStudents.length === 0) ||
+            (activeTab === 'jobs' && jobOpenings.length === 0)) && (
             <div className="text-center py-12">
               <p className="text-body-text">No data found {searchTerm && 'matching your search'}</p>
             </div>
