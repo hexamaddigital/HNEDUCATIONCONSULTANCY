@@ -2,32 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import * as XLSX from "xlsx";
-import {
-  Users,
-  FileText,
-  Download,
-  GraduationCap,
-  LogOut,
-  Search,
-  Mail,
-  Phone,
-  Globe,
-  MessageSquare,
-  Calendar,
-  Plane,
-  BookOpen,
-  CheckCircle,
-  Clock,
-  XCircle,
-  Trash2,
-  Briefcase,
-  Plus,
-  Edit,
-  Eye,
-  EyeOff,
-  DollarSign,
-  MapPin
-} from "lucide-react";
+import { Users, FileText, Download, GraduationCap, LogOut, Search, Mail, Phone, Globe, MessageSquare, Calendar, Plane, BookOpen, CheckCircle, Clock, XCircle, Trash2, Briefcase, Plus, CreditCard as Edit, Eye, EyeOff, DollarSign, MapPin } from "lucide-react";
 
 interface ContactSubmission {
   id: string;
