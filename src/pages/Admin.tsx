@@ -100,6 +100,16 @@ interface TouristVisaApplication {
   created_at: string;
 }
 
+interface LeadCapture {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  preferred_country: string;
+  source: string;
+  created_at: string;
+}
+
 export default function Admin() {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
@@ -112,8 +122,9 @@ export default function Admin() {
   const [students, setStudents] = useState<Student[]>([]);
   const [jobOpenings, setJobOpenings] = useState<JobOpening[]>([]);
   const [touristVisaApplications, setTouristVisaApplications] = useState<TouristVisaApplication[]>([]);
+  const [leadCaptures, setLeadCaptures] = useState<LeadCapture[]>([]);
 
-  const [activeTab, setActiveTab] = useState<'contacts' | 'applications' | 'brochures' | 'students' | 'jobs' | 'tourist-visa'>('contacts');
+  const [activeTab, setActiveTab] = useState<'contacts' | 'applications' | 'brochures' | 'students' | 'jobs' | 'tourist-visa' | 'leads'>('contacts');
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -146,13 +157,14 @@ export default function Admin() {
   };
 
   const fetchAllData = async () => {
-    const [contactsRes, applicationsRes, brochuresRes, studentsRes, jobsRes, touristVisaRes] = await Promise.all([
+    const [contactsRes, applicationsRes, brochuresRes, studentsRes, jobsRes, touristVisaRes, leadsRes] = await Promise.all([
       supabase.from("contact_submissions").select("*").order("created_at", { ascending: false }),
       supabase.from("applications").select("*, students(full_name)").order("created_at", { ascending: false }),
       supabase.from("brochure_downloads").select("*").order("created_at", { ascending: false }),
       supabase.from("students").select("*").order("created_at", { ascending: false }),
       supabase.from("job_openings").select("*").order("display_order", { ascending: true }),
-      supabase.from("tourist_visa_applications").select("*").order("created_at", { ascending: false })
+      supabase.from("tourist_visa_applications").select("*").order("created_at", { ascending: false }),
+      supabase.from("lead_captures").select("*").order("created_at", { ascending: false })
     ]);
 
     if (contactsRes.data) setContactSubmissions(contactsRes.data);
@@ -161,6 +173,7 @@ export default function Admin() {
     if (studentsRes.data) setStudents(studentsRes.data);
     if (jobsRes.data) setJobOpenings(jobsRes.data);
     if (touristVisaRes.data) setTouristVisaApplications(touristVisaRes.data);
+    if (leadsRes.data) setLeadCaptures(leadsRes.data);
   };
 
   const logout = async () => {
@@ -256,6 +269,19 @@ export default function Admin() {
 
     if (!error) {
       setTouristVisaApplications(prev => prev.filter(item => item.id !== id));
+    }
+  };
+
+  const deleteLead = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this lead?')) return;
+
+    const { error } = await supabase
+      .from('lead_captures')
+      .delete()
+      .eq('id', id);
+
+    if (!error) {
+      setLeadCaptures(prev => prev.filter(item => item.id !== id));
     }
   };
 
@@ -373,6 +399,7 @@ export default function Admin() {
   const filteredBrochures = filterData(brochureDownloads);
   const filteredStudents = filterData(students);
   const filteredTouristVisa = filterData(touristVisaApplications);
+  const filteredLeads = filterData(leadCaptures);
 
   return (
     <section className="min-h-screen pt-24 pb-12 bg-ghost-green">
@@ -524,6 +551,16 @@ export default function Admin() {
                 }`}
               >
                 Tourist Visa ({touristVisaApplications.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('leads')}
+                className={`px-4 py-2 font-semibold transition-colors ${
+                  activeTab === 'leads'
+                    ? 'text-turquoise border-b-2 border-turquoise'
+                    : 'text-body-text hover:text-heading'
+                }`}
+              >
+                Lead Captures ({leadCaptures.length})
               </button>
             </div>
 
@@ -919,6 +956,71 @@ export default function Admin() {
                 </tbody>
               </table>
             )}
+
+            {activeTab === 'leads' && (
+              <table className="w-full">
+                <thead className="bg-ghost-green">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Name</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Email</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Phone</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Preferred Country</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Source</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Date</th>
+                    <th className="px-6 py-3 text-left text-sm font-bold text-heading">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  {filteredLeads.map((item) => (
+                    <tr key={item.id} className="hover:bg-ghost-green transition-colors">
+                      <td className="px-6 py-4 text-sm text-heading font-semibold">{item.name}</td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Mail className="w-4 h-4 mr-2 text-turquoise" />
+                          {item.email}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Phone className="w-4 h-4 mr-2 text-turquoise" />
+                          {item.phone}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Globe className="w-4 h-4 mr-2 text-turquoise" />
+                          {item.preferred_country}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-sm">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          item.source === 'exit_intent'
+                            ? 'bg-orange-100 text-orange-800'
+                            : 'bg-blue-100 text-blue-800'
+                        }`}>
+                          {item.source === 'exit_intent' ? 'Exit Intent' : 'Timer (60s)'}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-sm text-body-text">
+                        <div className="flex items-center">
+                          <Calendar className="w-4 h-4 mr-2 text-turquoise" />
+                          {new Date(item.created_at).toLocaleString('en-IN')}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4">
+                        <button
+                          onClick={() => deleteLead(item.id)}
+                          className="text-red-600 hover:text-red-800 transition-colors"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
 
           {((activeTab === 'contacts' && filteredContacts.length === 0) ||
@@ -926,7 +1028,8 @@ export default function Admin() {
             (activeTab === 'brochures' && filteredBrochures.length === 0) ||
             (activeTab === 'students' && filteredStudents.length === 0) ||
             (activeTab === 'jobs' && jobOpenings.length === 0) ||
-            (activeTab === 'tourist-visa' && filteredTouristVisa.length === 0)) && (
+            (activeTab === 'tourist-visa' && filteredTouristVisa.length === 0) ||
+            (activeTab === 'leads' && filteredLeads.length === 0)) && (
             <div className="text-center py-12">
               <p className="text-body-text">No data found {searchTerm && 'matching your search'}</p>
             </div>
