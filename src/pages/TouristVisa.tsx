@@ -2,16 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Plane,
-  Globe,
   FileText,
   CheckCircle,
   Clock,
   Users,
   Shield,
   ArrowRight,
-  MapPin,
   Calendar,
-  CreditCard,
   Phone,
   Mail,
   Download,

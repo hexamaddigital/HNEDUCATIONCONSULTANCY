@@ -1,29 +1,6 @@
 import { motion } from 'framer-motion';
-import { Target, Eye, CheckCircle, Award, Users, Globe } from 'lucide-react';
+import { CheckCircle, Award, Users, Globe } from 'lucide-react';
 import { useState } from 'react';
-
-const values = [
-  {
-    icon: CheckCircle,
-    title: 'Transparent Guidance',
-    description: 'Honest advice with complete transparency in our processes and fee structure.',
-  },
-  {
-    icon: Award,
-    title: 'Certified Counsellors',
-    description: 'Team of experienced and certified education counsellors with deep industry knowledge.',
-  },
-  {
-    icon: Users,
-    title: 'Student-Centric Approach',
-    description: "Every decision is made with the student's best interests and future goals in mind.",
-  },
-  {
-    icon: Globe,
-    title: 'Global Network',
-    description: 'Strong university networks across 17+ destinations',
-  },
-];
 
 export const About = () => {
   const [showSuccess, setShowSuccess] = useState(false);

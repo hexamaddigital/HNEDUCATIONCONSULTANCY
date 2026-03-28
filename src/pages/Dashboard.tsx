@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import {
   User,
-  Mail,
-  Phone,
   Globe,
   GraduationCap,
   Briefcase,

@@ -2,13 +2,10 @@ import { motion } from 'framer-motion';
 import {
   BookOpen,
   FileText,
-  Target,
   Award,
   Building2,
   FileCheck,
   Plane,
-  Calendar,
-  CreditCard,
   ClipboardCheck,
   Search,
   DollarSign,
@@ -233,9 +230,9 @@ const timelineData = {
 };
 
 export const IntakeTimeline = ({ country, intake }: IntakeTimelineProps) => {
-  const timeline = timelineData[country]?.[intake as keyof typeof timelineData[typeof country]];
+  const timeline = timelineData[country]?.[intake as keyof typeof timelineData[typeof country]] as TimelineStep[] | undefined;
 
-  if (!timeline) return null;
+  if (!timeline || timeline.length === 0) return null;
 
   return (
     <div className="relative py-8">

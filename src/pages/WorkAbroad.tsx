@@ -1,69 +1,8 @@
 import { motion } from 'framer-motion';
-import { Briefcase, Clock, MapPin, TrendingUp, Award, Users } from 'lucide-react';
+import { Briefcase, TrendingUp, Award, Users } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-
-interface WorkPermit {
-  country: string;
-  flag: string;
-  duration: string;
-  details: string[];
-  prPathway: string;
-}
-
-const workPermits: WorkPermit[] = [
-  {
-    country: 'United Kingdom',
-    flag: '🇬🇧',
-    duration: '2 Years',
-    details: [
-      'Graduate Route visa for all degree holders',
-      'No sponsorship required',
-      'Can work in any role or be self-employed',
-      'Can switch to Skilled Worker visa',
-    ],
-    prPathway: 'Skilled Worker visa after 5 years of legal residence',
-  },
-  {
-    country: 'Canada',
-    flag: '🇨🇦',
-    duration: 'Up to 3 Years',
-    details: [
-      'Post-Graduation Work Permit (PGWP)',
-      'Duration based on program length',
-      'Open work permit - any employer',
-      'Excellent pathway to PR',
-    ],
-    prPathway: 'Express Entry system - Canadian Experience Class',
-  },
-  {
-    country: 'Australia',
-    flag: '🇦🇺',
-    duration: '2 to 4 Years',
-    details: [
-      'Temporary Graduate visa (subclass 485)',
-      '2 years for Bachelors, 3 years for Masters',
-      '4 years for PhD graduates',
-      'Regional study provides extra time',
-    ],
-    prPathway: 'Skilled Independent visa (189) or State Nominated visa (190)',
-  },
- 
-  {
-    country: 'Germany',
-    flag: '🇩🇪',
-    duration: '18 Months',
-    details: [
-      'Job seeker visa for all graduates',
-      'Can work full-time during this period',
-      'Switch to EU Blue Card with job offer',
-      'No restrictions on job type',
-    ],
-    prPathway: 'EU Blue Card or permanent residence after 21 months',
-  },
-
-];
 
 interface JobOpening {
   id: string;

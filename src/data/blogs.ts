@@ -7,6 +7,7 @@ export interface BlogPost {
   category: string;
   author: string;
   published_at: string;
+  hasCostTable?: boolean;
 }
 
 export const BLOGS: BlogPost[] = [
