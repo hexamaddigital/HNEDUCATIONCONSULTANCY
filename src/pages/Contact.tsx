@@ -250,7 +250,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-heading mb-1">Phone Number</h3>
-                    <p className="text-body-text">+977 9860667552</p>
+                    <p className="text-body-text">+91 98606 67552</p>
                   </div>
                 </div>
 
@@ -310,7 +310,7 @@ export const Contact = () => {
                     <Phone className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Phone</p>
-                      <p className="text-body-text">+977 9860667552</p>
+                      <p className="text-body-text">+91 98606 67552</p>
                     </div>
                   </div>
 

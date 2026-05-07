@@ -688,11 +688,11 @@ export const TouristVisa = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
-                href="tel:+9779860667552"
+                href="tel:+919860667552"
                 className="flex items-center space-x-3 px-8 py-4 bg-white text-turquoise rounded-full font-semibold hover:bg-ghost-green transition-all duration-300 hover:scale-105 shadow-xl"
               >
                 <Phone className="w-5 h-5" />
-                <span>+977 9860667552</span>
+                <span>+91 98606 67552</span>
               </a>
               <a
                 href="mailto:info@hnstudyabroadpvtltd.com"

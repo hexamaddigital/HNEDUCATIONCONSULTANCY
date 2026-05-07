@@ -1,11 +1,11 @@
 import { Phone } from 'lucide-react';
 
 export const CallNowButton = () => {
-  const phoneNumber = '9860667552';
+  const phoneNumber = '919860667552';
 
   return (
     <a
-      href={`tel:+977${phoneNumber}`}
+      href={`tel:+${phoneNumber}`}
       className="fixed bottom-24 right-6 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group animate-pulse hover:animate-none"
       aria-label="Call us now"
     >
