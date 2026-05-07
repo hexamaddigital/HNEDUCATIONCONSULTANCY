@@ -250,7 +250,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-heading mb-1">Phone Number</h3>
-                    <p className="text-body-text">+91 98606 67552</p>
+                    <a href="tel:+919860667552" className="text-body-text hover:text-turquoise transition-colors">+91 98606 67552</a>
                   </div>
                 </div>
 
@@ -260,7 +260,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-heading mb-1">Email Address</h3>
-                    <p className="text-body-text">info@hnstudyabroadpvtltd.com</p>
+                    <a href="mailto:info@hnstudyabroadpvtltd.com" className="text-body-text hover:text-turquoise transition-colors">info@hnstudyabroadpvtltd.com</a>
                   </div>
                 </div>
               </div>
@@ -310,7 +310,7 @@ export const Contact = () => {
                     <Phone className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Phone</p>
-                      <p className="text-body-text">+91 98606 67552</p>
+                      <a href="tel:+919860667552" className="text-body-text hover:text-turquoise transition-colors">+91 98606 67552</a>
                     </div>
                   </div>
 
@@ -318,7 +318,7 @@ export const Contact = () => {
                     <Mail className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Email</p>
-                      <p className="text-body-text">info@hnstudyabroadpvtltd.com</p>
+                      <a href="mailto:info@hnstudyabroadpvtltd.com" className="text-body-text hover:text-turquoise transition-colors">info@hnstudyabroadpvtltd.com</a>
                     </div>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ export const Contact = () => {
                     <Phone className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Phone</p>
-                      <p className="text-body-text">+91 8087507773</p>
+                      <a href="tel:+918087507773" className="text-body-text hover:text-turquoise transition-colors">+91 8087507773</a>
                     </div>
                   </div>
 
@@ -371,7 +371,7 @@ export const Contact = () => {
                     <Mail className="w-5 h-5 text-turquoise flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-heading">Email</p>
-                      <p className="text-body-text">info@hnstudyabroadpvtltd.com</p>
+                      <a href="mailto:info@hnstudyabroadpvtltd.com" className="text-body-text hover:text-turquoise transition-colors">info@hnstudyabroadpvtltd.com</a>
                     </div>
                   </div>
                 </div>

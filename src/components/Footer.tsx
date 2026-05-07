@@ -112,7 +112,8 @@ export const Footer = () => {
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-turquoise" />
                 <span className="text-gray-300">
-                  <strong>Contact:</strong> +91 98606 67552
+                  <strong>Contact:</strong>{' '}
+                  <a href="tel:+919860667552" className="hover:text-turquoise transition-colors">+91 98606 67552</a>
                 </span>
               </li>
 
@@ -128,15 +129,16 @@ export const Footer = () => {
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 text-turquoise" />
                 <span className="text-gray-300">
-                  <strong>Contact:</strong> +91 7709476192
+                  <strong>Contact:</strong>{' '}
+                  <a href="tel:+917709476192" className="hover:text-turquoise transition-colors">+91 7709476192</a>
                 </span>
               </li>
 
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-turquoise" />
-                <span className="text-gray-300">
+                <a href="mailto:info@hnstudyabroadpvtltd.com" className="text-gray-300 hover:text-turquoise transition-colors">
                   info@hnstudyabroadpvtltd.com
-                </span>
+                </a>
               </li>
 
             </ul>
