@@ -11,7 +11,6 @@ const navLinks = [
   { name: 'Student Support', path: '/student-support' },
   { name: 'Trending Courses', path: '/trending-courses' },
   { name: 'Loan Assistance', path: '/loan-assistance' },
-  { name: 'Work Abroad', path: '/work-abroad' },
   { name: 'Tourist Visa', path: '/tourist-visa' },
   { name: 'Blog', path: '/blog' },
   { name: 'FAQ', path: '/faq' },

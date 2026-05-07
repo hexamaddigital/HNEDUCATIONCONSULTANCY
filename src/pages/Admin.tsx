@@ -269,7 +269,7 @@ export default function Admin() {
         Email: item.email,
         Phone: item.phone,
         Country: item.preferred_country,
-        Source: item.source_page === 'work-abroad' ? 'Work Abroad' : 'Contact',
+        Source: 'Contact',
         'Job Title': item.job_title || '-',
         Message: item.message,
         Date: new Date(item.created_at).toLocaleString('en-IN')
@@ -590,12 +590,8 @@ export default function Admin() {
                         </div>
                       </td>
                       <td className="px-6 py-4 text-sm text-body-text">
-                        <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold ${
-                          item.source_page === 'work-abroad'
-                            ? 'bg-blue-100 text-blue-800'
-                            : 'bg-gray-100 text-gray-800'
-                        }`}>
-                          {item.source_page === 'work-abroad' ? 'Work Abroad' : 'Contact'}
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-800">
+                          Contact
                         </span>
                       </td>
                       <td className="px-6 py-4 text-sm text-body-text">
