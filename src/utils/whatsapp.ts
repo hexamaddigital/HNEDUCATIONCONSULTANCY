@@ -1,4 +1,4 @@
-const OWNER_WHATSAPP = "919860667552";
+const OWNER_WHATSAPP = "9779860667552";
 
 interface FormData {
   type: "contact" | "brochure" | "application";

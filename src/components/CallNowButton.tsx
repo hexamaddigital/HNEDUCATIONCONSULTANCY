@@ -6,7 +6,7 @@ export const CallNowButton = () => {
   return (
     <a
       href={`tel:+977${phoneNumber}`}
-      className="md:hidden fixed bottom-24 right-6 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group animate-pulse hover:animate-none"
+      className="fixed bottom-24 right-6 z-50 bg-green-600 hover:bg-green-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group animate-pulse hover:animate-none"
       aria-label="Call us now"
     >
       <Phone className="w-6 h-6" />
