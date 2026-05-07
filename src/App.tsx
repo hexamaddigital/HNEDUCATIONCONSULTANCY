@@ -4,7 +4,6 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { CallNowButton } from './components/CallNowButton';
-import { LeadCaptureModal } from './components/LeadCaptureModal';
 import { CTAModal } from './components/CTAModal';
 import { Home } from './pages/Home';
 import { GlobalEducation } from './pages/GlobalEducation';
@@ -50,7 +49,6 @@ function App() {
           <Footer />
           <WhatsAppButton />
           <CallNowButton />
-          <LeadCaptureModal />
           <CTAModal />
         </div>
       </Router>
