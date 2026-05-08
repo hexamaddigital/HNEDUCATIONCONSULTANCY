@@ -63,6 +63,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         .insert({
           id: data.user.id,
           full_name: fullName,
+          email: data.user.email,
         });
 
       if (profileError) {

@@ -6,9 +6,9 @@ import { Users, FileText, Download, GraduationCap, LogOut, Search, Mail, Phone, 
 
 interface ContactSubmission {
   id: string;
-  name: string;
+  full_name: string;
   email: string;
-  phone: string;
+  phone_number: string;
   preferred_country: string;
   message: string;
   created_at: string;
@@ -41,7 +41,7 @@ interface BrochureDownload {
 
 interface Student {
   id: string;
-  email: string;
+  email: string | null;
   full_name: string;
   is_admin: boolean;
   created_at: string;
@@ -265,11 +265,11 @@ export default function Admin() {
 
     const contactsSheet = XLSX.utils.json_to_sheet(
       contactSubmissions.map(item => ({
-        Name: item.name,
+        Name: item.full_name,
         Email: item.email,
-        Phone: item.phone,
+        Phone: item.phone_number,
         Country: item.preferred_country,
-        Source: 'Contact',
+        Source: item.source_page || 'Contact',
         'Job Title': item.job_title || '-',
         Message: item.message,
         Date: new Date(item.created_at).toLocaleString('en-IN')
@@ -304,7 +304,7 @@ export default function Admin() {
     const studentsSheet = XLSX.utils.json_to_sheet(
       students.map(item => ({
         Name: item.full_name,
-        Email: item.email,
+        Email: item.email || '-',
         'Admin Status': item.is_admin ? 'Admin' : 'User',
         'Registration Date': new Date(item.created_at).toLocaleString('en-IN')
       }))
@@ -323,6 +323,18 @@ export default function Admin() {
       }))
     );
     XLSX.utils.book_append_sheet(workbook, touristVisaSheet, "Tourist Visa");
+
+    const leadsSheet = XLSX.utils.json_to_sheet(
+      leadCaptures.map(item => ({
+        Name: item.name,
+        Email: item.email,
+        Phone: item.phone,
+        'Preferred Country': item.preferred_country,
+        Source: item.source,
+        Date: new Date(item.created_at).toLocaleString('en-IN')
+      }))
+    );
+    XLSX.utils.book_append_sheet(workbook, leadsSheet, "Lead Captures");
 
     XLSX.writeFile(workbook, `HN_Study_Abroad_Data_${new Date().toISOString().split('T')[0]}.xlsx`);
   };
@@ -402,7 +414,7 @@ export default function Admin() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
           <div className="bg-white rounded-2xl shadow-xl p-6">
             <div className="flex items-center justify-between">
               <div>
@@ -459,6 +471,18 @@ export default function Admin() {
               </div>
               <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center">
                 <Plane className="w-7 h-7 text-orange-600" />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-xl p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-body-text text-sm font-semibold mb-1">Lead Captures</p>
+                <p className="text-3xl font-bold text-heading">{leadCaptures.length}</p>
+              </div>
+              <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center">
+                <Users className="w-7 h-7 text-teal-600" />
               </div>
             </div>
           </div>
@@ -570,7 +594,7 @@ export default function Admin() {
                 <tbody className="divide-y divide-gray-200">
                   {filteredContacts.map((item) => (
                     <tr key={item.id} className="hover:bg-ghost-green transition-colors">
-                      <td className="px-6 py-4 text-sm text-heading font-semibold">{item.name}</td>
+                      <td className="px-6 py-4 text-sm text-heading font-semibold">{item.full_name}</td>
                       <td className="px-6 py-4 text-sm text-body-text">
                         <div className="flex items-center">
                           <Mail className="w-4 h-4 mr-2 text-turquoise" />
@@ -580,7 +604,7 @@ export default function Admin() {
                       <td className="px-6 py-4 text-sm text-body-text">
                         <div className="flex items-center">
                           <Phone className="w-4 h-4 mr-2 text-turquoise" />
-                          {item.phone}
+                          {item.phone_number}
                         </div>
                       </td>
                       <td className="px-6 py-4 text-sm text-body-text">
@@ -753,13 +777,13 @@ export default function Admin() {
                       <td className="px-6 py-4 text-sm text-body-text">
                         <div className="flex items-center">
                           <Mail className="w-4 h-4 mr-2 text-turquoise" />
-                          {item.email}
+                          {item.email || <span className="text-gray-400 italic">not stored</span>}
                         </div>
                       </td>
                       <td className="px-6 py-4 text-sm">
                         <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${
                           item.is_admin
-                            ? 'bg-purple-100 text-purple-800'
+                            ? 'bg-blue-100 text-blue-800'
                             : 'bg-gray-100 text-gray-800'
                         }`}>
                           {item.is_admin ? 'Admin' : 'User'}
