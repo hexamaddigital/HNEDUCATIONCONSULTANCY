@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { useLocation } from 'react-router-dom';
-import { MapPin, Phone, Mail, Send, CheckCircle, X, MessageCircle, ExternalLink, Loader2, Clock, AlertCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, CheckCircle, X, MessageCircle, ExternalLink, Clock, AlertCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { COUNTRY_NAMES } from '../constants/countries';
 
@@ -66,7 +66,6 @@ function buildMailtoLink(data: ContactFormData): string {
 }
 
 export const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [pendingData, setPendingData] = useState<ContactFormData | null>(null);
   const [toasts, setToasts] = useState<Toast[]>([]);
@@ -100,8 +99,10 @@ export const Contact = () => {
     }, 5000);
   };
 
-  const saveToDatabase = async (data: ContactFormData) => {
-    const { error } = await supabase.from('contact_submissions').insert({
+  const saveInBackground = (data: ContactFormData) => {
+    // Fire-and-forget: save to DB + trigger email edge function in background
+    // This runs AFTER the browser redirect so it never blocks window.open()
+    supabase.from('contact_submissions').insert({
       full_name: data.fullName,
       email: data.email,
       phone_number: data.phoneNumber,
@@ -109,8 +110,41 @@ export const Contact = () => {
       message: data.message,
       source_page: jobContext?.sourcePage || 'contact',
       job_title: jobContext?.jobTitle || null,
+    }).then(({ error }) => {
+      if (error) {
+        console.error('[Contact] DB save failed:', error.message, error.details);
+      } else {
+        console.log('[Contact] Inquiry saved to database successfully.');
+        // Trigger email delivery via edge function (non-blocking)
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabaseKey}`,
+          },
+          body: JSON.stringify({
+            fullName: data.fullName,
+            email: data.email,
+            phoneNumber: data.phoneNumber,
+            preferredCountry: data.preferredCountry,
+            message: data.message,
+            jobTitle: jobContext?.jobTitle,
+            sourcePage: jobContext?.sourcePage || 'contact',
+          }),
+        })
+          .then(r => r.json())
+          .then(result => {
+            if (result.success) {
+              console.log('[Contact] Email delivered. Resend ID:', result.emailId);
+            } else {
+              console.warn('[Contact] Email not delivered:', result.reason, result.message || '');
+            }
+          })
+          .catch(err => console.error('[Contact] Email edge function error:', err));
+      }
     });
-    return error;
   };
 
   const onSubmit = async (data: ContactFormData) => {
@@ -119,40 +153,33 @@ export const Contact = () => {
     setShowModal(true);
   };
 
-  const handleMethodSelect = async (method: SubmitMethod) => {
+  // CRITICAL: this handler must be synchronous up to window.open()
+  // Browsers block popups opened after any await — so we open the URL first,
+  // then save data in the background.
+  const handleMethodSelect = (method: SubmitMethod) => {
     if (!pendingData || submitLock.current) return;
     submitLock.current = true;
-    setIsSubmitting(true);
     setShowModal(false);
 
-    const dbError = await saveToDatabase(pendingData);
-
     if (method === 'whatsapp') {
-      if (!dbError) {
-        const msg = buildWhatsAppMessage(pendingData);
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
-        window.open(url, '_blank', 'noopener,noreferrer');
-        addToast('success', 'Inquiry saved! WhatsApp is opening...');
-        reset();
-      } else {
-        console.error('DB error:', dbError);
-        addToast('error', 'Something went wrong. Please try again.');
-      }
+      const msg = buildWhatsAppMessage(pendingData);
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      // Synchronous — must happen before any async work
+      window.open(url, '_blank');
+      addToast('success', 'Opening WhatsApp with your inquiry...');
     } else {
-      if (!dbError) {
-        const mailtoLink = buildMailtoLink(pendingData);
-        window.location.href = mailtoLink;
-        addToast('success', 'Inquiry saved! Your email client is opening...');
-        reset();
-      } else {
-        console.error('DB error:', dbError);
-        addToast('error', 'Something went wrong. Please try again.');
-      }
+      const mailtoLink = buildMailtoLink(pendingData);
+      // Synchronous — must happen before any async work
+      window.open(mailtoLink, '_blank');
+      addToast('success', 'Opening your email client...');
     }
 
-    setIsSubmitting(false);
+    // Save to DB + send email in background AFTER the redirect
+    saveInBackground(pendingData);
+    reset();
     setPendingData(null);
     setTimeout(() => { submitLock.current = false; }, 3000);
+
   };
 
   const inputClass = (hasError: boolean) =>
@@ -469,22 +496,14 @@ export const Contact = () => {
 
                 <motion.button
                   type="submit"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full px-8 py-4 bg-gradient-to-r from-turquoise to-turquoise-dark text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Processing...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Send Message
-                    </>
-                  )}
+                  <>
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </>
                 </motion.button>
 
               </form>
