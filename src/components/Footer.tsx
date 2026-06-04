@@ -67,6 +67,7 @@ export const Footer = () => {
                 { to: '/student-support', label: 'Student Support' },
                 { to: '/trending-courses', label: 'Trending Courses' },
                 { to: '/loan-assistance', label: 'Loan Assistance' },
+                { to: '/videos', label: 'Videos' },
                 { to: '/blog', label: 'Blog' },
                 { to: '/faq', label: 'FAQ' },
                 { to: '/contact', label: 'Contact' },

@@ -14,6 +14,7 @@ import { Testimonials } from '../components/Testimonials';
 import { CounterStats } from '../components/CounterStats';
 import { CountryCarousel } from '../components/CountryCarousel';
 import { BrochureDownloadModal } from '../components/BrochureDownloadModal';
+import { VideosSection } from '../components/VideosSection';
 
 interface StudyPathResult {
   countries: string[];
@@ -444,6 +445,8 @@ export const Home = () => {
       </section>
 
       <Testimonials />
+
+      <VideosSection />
 
       <BrochureDownloadModal
         isOpen={showMainBrochureModal}

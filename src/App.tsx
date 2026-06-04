@@ -19,6 +19,7 @@ import { Dashboard } from './pages/Dashboard';
 import { FAQPage } from './pages/FAQPage';
 import { TouristVisa } from './pages/TouristVisa';
 import Admin from './pages/Admin';
+import { Videos } from './pages/Videos';
 function App() {
   return (
     <AuthProvider>
@@ -43,6 +44,7 @@ function App() {
               <Route path="/signin" element={<SignIn />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/videos" element={<Videos />} />
             </Routes>
           </main>
 
