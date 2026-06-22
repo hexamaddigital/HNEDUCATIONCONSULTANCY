@@ -29,7 +29,7 @@ export const Blog = () => {
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <ul className="space-y-6">
-            {BLOGS.map(blog => (
+            {[...BLOGS].sort((a, b) => new Date(b.published_at).getTime() - new Date(a.published_at).getTime()).map(blog => (
               <li
                 key={blog.id}
                 className="border-b pb-6 hover:translate-x-1 transition-transform"
