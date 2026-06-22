@@ -467,40 +467,42 @@ export default function Admin() {
     exportToExcel(exportData, 'tourist-visa-applications');
   };
 
+  const s = searchTerm.toLowerCase();
+
   const filteredContactSubmissions = contactSubmissions.filter(c =>
-    c.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    c.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    c.phone_number.includes(searchTerm)
+    (c.full_name || '').toLowerCase().includes(s) ||
+    (c.email || '').toLowerCase().includes(s) ||
+    (c.phone_number || '').includes(searchTerm)
   );
 
   const filteredApplications = applications.filter(a =>
-    (a.students?.full_name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-    a.country.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    a.university.toLowerCase().includes(searchTerm.toLowerCase())
+    (a.students?.full_name || '').toLowerCase().includes(s) ||
+    (a.country || '').toLowerCase().includes(s) ||
+    (a.university || '').toLowerCase().includes(s)
   );
 
   const filteredBrochureDownloads = brochureDownloads.filter(b =>
-    b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    b.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    b.country.toLowerCase().includes(searchTerm.toLowerCase())
+    (b.name || '').toLowerCase().includes(s) ||
+    (b.email || '').toLowerCase().includes(s) ||
+    (b.country || '').toLowerCase().includes(s)
   );
 
-  const filteredStudents = students.filter(s =>
-    s.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (s.email || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
-    (s.phone || '').includes(searchTerm)
+  const filteredStudents = students.filter(st =>
+    (st.full_name || '').toLowerCase().includes(s) ||
+    (st.email || '').toLowerCase().includes(s) ||
+    (st.phone || '').includes(searchTerm)
   );
 
   const filteredLeadCaptures = leadCaptures.filter(l =>
-    l.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    l.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    l.phone.includes(searchTerm)
+    (l.name || '').toLowerCase().includes(s) ||
+    (l.email || '').toLowerCase().includes(s) ||
+    (l.phone || '').includes(searchTerm)
   );
 
   const filteredTouristVisaApplications = touristVisaApplications.filter(a =>
-    a.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    a.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    a.destination_country.toLowerCase().includes(searchTerm.toLowerCase())
+    (a.full_name || '').toLowerCase().includes(s) ||
+    (a.email || '').toLowerCase().includes(s) ||
+    (a.destination_country || '').toLowerCase().includes(s)
   );
 
   if (loading) {
