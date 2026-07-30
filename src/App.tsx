@@ -25,9 +25,8 @@ function App() {
     <AuthProvider>
       <Router>
         <div className="min-h-screen flex flex-col">
-          <Header />.
+          <Header />
 
-          {/* 👇 THIS LINE FIXES THE OVERLAP ISSUE */}
           <main className="flex-grow pt-20">
             <Routes>
               <Route path="/" element={<Home />} />
