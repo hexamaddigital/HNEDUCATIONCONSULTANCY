@@ -48,7 +48,7 @@ export const WorkVisa = () => {
   return (
     <section className="pt-32 pb-20 bg-gradient-to-br from-turquoise/10 via-ghost-green to-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto">
           {workVisaSections.map((section, index) => (
             <motion.article
               key={section.title}
@@ -56,16 +56,20 @@ export const WorkVisa = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="overflow-hidden rounded-3xl bg-white shadow-xl"
+              className={`grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-14 py-12 md:py-16 ${
+                index > 0 ? 'border-t border-turquoise/20' : ''
+              }`}
             >
-              <img
-                src={section.image}
-                alt={section.imageAlt}
-                className="block w-full max-h-[760px] object-contain bg-white"
-              />
-              <div className="p-8 md:p-10">
-                <h1 className="text-3xl md:text-4xl font-bold text-heading mb-6">{section.title}</h1>
-                <div className="space-y-3 text-lg text-body-text">
+              <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+                <img
+                  src={section.image}
+                  alt={section.imageAlt}
+                  className="block w-full max-h-[620px] object-contain object-center"
+                />
+              </div>
+              <div className={index % 2 === 1 ? 'md:order-1' : ''}>
+                <h2 className="text-3xl md:text-4xl font-bold text-heading mb-8">{section.title}</h2>
+                <div className="space-y-4 text-lg text-body-text leading-relaxed">
                   {section.details.map((detail) => (
                     <p key={detail}>{detail}</p>
                   ))}
