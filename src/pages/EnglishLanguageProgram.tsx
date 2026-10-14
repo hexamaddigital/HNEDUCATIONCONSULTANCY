@@ -21,7 +21,7 @@ export const EnglishLanguageProgram = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-heading">WHAT WE PROVIDE</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-heading text-center md:text-left leading-tight mb-6">WHAT WE PROVIDE</h1>
           </motion.div>
         </div>
       </div>

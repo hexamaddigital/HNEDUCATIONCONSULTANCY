@@ -27,7 +27,7 @@ const workVisaSections: WorkVisaSection[] = [
   },
   {
     title: 'Work In Dubai',
-    image: '/WhatsApp_Image_2026-10-14_at_11.52.28_AM.jpeg',
+    image: '/images/work-visa/image.png',
     imageAlt: 'Work in Dubai',
     details: [
       '2 years work visa',
