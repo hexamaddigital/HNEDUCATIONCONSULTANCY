@@ -20,6 +20,8 @@ import { FAQPage } from './pages/FAQPage';
 // import { TouristVisa } from './pages/TouristVisa'; // hidden - uncomment to re-enable
 import Admin from './pages/Admin';
 import { Videos } from './pages/Videos';
+import { WorkVisa } from './pages/WorkVisa';
+import { EnglishLanguageProgram } from './pages/EnglishLanguageProgram';
 function App() {
   return (
     <AuthProvider>
@@ -44,6 +46,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/videos" element={<Videos />} />
+              <Route path="/work-visa" element={<WorkVisa />} />
+              <Route path="/english-language-program" element={<EnglishLanguageProgram />} />
             </Routes>
           </main>
 

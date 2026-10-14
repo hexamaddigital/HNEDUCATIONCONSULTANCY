@@ -13,6 +13,8 @@ const navLinks = [
   { name: 'Loan Assistance', path: '/loan-assistance' },
   // { name: 'Tourist Visa', path: '/tourist-visa' }, // hidden - uncomment to re-enable
   { name: 'Videos', path: '/videos' },
+  { name: 'Work Visa', path: '/work-visa' },
+  { name: 'English Language Program', path: '/english-language-program' },
   { name: 'Blog', path: '/blog' },
   { name: 'FAQ', path: '/faq' },
   { name: 'Contact', path: '/contact' },
