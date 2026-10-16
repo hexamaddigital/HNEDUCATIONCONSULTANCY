@@ -1,31 +1,228 @@
 import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  BookOpen,
+  Check,
+  ClipboardCheck,
+  Globe2,
+  GraduationCap,
+  Headphones,
+  Laptop,
+  PlayCircle,
+  Rocket,
+  ShieldCheck,
+  Star,
+  Trophy,
+  UsersRound,
+  Video,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+interface ProgramCard {
+  name: string;
+  price: string;
+  tone: string;
+  icon: LucideIcon;
+  mark?: string;
+}
+
+interface PracticeCard {
+  name: string;
+  classes: string;
+  tests: string;
+  price: string;
+  tone: string;
+  icon: LucideIcon;
+}
+
+interface SupportFeature {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+const programs: ProgramCard[] = [
+  { name: 'IELTS', price: '₹10,000', tone: 'bg-[#F51C3E]', icon: Globe2 },
+  { name: 'IELTS PLUS', price: '₹25,000', tone: 'bg-[#6B36B7]', icon: GraduationCap },
+  { name: 'GERMAN', price: '₹15,000', tone: 'bg-[#F6B91A]', icon: Globe2 },
+  { name: 'FRENCH', price: '₹15,000', tone: 'bg-[#1684C5]', icon: Globe2 },
+  { name: 'GRE / GMAT / SAT', price: '₹30,000', tone: 'bg-[#159EA4]', icon: GraduationCap },
+  { name: 'DEVELINGO', price: '₹10,000', tone: 'bg-[#35C6A6]', icon: PlayCircle },
+  { name: 'PTE', price: '₹10,000', tone: 'bg-[#8252B9]', icon: ClipboardCheck },
+  { name: 'TOEFL', price: '₹10,000', tone: 'bg-[#0B6588]', icon: ShieldCheck },
+];
+
+const supportFeatures: SupportFeature[] = [
+  { title: 'Study Material', description: '(Updated & Latest)', icon: BookOpen },
+  { title: 'Class Recording', description: '(Lifetime Access)', icon: Video },
+  { title: 'Experienced', description: 'Faculty', icon: ClipboardCheck },
+  { title: 'Personal', description: 'Guidance & Support', icon: Headphones },
+  { title: 'Flexible', description: 'Learning Mode', icon: Laptop },
+];
+
+const practicePrograms: PracticeCard[] = [
+  { name: 'IELTS', classes: '25 Classes', tests: '+ 2 Mock Test', price: '₹10,000', tone: 'bg-[#F51C3E]', icon: Globe2 },
+  { name: 'GRE', classes: '50 Classes', tests: '+ 10 Mock Test', price: '₹30,000', tone: 'bg-[#1684C5]', icon: GraduationCap },
+  { name: 'GMAT', classes: '50 Classes', tests: '+ 6 Mock Test', price: '₹30,000', tone: 'bg-[#1B9B61]', icon: Check },
+  { name: 'SAT', classes: '34 Classes', tests: '+ 5 Mock Test', price: '₹25,000', tone: 'bg-[#8D4FBA]', icon: Star },
+  { name: 'TOEFL', classes: '15 Classes', tests: '+ 1 Mock Test', price: '₹10,000', tone: 'bg-[#1684C5]', icon: ShieldCheck },
+  { name: 'PTE', classes: '20 Classes', tests: '+ 1 Mock Test', price: '₹10,000', tone: 'bg-[#159EA4]', icon: ClipboardCheck },
+  { name: 'GERMAN LANGUAGE', classes: '45 Classes', tests: '+ 3 Mock Test', price: '₹25,000', tone: 'bg-[#D79B18]', icon: Globe2 },
+  { name: 'DEVELINGO', classes: '12 Classes', tests: '+ 2 Mock Test', price: '₹10,000', tone: 'bg-[#35A968]', icon: PlayCircle },
+  { name: 'FRENCH (A1 LEVEL)', classes: '45 Classes', tests: '+ 3 Mock Test', price: '₹25,000', tone: 'bg-[#8650B7]', icon: Globe2 },
+  { name: 'JAPANESE LANGUAGE', classes: '55 Classes', tests: '+ 5 Mock Test', price: '₹20,000', tone: 'bg-[#E84E91]', icon: Globe2 },
+  { name: 'DMAT', classes: 'Class 10', tests: '+ 2 Mock Test', price: '₹20,000', tone: 'bg-[#1EAEC0]', icon: Trophy },
+];
+
+const sectionLabel = 'mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#13866D]';
 
 export const EnglishLanguageProgram = () => {
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-br from-turquoise/10 via-ghost-green to-white">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <motion.h1
-            initial={{ opacity: 0, y: -16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-heading text-center leading-tight mb-10"
-          >
-            WHAT WE PROVIDE
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <img
-              src="/WhatsApp_Image_2026-10-14_at_12.28.45_PM.jpeg"
-              alt="English Language Program"
-              className="block w-full max-h-[900px] object-contain object-center"
-            />
-          </motion.div>
+    <div className="overflow-hidden bg-[#F7FCFC] text-[#082A4A]">
+      <section className="relative bg-gradient-to-br from-[#DDF5FC] via-[#F4FCFD] to-white pb-16 pt-14 md:pb-24 md:pt-20">
+        <div className="absolute -bottom-12 left-1/2 h-24 w-[120%] -translate-x-1/2 rounded-[50%] bg-[#F7FCFC]" />
+        <div className="container relative mx-auto px-4">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="relative z-10"
+            >
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-[#1F5D79]">Your global education partner</p>
+              <h1 className="max-w-2xl font-serif text-5xl font-bold leading-[0.94] tracking-[-0.04em] text-[#082A4A] sm:text-6xl lg:text-[4.6rem]">
+                English Language <span className="text-[#078050]">Program</span>
+              </h1>
+              <p className="mt-6 max-w-md font-serif text-2xl italic leading-tight text-[#153E62] sm:text-3xl">
+                Build Your Language Skills
+                <br />
+                Achieve Your Global Goals
+              </p>
+              <a
+                href="#programs"
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-[#078050] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_24px_rgba(7,128,80,0.2)] hover:-translate-y-0.5 hover:bg-[#05643E]"
+              >
+                Explore Programs
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <div className="mt-9 grid max-w-xl grid-cols-3 divide-x divide-[#A6D9D2]">
+                {[
+                  { label: 'Learn', sublabel: 'Globally', icon: Globe2 },
+                  { label: 'Expert', sublabel: 'Guidance', icon: GraduationCap },
+                  { label: 'Better', sublabel: 'Opportunities', icon: Star },
+                ].map(({ label, sublabel, icon: Icon }) => (
+                  <div key={label} className="flex items-center gap-2 px-3 first:pl-0 sm:gap-3 sm:px-5">
+                    <Icon className="h-6 w-6 flex-shrink-0 text-[#0B6382]" />
+                    <span className="text-[10px] font-bold uppercase leading-tight text-[#174565] sm:text-xs">
+                      {label}
+                      <br />
+                      {sublabel}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="relative mx-auto h-[360px] w-full max-w-[620px] overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#9EDCF5] via-[#D8F2F3] to-[#D2B487] shadow-[0_24px_50px_rgba(8,76,108,0.14)] sm:h-[470px]"
+            >
+              <div className="absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(circle_at_20%_22%,white_0,transparent_8%),radial-gradient(circle_at_70%_15%,rgba(255,255,255,0.8)_0,transparent_12%)] opacity-80" />
+              <div className="absolute bottom-0 left-0 h-28 w-full bg-gradient-to-t from-[#A78358] to-transparent" />
+              <div className="absolute bottom-20 left-8 h-20 w-20 rounded-full bg-[#237F4D] shadow-[18px_10px_0_8px_#2B9257,42px_0_0_3px_#1D7144] sm:left-12" />
+              <div className="absolute bottom-24 left-1/2 h-36 w-12 -translate-x-1/2 rounded-t-full bg-[#F2D4A2] shadow-[12px_0_0_4px_#DEB878]" />
+              <div className="absolute bottom-20 left-[22%] h-28 w-14 rounded-t-[40%] bg-[#A96F42] shadow-[12px_-10px_0_0_#8B552F]" />
+              <div className="absolute bottom-0 right-8 flex items-end gap-2 sm:right-16">
+                <div className="relative h-28 w-32 rounded-t-2xl bg-[#F8F1DA] shadow-lg sm:h-36 sm:w-40">
+                  <div className="absolute left-3 top-3 h-10 w-24 rounded-lg bg-[#438DB5] sm:w-32" />
+                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 font-serif text-xl font-bold text-[#1C5374] sm:text-2xl">Learn</div>
+                </div>
+                <div className="relative -ml-14 h-16 w-36 rounded-lg bg-[#165178] shadow-lg sm:h-20 sm:w-44">
+                  <div className="absolute inset-0 flex items-center justify-center font-serif text-xl text-white sm:text-2xl">Practice</div>
+                </div>
+                <div className="relative -ml-16 h-14 w-32 rounded-lg bg-[#196A60] shadow-lg sm:h-16 sm:w-40">
+                  <div className="absolute inset-0 flex items-center justify-center font-serif text-xl text-white sm:text-2xl">Achieve</div>
+                </div>
+              </div>
+              <div className="absolute bottom-10 right-3 flex h-24 w-24 items-center justify-center rounded-full border-[10px] border-[#C98A3B] bg-gradient-to-br from-[#72D2D5] to-[#207B8D] shadow-xl sm:right-12 sm:h-28 sm:w-28">
+                <Globe2 className="h-14 w-14 text-[#E6F3C6] sm:h-16 sm:w-16" />
+              </div>
+              <div className="absolute right-5 top-12 h-28 w-12 rounded-t-full bg-[#D8A56D] opacity-90 sm:right-14 sm:h-40 sm:w-16" />
+              <div className="absolute right-[20%] top-24 h-20 w-8 rounded-t-full bg-[#6A8DA8] sm:h-32 sm:w-10" />
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="programs" className="bg-[#F7FCFC] py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-7xl">
+            <div className={sectionLabel}><span className="h-1 w-6 bg-[#13866D]" /> Our language programs</div>
+            <h2 className="font-serif text-4xl leading-tight text-[#082A4A] sm:text-5xl">Choose Your Program</h2>
+            <p className="mt-2 max-w-2xl text-base leading-relaxed text-[#315672]">We offer a wide range of language and exam preparation programs<br className="hidden sm:block" /> to help you achieve your global dreams.</p>
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {programs.map((program) => {
+                const Icon = program.icon;
+                return (
+                  <motion.div key={program.name} whileHover={{ y: -4 }} className="overflow-hidden rounded-2xl border border-[#B8DDE2] bg-white shadow-[0_8px_20px_rgba(31,91,112,0.08)]">
+                    <div className={`${program.tone} flex items-center gap-3 px-4 py-3 text-white`}>
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white/90"><Icon className="h-5 w-5" /></span>
+                      <span className="text-sm font-bold tracking-wide">{program.name}</span>
+                    </div>
+                    <div className="px-4 py-4 text-center text-xl font-bold text-[#103B5B]">{program.price}</div>
+                  </motion.div>
+                );
+              })}
+              <div className="flex items-center gap-3 rounded-2xl border border-[#B8DDE2] bg-[#EAF8FA] px-4 py-4 shadow-[0_8px_20px_rgba(31,91,112,0.05)]">
+                <ClipboardCheck className="h-9 w-9 flex-shrink-0 text-[#0B7282]" />
+                <span className="text-xs font-bold uppercase leading-relaxed text-[#194D69]">The official exam fees<br />as applicable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-16 md:pb-20">
+        <div className="container mx-auto max-w-7xl">
+          <div className="rounded-[2rem] border border-[#D7EEE8] bg-[#F0FBF8] px-5 py-8 shadow-[0_10px_28px_rgba(27,103,99,0.06)] md:px-8 md:py-10">
+            <div className="grid items-center gap-8 lg:grid-cols-[280px_1fr] lg:gap-0">
+              <div className="border-b border-[#B8DDD7] pb-6 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8">
+                <div className={sectionLabel}><span className="h-1 w-6 bg-[#13866D]" /> What we provide</div>
+                <h2 className="max-w-xs font-serif text-3xl leading-tight text-[#082A4A] sm:text-4xl">Complete Support<br />for Your Learning Journey</h2>
+              </div>
+              <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5 lg:gap-0">
+                {supportFeatures.map(({ title, description, icon: Icon }) => (
+                  <div key={title} className="flex flex-col items-center text-center lg:border-r lg:border-[#B8DDD7] lg:px-4 last:border-0">
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#087648] text-white shadow-md"><Icon className="h-7 w-7" /></span>
+                    <span className="mt-3 text-xs font-bold leading-tight text-[#164E62]">{title}<br />{description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-br from-[#073C68] to-[#062E55] py-16 text-white md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[250px_1fr] lg:gap-8">
+            <div>
+              <div className="mb-3 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#88D2BE]"><span className="h-1 w-6 bg-[#53D0A0]" /> Classes & Mock Test Details</div>
+              <h2 className="font-serif text-4xl leading-tight text-white sm:text-5xl">Practice Today,<br />Perform Tomorrow</h2>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
+              {practicePrograms.map(({ name, classes, tests, price, tone, icon: Icon }) => (
+                <div key={name} className="overflow-hidden rounded-xl border border-white/40 bg-white text-[#123C5C] shadow-lg">
+                  <div className={`${tone} flex items-center gap-2 px-3 py-2 text-xs font-bold text-white`}><Icon className="h-5 w-5" /> {name}</div>
+                  <div className="px-3 py-2 text-center text-xs font-medium leading-relaxed"><div>{classes}</div><div>{tests}</div><strong className="text-base text-[#092F52]">{price}</strong></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 };
