@@ -1,4 +1,17 @@
 import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  BarChart3,
+  Briefcase,
+  Building2,
+  Globe2,
+  Megaphone,
+  Network,
+  ShieldCheck,
+  UserRound,
+  UsersRound,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 interface WorkVisaSection {
   title: string;
@@ -44,41 +57,81 @@ const workVisaSections: WorkVisaSection[] = [
   },
 ];
 
+const detailIcons: LucideIcon[] = [
+  Globe2,
+  Briefcase,
+  UserRound,
+  UsersRound,
+  Building2,
+  Network,
+  BarChart3,
+  ShieldCheck,
+  Megaphone,
+];
+
 export const WorkVisa = () => {
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-br from-turquoise/10 via-ghost-green to-white">
+    <main className="bg-[#E4F7F9] pt-28 pb-20 md:pt-36">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {workVisaSections.map((section, index) => (
+        <div className="max-w-6xl mx-auto space-y-12 md:space-y-16">
+          {workVisaSections.map((section, sectionIndex) => (
             <motion.article
               key={section.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className={`grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-14 py-12 md:py-16 ${
-                index > 0 ? 'border-t border-turquoise/20' : ''
-              }`}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.55, delay: sectionIndex * 0.05 }}
+              className="grid grid-cols-1 items-stretch gap-7 md:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] md:gap-9 lg:gap-10"
             >
-              <div className={index % 2 === 1 ? 'md:order-2' : ''}>
+              <div className="flex min-h-[420px] items-center justify-center overflow-hidden rounded-3xl border border-[#CDE9ED] bg-white p-3 shadow-[0_18px_45px_rgba(7,85,104,0.10)] sm:min-h-[560px] md:min-h-[620px] md:p-4">
                 <img
                   src={section.image}
                   alt={section.imageAlt}
-                  className="block w-full max-h-[620px] object-contain object-center"
+                  className="h-full max-h-[700px] w-full object-contain object-center"
                 />
               </div>
-              <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                <h2 className="text-3xl md:text-4xl font-bold text-heading mb-8">{section.title}</h2>
-                <div className="space-y-4 text-lg text-body-text leading-relaxed">
-                  {section.details.map((detail) => (
-                    <p key={detail}>{detail}</p>
-                  ))}
+
+              <div className="flex min-h-[420px] flex-col justify-center rounded-3xl border border-[#CDE9ED] bg-white p-7 shadow-[0_18px_45px_rgba(7,85,104,0.10)] sm:p-10 md:min-h-[620px] md:p-12">
+                <div className="mb-8 inline-flex w-fit rounded-full bg-[#E4F6F8] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#087D89]">
+                  Career Opportunity
                 </div>
+                <h2 className="mb-8 text-3xl font-bold leading-tight text-[#075568] sm:text-4xl lg:text-[2.65rem]">
+                  {section.title}
+                </h2>
+                <div className="mb-9 space-y-3">
+                  {section.details.map((detail, detailIndex) => {
+                    const DetailIcon = detailIcons[detailIndex % detailIcons.length];
+                    const isHighlight = detail.startsWith('Eligibility:');
+
+                    return (
+                      <div
+                        key={detail}
+                        className={`flex items-center gap-4 rounded-2xl px-4 py-3.5 text-base leading-relaxed sm:text-lg ${
+                          isHighlight
+                            ? 'bg-[#E4F6F8] font-medium text-[#075568]'
+                            : 'text-[#244B59]'
+                        }`}
+                      >
+                        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#E4F6F8] text-[#087D89]">
+                          <DetailIcon className="h-5 w-5" strokeWidth={2.2} />
+                        </span>
+                        <span>{detail}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+                <a
+                  href="/contact"
+                  className="inline-flex w-fit items-center gap-3 rounded-full bg-[#087D89] px-7 py-4 text-base font-semibold text-white shadow-[0_10px_24px_rgba(8,125,137,0.22)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#075568] hover:shadow-[0_14px_28px_rgba(8,125,137,0.28)]"
+                >
+                  <span>Get Free Guidance</span>
+                  <ArrowRight className="h-5 w-5" />
+                </a>
               </div>
             </motion.article>
           ))}
         </div>
       </div>
-    </section>
+    </main>
   );
 };
