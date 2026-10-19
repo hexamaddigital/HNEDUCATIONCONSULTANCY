@@ -130,9 +130,9 @@ export const EnglishLanguageProgram = () => {
               className="relative mx-auto h-[360px] w-full max-w-[620px] overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#9EDCF5] via-[#D8F2F3] to-[#D2B487] shadow-[0_24px_50px_rgba(8,76,108,0.14)] sm:h-[470px]"
             >
               <img
-                src="/files_2293935-2026-10-16T13-51-10-241Z-image.png"
+                src="/images/english-program/image.png"
                 alt="English language program visual"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </motion.div>
           </div>
