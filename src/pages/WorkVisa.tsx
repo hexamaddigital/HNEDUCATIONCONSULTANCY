@@ -125,12 +125,12 @@ export const WorkVisa = () => {
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="relative mx-auto aspect-[805/482] w-full max-w-2xl overflow-hidden rounded-[3rem] bg-gradient-to-b from-[#81D1ED] via-[#BDEAF3] to-[#D6F1EA]"
+              className="relative mx-auto aspect-[2/1] w-full max-w-2xl overflow-hidden rounded-[3rem] bg-gradient-to-b from-[#81D1ED] via-[#BDEAF3] to-[#D6F1EA]"
             >
               <img
-                src="/images/work-visa/image copy.png"
+                src="/images/work-visa/files_2293935-2026-10-19T06-25-23-998Z-files_2293935-2026-10-19T06-18-44-607Z-image.png"
                 alt="Work visa travel visual"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
               />
             </motion.div>
           </div>
