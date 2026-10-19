@@ -125,7 +125,7 @@ export const WorkVisa = () => {
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="relative mx-auto h-[260px] w-full max-w-2xl overflow-hidden rounded-[3rem] bg-gradient-to-b from-[#81D1ED] via-[#BDEAF3] to-[#D6F1EA] sm:h-[340px] lg:h-[380px]"
+              className="relative mx-auto aspect-[805/482] w-full max-w-2xl overflow-hidden rounded-[3rem] bg-gradient-to-b from-[#81D1ED] via-[#BDEAF3] to-[#D6F1EA]"
             >
               <img
                 src="/images/work-visa/image copy.png"
