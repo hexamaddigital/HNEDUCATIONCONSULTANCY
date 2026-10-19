@@ -128,7 +128,7 @@ export const WorkVisa = () => {
               className="relative mx-auto h-[260px] w-full max-w-2xl overflow-hidden rounded-[3rem] bg-gradient-to-b from-[#81D1ED] via-[#BDEAF3] to-[#D6F1EA] sm:h-[340px] lg:h-[380px]"
             >
               <img
-                src="/files_2293935-2026-10-16T13-50-47-671Z-image.png"
+                src="/images/work-visa/image copy.png"
                 alt="Work visa travel visual"
                 className="h-full w-full object-contain"
               />
