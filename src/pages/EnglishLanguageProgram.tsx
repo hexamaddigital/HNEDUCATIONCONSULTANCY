@@ -127,12 +127,12 @@ export const EnglishLanguageProgram = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="relative mx-auto h-[360px] w-full max-w-[620px] overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#9EDCF5] via-[#D8F2F3] to-[#D2B487] shadow-[0_24px_50px_rgba(8,76,108,0.14)] sm:h-[470px]"
+              className="relative mx-auto aspect-[610/295] w-full max-w-[620px] overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#9EDCF5] via-[#D8F2F3] to-[#D2B487] shadow-[0_24px_50px_rgba(8,76,108,0.14)]"
             >
               <img
-                src="/images/english-program/image.png"
+                src="/images/english-program/files_2293935-2026-10-19T06-20-44-311Z-image.png"
                 alt="English language program visual"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
               />
             </motion.div>
           </div>
