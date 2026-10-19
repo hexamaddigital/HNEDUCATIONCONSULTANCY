@@ -130,7 +130,7 @@ export const WorkVisa = () => {
               <img
                 src="/files_2293935-2026-10-16T13-50-47-671Z-image.png"
                 alt="Work visa travel visual"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </motion.div>
           </div>
