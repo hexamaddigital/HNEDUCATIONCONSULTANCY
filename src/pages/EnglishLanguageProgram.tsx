@@ -129,28 +129,11 @@ export const EnglishLanguageProgram = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="relative mx-auto h-[360px] w-full max-w-[620px] overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#9EDCF5] via-[#D8F2F3] to-[#D2B487] shadow-[0_24px_50px_rgba(8,76,108,0.14)] sm:h-[470px]"
             >
-              <div className="absolute inset-x-0 top-0 h-1/2 bg-[radial-gradient(circle_at_20%_22%,white_0,transparent_8%),radial-gradient(circle_at_70%_15%,rgba(255,255,255,0.8)_0,transparent_12%)] opacity-80" />
-              <div className="absolute bottom-0 left-0 h-28 w-full bg-gradient-to-t from-[#A78358] to-transparent" />
-              <div className="absolute bottom-20 left-8 h-20 w-20 rounded-full bg-[#237F4D] shadow-[18px_10px_0_8px_#2B9257,42px_0_0_3px_#1D7144] sm:left-12" />
-              <div className="absolute bottom-24 left-1/2 h-36 w-12 -translate-x-1/2 rounded-t-full bg-[#F2D4A2] shadow-[12px_0_0_4px_#DEB878]" />
-              <div className="absolute bottom-20 left-[22%] h-28 w-14 rounded-t-[40%] bg-[#A96F42] shadow-[12px_-10px_0_0_#8B552F]" />
-              <div className="absolute bottom-0 right-8 flex items-end gap-2 sm:right-16">
-                <div className="relative h-28 w-32 rounded-t-2xl bg-[#F8F1DA] shadow-lg sm:h-36 sm:w-40">
-                  <div className="absolute left-3 top-3 h-10 w-24 rounded-lg bg-[#438DB5] sm:w-32" />
-                  <div className="absolute bottom-5 left-1/2 -translate-x-1/2 font-serif text-xl font-bold text-[#1C5374] sm:text-2xl">Learn</div>
-                </div>
-                <div className="relative -ml-14 h-16 w-36 rounded-lg bg-[#165178] shadow-lg sm:h-20 sm:w-44">
-                  <div className="absolute inset-0 flex items-center justify-center font-serif text-xl text-white sm:text-2xl">Practice</div>
-                </div>
-                <div className="relative -ml-16 h-14 w-32 rounded-lg bg-[#196A60] shadow-lg sm:h-16 sm:w-40">
-                  <div className="absolute inset-0 flex items-center justify-center font-serif text-xl text-white sm:text-2xl">Achieve</div>
-                </div>
-              </div>
-              <div className="absolute bottom-10 right-3 flex h-24 w-24 items-center justify-center rounded-full border-[10px] border-[#C98A3B] bg-gradient-to-br from-[#72D2D5] to-[#207B8D] shadow-xl sm:right-12 sm:h-28 sm:w-28">
-                <Globe2 className="h-14 w-14 text-[#E6F3C6] sm:h-16 sm:w-16" />
-              </div>
-              <div className="absolute right-5 top-12 h-28 w-12 rounded-t-full bg-[#D8A56D] opacity-90 sm:right-14 sm:h-40 sm:w-16" />
-              <div className="absolute right-[20%] top-24 h-20 w-8 rounded-t-full bg-[#6A8DA8] sm:h-32 sm:w-10" />
+              <img
+                src="/files_2293935-2026-10-16T13-51-10-241Z-image.png"
+                alt="English language program visual"
+                className="h-full w-full object-cover"
+              />
             </motion.div>
           </div>
         </div>

@@ -5,9 +5,7 @@ import {
   CalendarDays,
   CheckCircle2,
   Globe2,
-  Luggage,
   MapPin,
-  Plane,
   ShieldCheck,
   UserRound,
   UsersRound,
@@ -129,15 +127,11 @@ export const WorkVisa = () => {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="relative mx-auto h-[260px] w-full max-w-2xl overflow-hidden rounded-[3rem] bg-gradient-to-b from-[#81D1ED] via-[#BDEAF3] to-[#D6F1EA] sm:h-[340px] lg:h-[380px]"
             >
-              <div className="absolute inset-x-0 bottom-0 h-[46%] bg-gradient-to-t from-[#B7DDE5] to-transparent" />
-              <div className="absolute bottom-0 left-[4%] h-24 w-5 bg-[#8EBAC9] shadow-[22px_-35px_0_0_#9AC6D1,48px_-15px_0_0_#83B5C6,78px_-55px_0_0_#A3CFD7,112px_-20px_0_0_#7EADBE] sm:h-36" />
-              <div className="absolute bottom-0 right-[12%] h-32 w-8 bg-[#76A9BD] shadow-[-30px_-50px_0_0_#A5CBD5,30px_-75px_0_0_#6FA7BC,68px_-25px_0_0_#A5C9D1] sm:h-48" />
-              <div className="absolute bottom-[-10px] right-[17%] h-24 w-20 rounded-t-full bg-[#1A8290] sm:h-36 sm:w-28" />
-              <Plane className="absolute left-[34%] top-10 h-14 w-14 rotate-[-12deg] text-white drop-shadow-lg sm:top-12 sm:h-20 sm:w-20" />
-              <Luggage className="absolute bottom-7 right-[7%] h-20 w-20 rotate-[-6deg] text-[#087D89] opacity-90 sm:h-28 sm:w-28" />
-              <div className="absolute bottom-7 left-[9%] flex items-center gap-2 rounded-xl bg-[#102D4A] px-4 py-3 text-xs font-bold text-white shadow-xl sm:bottom-10 sm:px-5 sm:py-4">
-                <Globe2 className="h-5 w-5 text-[#81D1ED]" /> Dream. Work. Achieve.
-              </div>
+              <img
+                src="/files_2293935-2026-10-16T13-50-47-671Z-image.png"
+                alt="Work visa travel visual"
+                className="h-full w-full object-cover"
+              />
             </motion.div>
           </div>
         </div>
