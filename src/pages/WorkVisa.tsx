@@ -81,6 +81,22 @@ const workVisaOpportunities: WorkVisaOpportunity[] = [
     highlightLabel: 'Available Fields',
     highlightValue: 'Healthcare Management · Hospitality Management · Supply Chain Management & Logistics · Business Management · Date Science & Artificial Intelligence · Cyber Security · Digital Marketing',
   },
+  {
+    number: '04',
+    category: 'International Career Opportunities',
+    country: 'Serbia',
+    focus: '',
+    visualHighlight: 'Construction · Agriculture · Hospitality',
+    description: 'Explore exciting job opportunities in Serbia and build a stable future in Europe.',
+    image: '/images/work-visa/WhatsApp_Image_2026-11-10_at_10.39.45_PM.jpeg',
+    imageAlt: 'Serbian cityscape with a Serbian flag and historic landmarks',
+    details: [
+      { label: 'Popular Fields', value: 'Construction · Agriculture · Hospitality', icon: Briefcase },
+      { label: 'Benefits', value: 'Free Accommodation and Transport', icon: ShieldCheck },
+      { label: 'Qualification', value: '10th Pass Required', icon: CheckCircle2 },
+      { label: 'Age', value: 'Up to 50 Years', icon: CalendarDays },
+    ],
+  },
 ];
 
 const trustIndicators = [
