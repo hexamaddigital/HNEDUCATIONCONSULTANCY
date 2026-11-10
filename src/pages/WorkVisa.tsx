@@ -88,7 +88,7 @@ const workVisaOpportunities: WorkVisaOpportunity[] = [
     focus: '',
     visualHighlight: 'Construction · Agriculture · Hospitality',
     description: 'Explore exciting job opportunities in Serbia and build a stable future in Europe.',
-    image: '/images/work-visa/WhatsApp_Image_2026-11-10_at_10.39.45_PM.jpeg',
+    image: '/images/work-visa/serbia-work-visa-card.webp',
     imageAlt: 'Serbian cityscape with a Serbian flag and historic landmarks',
     details: [
       { label: 'Popular Fields', value: 'Construction · Agriculture · Hospitality', icon: Briefcase },
