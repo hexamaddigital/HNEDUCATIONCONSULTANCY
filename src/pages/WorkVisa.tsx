@@ -97,6 +97,23 @@ const workVisaOpportunities: WorkVisaOpportunity[] = [
       { label: 'Age', value: 'Up to 50 Years', icon: CalendarDays },
     ],
   },
+  {
+    number: '05',
+    category: 'Healthcare Careers',
+    country: 'Germany',
+    focus: 'Nursing',
+    visualHighlight: 'Nursing · B.Sc Nursing · GNM',
+    description: 'Join the global healthcare workforce and build a rewarding career in Germany.',
+    image: '/images/work-visa/germany-work-visa-card.webp',
+    imageAlt: 'Professional nurse with the Brandenburg Gate and Berlin skyline in Germany',
+    details: [
+      { label: 'Job Opportunities', value: 'Nursing · B.Sc Nursing · GNM', icon: Briefcase },
+      { label: 'German Language Required', value: 'A1, A2, B1 and B2', icon: Globe2 },
+      { label: 'Age Limit', value: 'Up to 35 Years', icon: CalendarDays },
+      { label: 'Eligibility', value: 'Nursing qualifications as applicable', icon: CheckCircle2 },
+      { label: 'Candidate Requirement', value: 'Female Candidates Only', icon: UserRound },
+    ],
+  },
 ];
 
 const trustIndicators = [
